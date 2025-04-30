@@ -4,30 +4,99 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Vishnu Roshan | Software Engineer @ Sedin Technologies</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
+  <meta name="description" content="Portfolio of Vishnu Roshan, Senior Software Engineer at Sedin Technologies.">
+  <meta name="keywords"
+    content="Vishnu Roshan, Software Engineer, Sedin Technologies, Portfolio, Uber XO, MongoDB Context Server, Rust, Zed IDE">
+  <meta property="og:title" content="Vishnu Roshan - Portfolio">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="vishnuroshan.in">
   <meta property="og:image" content="">
   <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Vishnu">
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#fafafa">
+  <link rel="canonical" href="https://vishnuroshan.in/">
 </head>
 
 <body>
-
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
-
+  <main class="portfolio-main">
+    <header>
+      <h1 class="center-text">Vishnu Roshan</h1>
+      <p class="center-text">
+        Senior Software Engineer<br>
+        Currently at <a href="https://sedintechnologies.com/" target="_blank">Sedin Technologies</a>
+      </p>
+    </header>
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I’ve been building enterprise software for the past 8 years. I focus on clean, maintainable architecture and
+        care deeply about speed, quality, and simplicity. I like solving real problems with modern tools and thoughtful
+        design. Whether it's frontend, backend, or somewhere in between, I enjoy building things that are fast,
+        reliable, and easy to work with.
+    </section>
+    <section>
+      <h2>On the Side</h2>
+      <ul>
+        <li>
+          <strong><a href="https://uberxo.vercel.app/" target="_blank">Uber XO</a></strong><br>
+          A strategic online take on Super Tic Tac Toe — fast, responsive, and fun to play. Building this with the use
+          of AI tools like Claude &amp; OpenAI.
+        </li>
+        <li>
+          <strong><a href="https://github.com/vishnuroshan/mongodb-context-server" target="_blank">MongoDB Context
+              Server (MCP)</a></strong><br>
+          Building a Model Context Protocol tool that lets LLMs interact with MongoDB databases directly—querying,
+          updating, and managing data seamlessly.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Right Now</h2>
+      <p>
+        Currently diving into Rust and exploring its ecosystem, with an eye on contributing to the Zed IDE.
+      </p>
+    </section>
+    <section>
+      <h2>Recent Wins</h2>
+      <ul>
+        <li>
+          Released a <a href="https://zed.dev/extensions?query=neo+brutalism" target="_blank">neo-brutalist theme
+            extension for Zed</a> — bold, simple, and sharp.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Contact</h2>
+      <button id="show-contact">Show Contact</button>
+      <div id="contact-info" style="display:none;">
+        <ul>
+          <li>Email: <a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></li>
+          <li>GitHub: <a href="https://github.com/vishnuroshan" target="_blank">vishnuroshan</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/vishnu-roshan/" target="_blank">Vishnu Roshan</a></li>
+        </ul>
+      </div>
+      <div class="g-recaptcha" data-sitekey="6Lcy3CkrAAAAAP73IryjsB7lukBRWYwaWntWLkpH" data-callback="onVerified"
+        style="display:none;"></div>
+    </section>
+  </main>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    document.getElementById('show-contact').onclick = function () {
+      document.querySelector('.g-recaptcha').style.display = 'block';
+    };
+    function onVerified() {
+      document.getElementById('contact-info').style.display = 'block';
+      document.querySelector('.g-recaptcha').style.display = 'none';
+      document.getElementById('show-contact').style.display = 'none';
+    }
+  </script>
 </body>
 
 </html>
