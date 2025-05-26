@@ -15,7 +15,13 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Vishnu" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
+    onload="this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet" />
+  </noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
     body {
       font-family: 'IBM Plex Mono', monospace;
@@ -54,12 +60,6 @@
     a:focus {
       outline: 2px dashed #000;
       outline-offset: 2px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      a:focus {
-        outline: 2px dashed #ffd700;
-      }
     }
 
     .contact a {
@@ -106,18 +106,15 @@
     }
 
     @keyframes blink {
-
       0%,
       50% {
         opacity: 1;
       }
-
       50.01%,
       100% {
         opacity: 0;
       }
     }
-
 
     @media (max-width: 500px) {
       body {
@@ -128,48 +125,40 @@
       }
     }
 
-    /* Dark Mode Styles */
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #1a1a1a;
-        /* deep charcoal */
         color: #cfc7b8;
-        /* warm off-white */
         border: 2px solid #999;
         box-shadow: 8px 8px 0 #333;
       }
-
       a {
         color: #ffcc33;
-        /* warm golden yellow */
         border-bottom: 1px solid #ffcc33;
       }
-
       a:hover,
       a:focus {
         color: #fff176;
-        /* slightly lighter golden */
         border-color: #fff176;
       }
-
       h2,
       h3 {
         border-bottom: 1px dashed #666;
       }
-
       .job .meta {
         color: #bbb;
       }
-
       .contact a {
         color: #ffd700;
         background: #222;
         border-color: #666;
       }
-
       .contact a:hover {
         background: #333;
         text-decoration: underline;
+      }
+      a:focus {
+        outline: 2px dashed #ffd700;
       }
     }
   </style>
