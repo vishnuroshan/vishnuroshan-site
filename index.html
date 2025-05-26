@@ -1,102 +1,284 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vishnu Roshan | Software Engineer @ Sedin Technologies</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="Portfolio of Vishnu Roshan, Senior Software Engineer at Sedin Technologies.">
-  <meta name="keywords"
-    content="Vishnu Roshan, Software Engineer, Sedin Technologies, Portfolio, Uber XO, MongoDB Context Server, Rust, Zed IDE">
-  <meta property="og:title" content="Vishnu Roshan - Portfolio">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="vishnuroshan.in">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture." />
+  <meta name="keywords" content="Vishnu Roshan, Full Stack Developer, Portfolio, JavaScript, Node.js, India" />
+  <meta name="author" content="Vishnu Roshan" />
+  <title>Vishnu Roshan – Senior Software Engineer</title>
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Vishnu">
+  <meta name="apple-mobile-web-app-title" content="Vishnu" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#fafafa">
-  <link rel="canonical" href="https://vishnuroshan.in/">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      background-color: #f4f1e9;
+      color: #222;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+      border: 2px solid #444;
+      box-shadow: 8px 8px 0 #aaa;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      display: inline-block;
+      position: relative;
+    }
+
+    h1::after {
+      content: "_";
+      animation: blink 1s steps(1) infinite;
+      position: absolute;
+      right: -1ch;
+    }
+
+    h2,
+    h3 {
+      border-bottom: 1px dashed #999;
+      padding-bottom: 0.2rem;
+      margin-top: 2rem;
+      font-size: 1.25rem;
+    }
+
+    a:focus {
+      outline: 2px dashed #000;
+      outline-offset: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      a:focus {
+        outline: 2px dashed #ffd700;
+      }
+    }
+
+    .contact a {
+      color: #0047ab;
+      text-decoration: none;
+      background: #e0dede;
+      padding: 2px 6px;
+      border: 1px solid #999;
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+
+    .contact a:hover {
+      background: #cfcfcf;
+      text-decoration: underline;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .job {
+      margin-bottom: 1.5rem;
+    }
+
+    .job .meta {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    ul {
+      margin: 0.5rem 0 0 1.2rem;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    pre {
+      margin: 1.5rem 0 0.5rem;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    @keyframes blink {
+
+      0%,
+      50% {
+        opacity: 1;
+      }
+
+      50.01%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+
+    @media (max-width: 500px) {
+      body {
+        font-size: 16px;
+        padding: 1.2rem;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    /* Dark Mode Styles */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1a1a1a;
+        /* deep charcoal */
+        color: #cfc7b8;
+        /* warm off-white */
+        border: 2px solid #999;
+        box-shadow: 8px 8px 0 #333;
+      }
+
+      a {
+        color: #ffcc33;
+        /* warm golden yellow */
+        border-bottom: 1px solid #ffcc33;
+      }
+
+      a:hover,
+      a:focus {
+        color: #fff176;
+        /* slightly lighter golden */
+        border-color: #fff176;
+      }
+
+      h2,
+      h3 {
+        border-bottom: 1px dashed #666;
+      }
+
+      .job .meta {
+        color: #bbb;
+      }
+
+      .contact a {
+        color: #ffd700;
+        background: #222;
+        border-color: #666;
+      }
+
+      .contact a:hover {
+        background: #333;
+        text-decoration: underline;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vishnu Roshan",
+  "jobTitle": "Senior Software Engineer",
+  "url": "https://vishnuroshan.in",
+  "email": "mailto:vishnuroshan4@gmail.com",
+  "telephone": "+91 9952029597",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chennai",
+    "addressRegion": "India",
+    "postalCode": "600097"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/vishnuroshan",
+    "https://github.com/vishnuroshan"
+  ]
+}
+</script>
+
 </head>
 
 <body>
-  <main class="portfolio-main">
-    <header>
-      <h1 class="center-text">Vishnu Roshan</h1>
-      <p class="center-text">
-        Senior Software Engineer<br>
-        Currently at <a href="https://sedintechnologies.com/" target="_blank">Sedin Technologies</a>
-      </p>
-    </header>
-    <section>
-      <h2>About Me</h2>
-      <p>
-        I’ve been building enterprise software for the past 8 years. I focus on clean, maintainable architecture and
-        care deeply about speed, quality, and simplicity. I like solving real problems with modern tools and thoughtful
-        design. Whether it's frontend, backend, or somewhere in between, I enjoy building things that are fast,
-        reliable, and easy to work with.
-    </section>
-    <section>
-      <h2>On the Side</h2>
+  <h1>Vishnu Roshan</h1>
+  <div class="contact">
+    <div>Chennai, India 600097</div>
+    <div>+91 9952029597</div>
+    <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
+    <div>
+      <a href="https://github.com/vishnuroshan">[ GitHub ]</a>
+      <a href="https://linkedin.com/in/vishnuroshan">[ LinkedIn ]</a>
+    </div>
+  </div>
+
+  <pre>Professional Summary</pre>
+  <div class="section">
+    Passionate full-stack engineer with deep expertise in crafting robust, high-performance progressive web apps using
+    modern JavaScript frameworks and scalable backend architectures. I care deeply about clean code, intuitive UX, and
+    systems that scale gracefully. Known for delivering modular, maintainable solutions that consistently meet
+    performance goals and exceed client expectations.
+  </div>
+
+  <pre>Work History</pre>
+  <div class="section">
+    <div class="job">
+      <strong>Sedin Technologies - Railfactory</strong><br />
+      <span class="meta">Chennai, India — Oct 2020 to Present</span>
       <ul>
-        <li>
-          <strong><a href="https://uberxo.vercel.app/" target="_blank">Uber XO</a></strong><br>
-          A strategic online take on Super Tic Tac Toe — fast, responsive, and fun to play. Building this with the use
-          of AI tools like Claude &amp; OpenAI.
-        </li>
-        <li>
-          <strong><a href="https://github.com/vishnuroshan/mongodb-context-server" target="_blank">MongoDB Context
-              Server (MCP)</a></strong><br>
-          Building a Model Context Protocol tool that lets LLMs interact with MongoDB databases directly—querying,
-          updating, and managing data seamlessly.
-        </li>
+        <li>Led agile teams to deliver scalable web apps across varied domains.</li>
+        <li>Built clean, modular code-bases aligned with business needs.</li>
+        <li>Made long-term architectural decisions with scalability in mind.</li>
+        <li>Worked with designers, PMs, and QA to deliver polished solutions.</li>
       </ul>
-    </section>
-    <section>
-      <h2>Right Now</h2>
-      <p>
-        Currently diving into Rust and exploring its ecosystem, with an eye on contributing to the Zed IDE.
-      </p>
-    </section>
-    <section>
-      <h2>Recent Wins</h2>
+    </div>
+
+    <div class="job">
+      <strong>Teknuance Info Solutions</strong><br />
+      <span class="meta">Chennai, India — Jul 2019 to Jun 2020</span>
       <ul>
-        <li>
-          Released a <a href="https://zed.dev/extensions?query=neo+brutalism" target="_blank">neo-brutalist theme
-            extension for Zed</a> — bold, simple, and sharp.
-        </li>
+        <li>Built scalable RESTful APIs with Node.js, PostgreSQL, and MongoDB.</li>
+        <li>Developed PWAs like AMS360 and D-Sci.</li>
+        <li>Owned and maintained Olimium, a real-time chat app using WebSockets.</li>
+        <li>Applied design patterns and the Twelve-Factor App methodology.</li>
       </ul>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <button id="show-contact">Show Contact</button>
-      <div id="contact-info" style="display:none;">
-        <ul>
-          <li>Email: <a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></li>
-          <li>GitHub: <a href="https://github.com/vishnuroshan" target="_blank">vishnuroshan</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/vishnu-roshan/" target="_blank">Vishnu Roshan</a></li>
-        </ul>
-      </div>
-      <div class="g-recaptcha" data-sitekey="6LcP_ikrAAAAAKywzjshq83w_dHfNiwLHw70B_Ic" data-callback="onVerified"
-        style="display:none;"></div>
-    </section>
-  </main>
-  <script src="https://www.google.com/recaptcha/api.js"></script>
-  <script>
-    document.getElementById('show-contact').onclick = function () {
-      document.querySelector('.g-recaptcha').style.display = 'block';
-    };
-    function onVerified() {
-      document.getElementById('contact-info').style.display = 'block';
-      document.querySelector('.g-recaptcha').style.display = 'none';
-      document.getElementById('show-contact').style.display = 'none';
-    }
-  </script>
+    </div>
+
+    <div class="job">
+      <strong>IQVIA</strong><br />
+      <span class="meta">Chennai, India — May 2018 to Jun 2019</span>
+      <ul>
+        <li>Built and maintained Healthcommand, a secure health record app.</li>
+        <li>Contributed to core modules in Healthplug MD and PX.</li>
+        <li>Focused on clean architecture and performance.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <strong>Aosta Software Solutions</strong><br />
+      <span class="meta">Coimbatore, India — Dec 2017 to May 2018</span>
+      <ul>
+        <li>Built an Android app for inpatient workflows during internship.</li>
+      </ul>
+    </div>
+  </div>
+
+  <pre>Skills</pre>
+  <div class="section">
+    Microservices architecture · Project leadership · Client requirements · Software architecture · Web application
+    development · AI-assisted software development
+  </div>
+
+  <pre>Education</pre>
+  <div class="section">
+    <div>
+      <strong>PSG College of Technology</strong><br />
+      Master of Computer Applications<br />
+      Aug 2015 – May 2018
+    </div>
+    <div style="margin-top: 1rem;">
+      <strong>Guru Nanak College of Arts & Science</strong><br />
+      B.Sc, Computer Science & Programming<br />
+      Jul 2012 – May 2015
+    </div>
+  </div>
 </body>
 
 </html>
