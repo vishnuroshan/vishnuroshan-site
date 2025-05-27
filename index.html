@@ -16,8 +16,8 @@
   </noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Vishnu" />
@@ -201,48 +201,14 @@
       }
     }
   </style>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Vishnu Roshan",
-  "jobTitle": "Senior Software Engineer",
-  "url": "https://vishnuroshan.in",
-  "email": "mailto:vishnuroshan4@gmail.com",
-  "telephone": "+91 9952029597",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Chennai",
-    "addressRegion": "India",
-    "postalCode": "600097"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/in/vishnu-roshan",
-    "https://github.com/vishnuroshan"
-  ]
-}
-</script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const start = new Date('2017-11-01');
-      const now = new Date();
-      let years = now.getFullYear() - start.getFullYear();
-      if (now.getMonth() < start.getMonth()) years -= 1;
-      document.getElementById('exp-years').textContent = 'over ' + years + ' years';
-    });
-  </script>
-
-
 </head>
 
 <body>
   <h1 class="color-shift slide-in">Vishnu Roshan</h1>
   <div class="contact">
-    <address>
-      Chennai, India 600097<br />
-      <a href="tel:+919952029597">+91 99520 29597</a><br />
-      <a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a><br />
-    </address>
+    <div>Chennai, India 600097</div>
+    <div><a href="tel:+919952029597">+91 99520 29597</a></div>
+    <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
     <div>
       <a href="https://github.com/vishnuroshan">[ GitHub ]</a>
       <a href="https://linkedin.com/in/vishnu-roshan">[ LinkedIn ]</a>
@@ -322,6 +288,16 @@
       Jul 2012 – May 2015
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const start = new Date('2017-11-01');
+      const now = new Date();
+      let years = now.getFullYear() - start.getFullYear();
+      if (now.getMonth() < start.getMonth()) years -= 1;
+      document.getElementById('exp-years').textContent = 'over ' + years + ' years';
+    });
+  </script>
 </body>
 
 </html>
