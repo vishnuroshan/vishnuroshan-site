@@ -148,11 +148,32 @@
       }
     }
 
-    @media (max-width: 500px) {
-      body {
-        font-size: 16px;
-        padding: 1.2rem;
-        border: none;
+    .highlight-animate {
+      background: none;
+      color: inherit;
+      position: relative;
+      transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+      animation: highlight-flash 1.2s 0.5s 1 both;
+    }
+
+    @keyframes highlight-flash {
+      0% {
+        background: none;
+        color: inherit;
+        box-shadow: none;
+      }
+
+      60% {
+        background: linear-gradient(90deg, #fff7b2 0%, #ffe066 100%);
+        color: #222;
+        box-shadow: 0 2px 0 #ffe066, 0 0 8px #fff7b2;
+        border-radius: 2px;
+        padding: 0 2px;
+      }
+
+      100% {
+        background: none;
+        color: inherit;
         box-shadow: none;
       }
     }
@@ -199,6 +220,41 @@
       a:focus {
         outline: 2px dashed #ffd700;
       }
+
+      .highlight-animate {
+        animation: highlight-flash-dark 1.2s 0.5s 1 both;
+      }
+    }
+
+    @keyframes highlight-flash-dark {
+      0% {
+        background: none;
+        color: inherit;
+        box-shadow: none;
+      }
+
+      60% {
+        background: linear-gradient(90deg, #ffe066 0%, #ffb347 100%);
+        color: #222;
+        box-shadow: 0 2px 0 #ffb347, 0 0 8px #ffe066;
+        border-radius: 2px;
+        padding: 0 2px;
+      }
+
+      100% {
+        background: none;
+        color: inherit;
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        font-size: 16px;
+        padding: 1.2rem;
+        border: none;
+        box-shadow: none;
+      }
     }
   </style>
 </head>
@@ -217,7 +273,7 @@
 
   <pre class="color-shift slide-in">Professional Summary</pre>
   <div class="section">
-    I’m a full-stack engineer with <span id="exp-years">few solid years</span> of experience building high-performance
+    I’m a <span class="highlight-animate">full-stack engineer</span> with <span id="exp-years">few solid years</span> of experience building high-performance
     web applications and scalable backend systems. I’m most at home crafting fast, clean user interfaces and backend
     architectures that can keep up with real-world demands. I care a lot about writing code that’s easy to read, easy to
     maintain, and reliable when things get busy. I’m not trying to reinvent the wheel—I just want to build solid,
@@ -296,6 +352,11 @@
       let years = now.getFullYear() - start.getFullYear();
       if (now.getMonth() < start.getMonth()) years -= 1;
       document.getElementById('exp-years').textContent = 'over ' + years + ' years';
+      // Animate highlight after page load
+      setTimeout(function() {
+        var el = document.querySelector('.highlight-animate');
+        if (el) el.classList.add('animated');
+      }, 600);
     });
   </script>
 </body>
