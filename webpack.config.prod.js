@@ -26,13 +26,12 @@ module.exports = merge(common, {
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true
-      }
+      },
+      inject: false // Prevent automatic injection of app.js
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'img', to: 'img' },
-        { from: 'css', to: 'css' },
-        { from: 'js/vendor', to: 'js/vendor' },
+        // Removed copying of 'img', 'css', and 'js/vendor' folders to reduce bundle size and fix build errors
         { from: 'icon.svg', to: 'icon.svg' },
         { from: 'favicon.ico', to: 'favicon.ico' },
         { from: 'robots.txt', to: 'robots.txt' },

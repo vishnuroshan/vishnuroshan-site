@@ -1,12 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    app: './js/app.js',
-  },
+  entry: {}, // Explicitly set no entry points for static-only site
   output: {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    filename: './js/app.js',
   },
 };

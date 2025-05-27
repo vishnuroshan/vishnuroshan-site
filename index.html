@@ -9,12 +9,6 @@
   <meta name="keywords" content="Vishnu Roshan, Full Stack Developer, Portfolio, JavaScript, Node.js, India" />
   <meta name="author" content="Vishnu Roshan" />
   <title>Vishnu Roshan – Senior Software Engineer</title>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Vishnu" />
-  <link rel="manifest" href="/site.webmanifest" />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
     onload="this.rel='stylesheet'">
   <noscript>
@@ -22,6 +16,12 @@
   </noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Vishnu" />
+  <link rel="manifest" href="/site.webmanifest" />
   <style>
     body {
       font-family: 'IBM Plex Mono', monospace;
@@ -105,11 +105,43 @@
       font-size: 1rem;
     }
 
+    .color-shift {
+      animation: colorShift 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes colorShift {
+      0% {
+        color: #f8f8f2;
+      }
+
+      100% {
+        color: #00ffcc;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.6s ease-out both;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-10px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
     @keyframes blink {
+
       0%,
       50% {
         opacity: 1;
       }
+
       50.01%,
       100% {
         opacity: 0;
@@ -132,31 +164,38 @@
         border: 2px solid #999;
         box-shadow: 8px 8px 0 #333;
       }
+
       a {
         color: #ffcc33;
         border-bottom: 1px solid #ffcc33;
       }
+
       a:hover,
       a:focus {
         color: #fff176;
         border-color: #fff176;
       }
+
       h2,
       h3 {
         border-bottom: 1px dashed #666;
       }
+
       .job .meta {
         color: #bbb;
       }
+
       .contact a {
         color: #ffd700;
         background: #222;
         border-color: #666;
       }
+
       .contact a:hover {
         background: #333;
         text-decoration: underline;
       }
+
       a:focus {
         outline: 2px dashed #ffd700;
       }
@@ -183,33 +222,48 @@
   ]
 }
 </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const start = new Date('2017-11-01');
+      const now = new Date();
+      let years = now.getFullYear() - start.getFullYear();
+      if (now.getMonth() < start.getMonth()) years -= 1;
+      document.getElementById('exp-years').textContent = 'over ' + years + ' years';
+    });
+  </script>
+
 
 </head>
 
 <body>
-  <h1>Vishnu Roshan</h1>
+  <h1 class="color-shift slide-in">Vishnu Roshan</h1>
   <div class="contact">
-    <div>Chennai, India 600097</div>
-    <div>+91 9952029597</div>
-    <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
+    <address>
+      Chennai, India 600097<br />
+      <a href="tel:+919952029597">+91 99520 29597</a><br />
+      <a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a><br />
+    </address>
     <div>
       <a href="https://github.com/vishnuroshan">[ GitHub ]</a>
       <a href="https://linkedin.com/in/vishnu-roshan">[ LinkedIn ]</a>
     </div>
   </div>
 
-  <pre>Professional Summary</pre>
+  <pre class="color-shift slide-in">Professional Summary</pre>
   <div class="section">
-    Passionate full-stack engineer with deep expertise in crafting robust, high-performance progressive web apps using
-    modern JavaScript frameworks and scalable backend architectures. I care deeply about clean code, intuitive UX, and
-    systems that scale gracefully. Known for delivering modular, maintainable solutions that consistently meet
-    performance goals and exceed client expectations.
+    I’m a full-stack engineer with <span id="exp-years">few solid years</span> of experience building high-performance
+    web applications and scalable backend systems. I’m most at home crafting fast, clean user interfaces and backend
+    architectures that can keep up with real-world demands. I care a lot about writing code that’s easy to read, easy to
+    maintain, and reliable when things get busy. I’m not trying to reinvent the wheel—I just want to build solid,
+    dependable solutions that solve real problems. I ask a lot of questions, stay curious, and always try to make the
+    next version better than the last.
   </div>
 
-  <pre>Work History</pre>
+
+  <pre class="color-shift slide-in">Work History</pre>
   <div class="section">
     <div class="job">
-      <strong>Sedin Technologies - Railfactory</strong><br />
+      <strong>Sedin Technologies - Railsfactory Division</strong><br />
       <span class="meta">Chennai, India — Oct 2020 to Present</span>
       <ul>
         <li>Led agile teams to deliver scalable web apps across varied domains.</li>
@@ -249,13 +303,13 @@
     </div>
   </div>
 
-  <pre>Skills</pre>
+  <pre class="color-shift slide-in">Skills</pre>
   <div class="section">
     Microservices architecture · Project leadership · Client requirements · Software architecture · Web application
     development · AI-assisted software development
   </div>
 
-  <pre>Education</pre>
+  <pre class="color-shift slide-in">Education</pre>
   <div class="section">
     <div>
       <strong>PSG College of Technology</strong><br />
