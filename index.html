@@ -373,6 +373,7 @@
   <div style="text-align:center;margin:2rem 0 0 0;font-size:0.85rem;color:#888;letter-spacing:0.01em;">
     <footer>
       <span aria-label="love" style="color:#e25555;">♥</span> Made with love and a sprinkle of <code>↑ ↑ ↓ ↓ ← → ← → B A</code>
+      <!-- | Time spent here: <span id="time-spent">0s</span> -->
     </footer>
   </div>
 
@@ -428,5 +429,20 @@ Well... you at least know the Konami code 💁.
       }
     });
   </script>
+  <!-- <script>
+    // Time spent counter
+    let seconds = 0;
+    const timeSpentEl = document.getElementById('time-spent');
+    setInterval(function () {
+      seconds++;
+      if (seconds < 60) {
+        timeSpentEl.textContent = seconds + 's';
+      } else {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        timeSpentEl.textContent = mins + 'm ' + secs + 's';
+      }
+    }, 1000);
+  </script> -->
 </body>
 </html>
