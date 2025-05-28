@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -277,7 +276,8 @@
 
   <pre>Professional Summary</pre>
   <div class="section">
-    I’m a <span class="highlight-animate">Senior Software Engineer</span> with <span id="exp-years">few solid years</span> of experience building high-performance
+    I’m a <span class="highlight-animate">Senior Software Engineer</span> with <span id="exp-years">few solid
+      years</span> of experience building high-performance
     web applications and scalable backend systems. I’m most at home crafting fast, clean user interfaces and backend
     architectures that can keep up with real-world demands. I care a lot about writing code that’s easy to read, easy to
     maintain, and reliable when things get busy. I’m not trying to reinvent the wheel—I just want to build solid,
@@ -349,6 +349,12 @@
     </div>
   </div>
 
+  <div style="text-align:center;margin:2rem 0 0 0;font-size:0.85rem;color:#888;letter-spacing:0.01em;">
+    <footer>
+      <span aria-label="love" style="color:#e25555;">♥</span> Made with love and a sprinkle of <code>↑ ↑ ↓ ↓ ← → ← → B A</code>
+    </footer>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const start = new Date('2017-11-01');
@@ -357,12 +363,49 @@
       if (now.getMonth() < start.getMonth()) years -= 1;
       document.getElementById('exp-years').textContent = 'over ' + years + ' years';
       // Animate highlight after page load
-      setTimeout(function() {
+      setTimeout(function () {
         var el = document.querySelector('.highlight-animate');
         if (el) el.classList.add('animated');
       }, 600);
     });
   </script>
-</body>
+  <script>
+    const konamiCode = [
+      "ArrowUp", "ArrowUp",
+      "ArrowDown", "ArrowDown",
+      "ArrowLeft", "ArrowRight",
+      "ArrowLeft", "ArrowRight",
+      "b", "a"
+    ];
 
+    let input = [];
+
+    window.addEventListener("keydown", (e) => {
+      input.push(e.key);
+      console.log(`Key pressed: ${e.key}`);
+      input.splice(-konamiCode.length - 1, input.length - konamiCode.length);
+
+      if (konamiCode.every((v, i) => v === input[i])) {
+        alert("🎉 Nice! You cracked the Konami code. Open Dev Tools (F12) 👀");
+
+        console.log(`
+
+▓██   ██▓ ▒█████   █    ██     ▄▄▄       ██▀███  ▓█████     ▄▄▄       █     █░▓█████   ██████  ▒█████   ███▄ ▄███▓▓█████ 
+ ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒████▄    ▓██ ▒ ██▒▓█   ▀    ▒████▄    ▓█░ █ ░█░▓█   ▀ ▒██    ▒ ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀ 
+  ▒██ ██░▒██░  ██▒▓██  ▒██░   ▒██  ▀█▄  ▓██ ░▄█ ▒▒███      ▒██  ▀█▄  ▒█░ █ ░█ ▒███   ░ ▓██▄   ▒██░  ██▒▓██    ▓██░▒███   
+  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░██▄▄▄▄██ ▒██▀▀█▄  ▒▓█  ▄    ░██▄▄▄▄██ ░█░ █ ░█ ▒▓█  ▄   ▒   ██▒▒██   ██░▒██    ▒██ ▒▓█  ▄ 
+  ░ ██▒▓░░ ████▓▒░▒▒█████▓     ▓█   ▓██▒░██▓ ▒██▒░▒████▒    ▓█   ▓██▒░░██▒██▓ ░▒████▒▒██████▒▒░ ████▓▒░▒██▒   ░██▒░▒████▒
+   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒   ▓▒█░░ ▒▓ ░▒▓░░░ ▒░ ░    ▒▒   ▓▒█░░ ▓░▒ ▒  ░░ ▒░ ░▒ ▒▓▒ ▒ ░░ ▒░▒░▒░ ░ ▒░   ░  ░░░ ▒░ ░
+ ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░      ▒   ▒▒ ░  ░▒ ░ ▒░ ░ ░  ░     ▒   ▒▒ ░  ▒ ░ ░   ░ ░  ░░ ░▒  ░ ░  ░ ▒ ▒░ ░  ░      ░ ░ ░  ░
+ ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░      ░   ▒     ░░   ░    ░        ░   ▒     ░   ░     ░   ░  ░  ░  ░ ░ ░ ▒  ░      ░      ░   
+ ░ ░         ░ ░     ░              ░  ░   ░        ░  ░         ░  ░    ░       ░  ░      ░      ░ ░         ░      ░  ░
+ ░ ░                                                                                                                     
+
+YOU WIN!
+Well... you at least know the Konami code 💁.
+      `);
+      }
+    });
+  </script>
+</body>
 </html>
