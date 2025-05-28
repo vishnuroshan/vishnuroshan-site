@@ -33,6 +33,7 @@ module.exports = merge(common, {
       patterns: [
         // Removed copying of 'img', 'css', and 'js/vendor' folders to reduce bundle size and fix build errors
         { from: 'icon.svg', to: 'icon.svg' },
+        { from: 'banner.webp', to: 'banner.webp' },
         { from: 'favicon.ico', to: 'favicon.ico' },
         { from: 'robots.txt', to: 'robots.txt' },
         { from: 'icon.png', to: 'icon.png' },
