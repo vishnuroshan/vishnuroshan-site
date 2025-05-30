@@ -1,0 +1,10 @@
+/* TEAM */
+Your Name: Vishnu Roshan
+Contact: vishnuroshan4@gmail.com
+Location: Chennai, India
+
+/* SITE */
+Last update: 2025/05/31
+Standards: HTML5, CSS3, JavaScript
+Components: Webpack, Prism.js
+Software: VS Code

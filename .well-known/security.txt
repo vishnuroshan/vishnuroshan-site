@@ -1,0 +1,4 @@
+Contact: mailto:vishnuroshan@gmail.com
+Expires: 2026-05-31T12:00:00.000Z
+Preferred-Languages: en
+# Canonical: https://vishnuroshan.in/.well-known/security.txt

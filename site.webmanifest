@@ -15,7 +15,45 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ff4646",
-  "background_color": "#ff4646",
-  "display": "standalone"
+  "categories": [
+    "blog",
+    "portfolio",
+    "personal"
+  ],
+  "id": "https://vishnuroshan.in",
+  "scope": "/blog/",
+  "shortcuts": [
+    {
+      "name": "Blog",
+      "short_name": "Blog",
+      "url": "/blog/",
+      "icons": [
+        {
+          "src": "/web-app-manifest-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "short_name": "Portfolio",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/web-app-manifest-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": [
+    "fullscreen",
+    "minimal-ui"
+  ],
+  "theme_color": "#ffb347",
+  "background_color": "#1a1a1a"
 }

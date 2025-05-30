@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "My Personal Site Plugin",
+  "name_for_model": "personalSite",
+  "description_for_human": "Access information and articles from my personal website.",
+  "description_for_model": "Plugin for accessing content from my personal website. You can search for blog posts or ask about topics covered on the site.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://yourdomain.com/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://yourdomain.com/icon.png",
+  "contact_email": "hello@example.com",
+  "legal_info_url": "https://yourdomain.com/legal"
+}
