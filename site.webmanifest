@@ -20,8 +20,8 @@
     "portfolio",
     "personal"
   ],
-  "id": "https://vishnuroshan.in",
-  "scope": "/blog/",
+  "id": "/",
+  "scope": "/",
   "shortcuts": [
     {
       "name": "Blog",
