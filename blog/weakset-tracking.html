@@ -8,17 +8,20 @@
     <meta name="description"
         content="A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps." />
     <meta property="og:title" content="Understanding WeakSet: Lightweight Tracking in JavaScript" />
-    <meta property="og:description" content="A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps." />
+    <meta property="og:description"
+        content="A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://vishnuroshan.in/blog/weakset-tracking.html" />
     <meta property="og:image" content="https://vishnuroshan.in/banner.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Understanding WeakSet: Lightweight Tracking in JavaScript" />
-    <meta name="twitter:description" content="A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps." />
+    <meta name="twitter:description"
+        content="A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps." />
     <meta name="twitter:image" content="https://vishnuroshan.in/banner.webp" />
     <link rel="canonical" href="https://vishnuroshan.in/blog/weakset-tracking.html" />
     <meta name="author" content="Vishnu Roshan" />
-    <meta name="keywords" content="JavaScript, WeakSet, memory management, garbage collection, DOM, web development, best practices" />
+    <meta name="keywords"
+        content="JavaScript, WeakSet, memory management, garbage collection, DOM, web development, best practices" />
     <link rel="stylesheet" href="../main.css" />
     <link rel="stylesheet" href="../blog.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
@@ -51,7 +54,7 @@
 
         <h2>A Common Use Case: DOM Tracking</h2>
         <p>Say you're building a web app with dynamically generated UI components. You want to attach event listeners to
-            elements—but only once. And you don’t want to accidentally retain memory by holding references to removed
+            elements, but only once. And you don’t want to accidentally retain memory by holding references to removed
             elements.</p>
         <pre><code class="language-js">const seenElements = new WeakSet();
 
@@ -93,7 +96,7 @@ cache.add({ name: "Alice" });
 console.log(cache.size); // undefined
 console.log([...cache]); // TypeError: cache is not iterable
 </code></pre>
-        <p>So why use it? Because its strength is <em>not</em> in what it shows you—it’s in what it lets go of.</p>
+        <p>So why use it? Because its strength is <em>not</em> in what it shows you, it’s in what it lets go of.</p>
 
         <h2>When (Not) to Use WeakSet</h2>
         <p>✅ Use <code>WeakSet</code> when:</p>

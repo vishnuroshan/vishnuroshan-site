@@ -8,17 +8,20 @@
     <meta name="description"
         content="How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices." />
     <meta property="og:title" content="WeakMap Patterns for Leak-Free Code" />
-    <meta property="og:description" content="How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices." />
+    <meta property="og:description"
+        content="How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://vishnuroshan.in/blog/weakmap-memory-leak.html" />
     <meta property="og:image" content="https://vishnuroshan.in/banner.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="WeakMap Patterns for Leak-Free Code" />
-    <meta name="twitter:description" content="How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices." />
+    <meta name="twitter:description"
+        content="How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices." />
     <meta name="twitter:image" content="https://vishnuroshan.in/banner.webp" />
     <link rel="canonical" href="https://vishnuroshan.in/blog/weakmap-memory-leak.html" />
     <meta name="author" content="Vishnu Roshan" />
-    <meta name="keywords" content="JavaScript, WeakMap, memory leaks, garbage collection, web development, best practices" />
+    <meta name="keywords"
+        content="JavaScript, WeakMap, memory leaks, garbage collection, web development, best practices" />
     <link rel="stylesheet" href="../main.css" />
     <link rel="stylesheet" href="../blog.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
@@ -34,18 +37,23 @@
         <p>A regular <code>Map</code> holds strong references to its keys and values. Even if the key object is no
             longer used elsewhere, it stays alive inside the map. Over time, these orphaned entries accumulate and leak
             memory.</p>
-        <p>A <code>WeakMap</code>, on the other hand, holds <em>weak</em> references to its keys. If there are no other references to a key object, the GC can reclaim both the object and its associated entry in the <code>WeakMap</code> automatically.</p>
+        <p>A <code>WeakMap</code>, on the other hand, holds <em>weak</em> references to its keys. If there are no other
+            references to a key object, the GC can reclaim both the object and its associated entry in the
+            <code>WeakMap</code> automatically.</p>
 
         <h2>Core Characteristics</h2>
         <ul>
             <li><strong>Keys must be objects</strong> (no primitives).</li>
             <li><strong>Values can be anything</strong>.</li>
             <li><strong>Non-enumerable</strong>: you can’t loop over entries, preventing accidental retention.</li>
-            <li><strong>No <code>size</code>, <code>keys()</code>, or <code>forEach()</code></strong>. This is by design, so GC can collect safely.</li>
+            <li><strong>No <code>size</code>, <code>keys()</code>, or <code>forEach()</code></strong>. This is by
+                design, so GC can collect safely.</li>
         </ul>
 
         <h2>Real-World Use Case: Metadata for DOM Nodes</h2>
-        <p>Suppose you’re building a rich text editor. You need to store extra info for certain nodes, like whether a user has edited a paragraph, but you don’t want to attach properties directly to DOM elements or worry about cleanup when a node is removed.</p>
+        <p>Suppose you’re building a rich text editor. You need to store extra info for certain nodes, like whether a
+            user has edited a paragraph, but you don’t want to attach properties directly to DOM elements or worry about
+            cleanup when a node is removed.</p>
         <pre><code class="language-js">const nodeMeta = new WeakMap();
 
 function annotate(node, info) {
@@ -65,7 +73,9 @@ annotate(para, { edited: true });
         <p>No manual <code>delete</code> calls. No risk of stale entries.</p>
 
         <h2>Pattern: Caching API Responses</h2>
-        <p>You fetch user profiles and cache them to avoid repeat network calls. Using a <code>Map</code> can leak if you never prune old entries. With <code>WeakMap</code>, you tie cache entries to user objects. Once the user object falls out of scope, the cache entry goes too.</p>
+        <p>You fetch user profiles and cache them to avoid repeat network calls. Using a <code>Map</code> can leak if
+            you never prune old entries. With <code>WeakMap</code>, you tie cache entries to user objects. Once the user
+            object falls out of scope, the cache entry goes too.</p>
         <pre><code class="language-js">const profileCache = new WeakMap();
 
 async function getUserProfile(user) {
@@ -92,7 +102,8 @@ async function getUserProfile(user) {
         <p>There are cases where <code>WeakMap</code> isn’t the right tool:</p>
         <ul>
             <li><strong>Iteration or inspection needed</strong><br />
-                If you must list all keys or values, say, to generate a report of cached entries, you need a <code>Map</code> or other structure that exposes its contents.
+                If you must list all keys or values, say, to generate a report of cached entries, you need a
+                <code>Map</code> or other structure that exposes its contents.</p>
                 <pre><code class="language-js">// ❌ WeakMap has no .keys() or .size
 // ✅ Use Map if you need to log all sessions:
 const sessionMap = new Map();
@@ -130,7 +141,8 @@ const cache = new Map();
             memory leaks.</p>
 
         <h2>What’s Next</h2>
-        <p>But WeakMap isn’t the only weak structure in town. In the next post, we’ll explore WeakSet, its similarities, its quirks, and the subtle ways it lets you track objects without ever holding them back.</p>
+        <p>But WeakMap isn’t the only weak structure in town. In the next post, we’ll explore WeakSet, its similarities,
+            its quirks, and the subtle ways it lets you track objects without ever holding them back.</p>
     </article>
     <p style="margin-top:2rem;"><a href="index.html">← Back to Blog Index</a> &nbsp; <a href="../">← Back to
             Home</a></p>
