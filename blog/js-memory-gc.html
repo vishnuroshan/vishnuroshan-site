@@ -27,15 +27,10 @@
 <body>
     <article class="section">
         <h1>A Gentle Intro to Garbage Collection</h1>
-        <p><em>Imagine a project-management SPA where users switch between boards, tasks, and chats for hours. Autosave
-                timers tick away, caches hold user data, event listeners buzz, and drag-and-drop cards mount and unmount
-                nonstop. If those timers, caches, and listeners aren’t cleaned up, memory leaks pile up—and your app
-                drags.</em></p>
+        <p><em>Imagine a project-management SPA where users switch between boards, tasks, and chats for hours. Autosave timers tick away, caches hold user data, event listeners buzz, and drag-and-drop cards mount and unmount nonstop. If those timers, caches, and listeners aren’t cleaned up, memory leaks pile up, and your app drags.</em></p>
 
         <h2>What Is Garbage Collection?</h2>
-        <p>Think of your app’s memory as a closet. Every time you create a variable or an object, you’re adding
-            something to that closet. Eventually, stuff you don’t need anymore piles up. Someone has to clean it
-            out—this is the garbage collector (GC).</p>
+        <p>Think of your app’s memory as a closet. Every time you create a variable or an object, you’re adding something to that closet. Eventually, stuff you don’t need anymore piles up. Someone has to clean it out. This is the garbage collector (GC).</p>
         <p>In JavaScript, the GC automatically frees memory occupied by objects no longer reachable by your code. If
             your program can’t access something anymore, GC will discard it.</p>
 

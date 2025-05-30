@@ -27,13 +27,13 @@
 <body>
     <article class="section">
         <h1>WeakSet: Lightweight Tracker</h1>
-        <p>JavaScript’s <code>WeakSet</code> is like that one friend who never remembers your birthday—but still cares
+        <p>JavaScript’s <code>WeakSet</code> is like that one friend who never remembers your birthday, but still cares
             if you're alive.</p>
         <p>In technical terms, <code>WeakSet</code> is a special kind of set that:</p>
         <ul>
             <li>Only accepts <strong>objects</strong> (no primitives allowed).</li>
             <li>Holds those objects <strong>weakly</strong>, meaning it doesn't prevent garbage collection.</li>
-            <li>Is <strong>non-enumerable</strong>—you can’t list, iterate, or size it.</li>
+            <li>Is <strong>non-enumerable</strong>: you can’t list, iterate, or size it.</li>
         </ul>
         <p>It's not meant for storing data you plan to access directly later. Instead, it's for passive tracking of
             object presence while leaving memory management up to the engine.</p>
@@ -79,7 +79,7 @@ function track(el) {
             waiting to happen if you’re not careful.</p>
 
         <h2>Limitations of WeakSet</h2>
-        <p>Let’s get this out of the way—<code>WeakSet</code> isn’t perfect. You:</p>
+        <p>Let’s get this out of the way. <code>WeakSet</code> isn’t perfect. You:</p>
         <ul>
             <li><strong>Can’t iterate</strong> over a <code>WeakSet</code></li>
             <li><strong>Can’t clear</strong> it manually</li>
@@ -148,7 +148,7 @@ function rememberUser(user) {
         <h2>Conclusion</h2>
         <p><code>WeakSet</code> is a powerful tool for managing memory in JavaScript. It lets you associate data with
             objects without preventing garbage collection, making it ideal for metadata, caches, and temporary storage.
-            Just remember its limitations—it's not meant for tracking or inspecting contents.</p>
+            Just remember its limitations. It's not meant for tracking or inspecting contents.</p>
 
         <h2>What’s Next</h2>
         <p>Stay tuned for a future deep dive into how V8’s garbage collector works under the hood—from memory spaces and

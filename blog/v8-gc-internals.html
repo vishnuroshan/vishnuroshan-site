@@ -28,9 +28,7 @@
 <body>
     <article class="section">
         <h1>How V8 Cleans Up After Your Code</h1>
-        <p>Your web app feels smooth—until it doesn’t. UI stutters, interactions lag, and users wonder if they’ve opened
-            a legacy browser. Underneath, V8’s garbage collector (GC) decides which objects live on and which vanish.
-            Understanding how V8 organises memory and runs collections helps you write code that stays responsive.</p>
+        <p>Your web app feels smooth—until it doesn’t. UI stutters, interactions lag, and users wonder if they’ve opened a legacy browser. Underneath, V8’s garbage collector (GC) decides which objects live on and which vanish. Understanding how V8 organises memory and runs collections helps you write code that stays responsive.</p>
 
         <h2>Why You Should Care</h2>
         <p>GC pauses can interrupt animations, delay event handlers, and degrade user experience. By knowing how V8
@@ -84,8 +82,7 @@
         <h2>Diagnosing GC Behavior</h2>
         <ul>
             <li>Use heap snapshots in Chrome DevTools to inspect object counts and retained sizes.</li>
-            <li>Enable GC tracing: run Node.js with <code class="language-bash">--trace-gc --trace-gc-verbose</code> to
-                log collection events.</li>
+            <li>Enable GC tracing: run Node.js with <code class="language-bash">--trace-gc --trace-gc-verbose</code> to log collection events.</li>
             <li>Analyze Performance tab recordings to spot GC markers and measure pause times.</li>
         </ul>
 
@@ -95,13 +92,11 @@
             <li><strong>Manage resources</strong>: clear intervals/timeouts and detach event listeners.</li>
             <li><strong>Leverage weak references</strong> (<code>WeakMap</code>/<code>WeakSet</code>) for caches to let
                 GC clean up entries.</li>
-            <li><strong>Monitor and tune</strong>: adjust Node.js’s <code
-                    class="language-bash">--max-old-space-size</code> to suit your workload.</li>
+            <li><strong>Monitor and tune</strong>: adjust Node.js’s <code class="language-bash">--max-old-space-size</code> to suit your workload.</li>
         </ul>
 
         <h2>Conclusion</h2>
-        <p>Turns out, memory leaks aren’t always about writing bad code. Sometimes, it’s just about forgetting
-            things—literally. Objects hanging around long after the party’s over.
+        <p>Turns out, memory leaks aren’t always about writing bad code. Sometimes, it’s just about forgetting things, literally. Objects hanging around long after the party’s over.
 
             Over the past few posts, we wandered through the world of garbage collection, discovered the quiet
             usefulness of WeakMap and WeakSet, and lifted the hood on how V8 keeps it all together.
