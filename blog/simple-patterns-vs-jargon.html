@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Patterns, Confusing Names</title>
+    <meta name="description"
+        content="A plain-English rant about how common coding patterns get buried under intimidating jargon, with real JavaScript examples." />
+    <meta property="og:title" content="Simple Patterns, Confusing Names" />
+    <meta property="og:description"
+        content="A plain-English rant about how common coding patterns get buried under intimidating jargon, with real JavaScript examples." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vishnuroshan.in/blog/simple-patterns-vs-jargon.html" />
+    <meta property="og:image" content="https://vishnuroshan.in/banner.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Simple Patterns, Confusing Names" />
+    <meta name="twitter:description"
+        content="A plain-English rant about how common coding patterns get buried under intimidating jargon, with real JavaScript examples." />
+    <meta name="twitter:image" content="https://vishnuroshan.in/banner.webp" />
+    <link rel="canonical" href="https://vishnuroshan.in/blog/simple-patterns-vs-jargon.html" />
+    <meta name="author" content="Vishnu Roshan" />
+    <meta name="keywords"
+        content="coding patterns, jargon, JavaScript, early exit, memoization, dependency injection, software engineering, learning" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../blog.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
+</head>
+
+<body>
+    <article class="section">
+        <h1>Simple Patterns, Confusing Names</h1>
+        <p>Let’s be honest: tech jargon can be a nightmare.</p>
+        <p>Not long ago, I came across the term <strong>“early exit pattern.”</strong> It sounded fancy, so I read about
+            it, nodded, and moved on. Then it dawned on me — I’ve been using this pattern for years without knowing it
+            had a name.</p>
+        <p>The <strong>early exit pattern</strong> is just a way to check for problems or special cases at the start of
+            a function and leave early, instead of wrapping everything in a big <code>if</code> block. Like this:</p>
+        <pre><code class="language-js">function processUser(user) {
+  if (!user) {
+    return; // Exit early if user is missing
+  }
+
+  // Continue with normal processing
+  console.log(`Processing user: ${user.name}`);
+}
+</code></pre>
+        <p>If someone had asked me in an interview, “Do you use the early exit pattern?”
+            I’d probably blink twice, mumble something about return statements, and hope the conversation moves on.<br>
+        <p>This happens a lot. People do good work but feel unsure because they don’t know the official name for what
+            they do. It’s like showing up to a club where everyone knows the secret handshake, but you don’t even know
+            there’s a handshake.</p>
+        <p>Another common confusion is around words like <strong>model</strong>, <strong>entity</strong>, and
+            <strong>domain object.</strong> These terms get tossed around like hot potatoes. For a non-native English
+            speaker, it’s even harder to keep track. What one person calls a “model” might just be a plain data object
+            to someone else.</p>
+        <p>Let’s look at another example: <strong>memoization.</strong> It sounds complicated, but it’s really just
+            remembering the result of a function call so you don’t do the same work twice.</p>
+        <p>Here’s how it looks in JavaScript:</p>
+        <pre><code class="language-js">function memoize(fn) {
+  const cache = new Map();
+  return function (arg) {
+    if (cache.has(arg)) {
+      return cache.get(arg);
+    }
+    const result = fn(arg);
+    cache.set(arg, result);
+    return result;
+  };
+}
+
+const slowSquare = (n) => {
+  console.log('Calculating...');
+  return n * n;
+};
+
+const fastSquare = memoize(slowSquare);
+
+console.log(fastSquare(5)); // Calculating... 25
+console.log(fastSquare(5)); // 25 (cached result, no calculation)
+</code></pre>
+        <p>See? Memoization is just caching. Simple.</p>
+        <p>Or take <strong>dependency injection.</strong> Sounds fancy, but really it’s just passing things your code
+            needs instead of hardcoding them. This makes your code easier to test and change later.</p>
+        <p>Example:</p>
+        <pre><code class="language-js">class Logger {
+  log(message) {
+    console.log(`Log: ${message}`);
+  }
+}
+
+class UserService {
+  constructor(logger) {
+    this.logger = logger;
+  }
+  
+  createUser(name) {
+    this.logger.log(`Creating user: ${name}`);
+    // Logic to create user
+  }
+}
+
+const logger = new Logger();
+const userService = new UserService(logger);
+userService.createUser('Alice');
+</code></pre>
+        <p>No magic here — just passing in what you need.</p>
+        <p>The funny part? Many of us have been doing these things long before learning their fancy names. But when the
+            jargon hits, it can feel like we’re suddenly lost in translation.</p>
+        <p>If you’re a non-native English speaker, this struggle is even bigger. Learning programming <em>and</em> the
+            specialized language that comes with it is exhausting. It sometimes feels like you need a translator just to
+            understand a tutorial.</p>
+        <p>So here’s a little advice: don’t get hung up on the names. If you understand the concept, you’re already
+            ahead of the game. The words are just labels to help us talk to each other — not tests of your skill.</p>
+        <p>Next time you hear about <strong>early exit</strong>, <strong>memoization</strong>, or <strong>dependency
+                injection</strong>, smile to yourself. Chances are, you’ve already been doing them without even knowing
+            the names.</p>
+        <p>And if you get confused, just remember: behind every complicated-sounding term is usually a simple idea
+            waiting to be discovered.</p>
+    </article>
+    <p style="margin-top:2rem;"><a href="index.html">← Back to Blog Index</a> &nbsp; <a href="../index.html">← Back to
+            Home</a></p>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

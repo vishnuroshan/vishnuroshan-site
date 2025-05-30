@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Gentle Intro to Garbage Collection</title>
+    <meta name="description"
+        content="A gentle introduction to JavaScript memory management and garbage collection, with practical examples for web developers." />
+    <meta property="og:title" content="A Gentle Intro to Garbage Collection" />
+    <meta property="og:description" content="A gentle introduction to JavaScript memory management and garbage collection, with practical examples for web developers." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vishnuroshan.in/blog/js-memory-gc.html" />
+    <meta property="og:image" content="https://vishnuroshan.in/banner.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="A Gentle Intro to Garbage Collection" />
+    <meta name="twitter:description" content="A gentle introduction to JavaScript memory management and garbage collection, with practical examples for web developers." />
+    <meta name="twitter:image" content="https://vishnuroshan.in/banner.webp" />
+    <link rel="canonical" href="https://vishnuroshan.in/blog/js-memory-gc.html" />
+    <meta name="author" content="Vishnu Roshan" />
+    <meta name="keywords" content="JavaScript, memory management, garbage collection, GC, web development, performance, leaks, V8" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../blog.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
+</head>
+
+<body>
+    <article class="section">
+        <h1>A Gentle Intro to Garbage Collection</h1>
+        <p><em>Imagine a project-management SPA where users switch between boards, tasks, and chats for hours. Autosave
+                timers tick away, caches hold user data, event listeners buzz, and drag-and-drop cards mount and unmount
+                nonstop. If those timers, caches, and listeners aren’t cleaned up, memory leaks pile up—and your app
+                drags.</em></p>
+
+        <h2>What Is Garbage Collection?</h2>
+        <p>Think of your app’s memory as a closet. Every time you create a variable or an object, you’re adding
+            something to that closet. Eventually, stuff you don’t need anymore piles up. Someone has to clean it
+            out—this is the garbage collector (GC).</p>
+        <p>In JavaScript, the GC automatically frees memory occupied by objects no longer reachable by your code. If
+            your program can’t access something anymore, GC will discard it.</p>
+
+        <h2>Reachability: The GC’s Only Rule</h2>
+        <p>GC only checks if it can still reach an object. Reachable objects stay in memory; unreachable ones become
+            garbage.</p>
+        <p>Example of reachability:</p>
+        <pre><code class="language-js">function createUser() {
+  let user = { name: 'Alice' };
+  return user;
+}
+const alice = createUser(); // `alice` holds the object, so it’s reachable.
+</code></pre>
+        <p>Example of garbage collection:</p>
+        <pre><code class="language-js">let temp = { data: 'Transient info' };
+// `temp` holds the object in memory
+
+temp = null; // Removes the only reference
+// The object becomes unreachable and eligible for garbage collection
+</code></pre>
+
+        <h2>How Mark-and-Sweep Works</h2>
+        <p>Most JavaScript engines—including V8—use a variant of the <strong>mark-and-sweep</strong> algorithm:</p>
+        <ol>
+            <li><strong>Mark Phase</strong><br />
+                The GC starts from the roots (global objects, call stack, closures) and “marks” every object it can
+                reach.
+            </li>
+            <li><strong>Sweep Phase</strong><br />
+                The GC scans the entire heap and frees any object that wasn’t marked as reachable.
+            </li>
+        </ol>
+        <p>This two-step process ensures that only objects still in use stay in memory. Once the sweep completes, all
+            marks reset, ready for the next cycle.</p>
+        <h2>Common Ways Memory Leaks Sneak In</h2>
+        <p>Even with GC, leaks happen when your code accidentally keeps references alive. Frequent culprits:</p>
+        <ul>
+            <li><strong>Timers</strong> left running after UI changes</li>
+            <li><strong>Event listeners</strong> not removed when elements go away</li>
+            <li><strong>Detached DOM nodes</strong> still held by variables</li>
+            <li><strong>Caches</strong> (Maps/arrays) that grow forever</li>
+            <li><strong>Closures</strong> capturing variables longer than needed</li>
+        </ul>
+
+        <h2>Why You Should Care</h2>
+        <p>Small leaks might seem minor early on. After hours of use, they accumulate; your app slows, crashes, or
+            drains battery.</p>
+        <p>Understanding reachability and GC basics helps you write cleaner, faster, more reliable code.</p>
+
+        <h2>What’s Next</h2>
+        <p>I’ve split this topic into separate posts. Up next: how <code>WeakMap</code> and
+            <code>WeakSet</code> let you store data tied to objects
+            without preventing GC from doing its job.
+        </p>
+    </article>
+    <p style="margin-top:2rem;"><a href="index.html">← Back to Blog Index</a> &nbsp; <a href="../">← Back to
+            Home</a></p>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

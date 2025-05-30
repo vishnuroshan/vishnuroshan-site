@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeakSet: Lightweight Tracker</title>
+    <meta name="description"
+        content="A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps." />
+    <meta property="og:title" content="Understanding WeakSet: Lightweight Tracking in JavaScript" />
+    <meta property="og:description" content="A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vishnuroshan.in/blog/weakset-tracking.html" />
+    <meta property="og:image" content="https://vishnuroshan.in/banner.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Understanding WeakSet: Lightweight Tracking in JavaScript" />
+    <meta name="twitter:description" content="A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps." />
+    <meta name="twitter:image" content="https://vishnuroshan.in/banner.webp" />
+    <link rel="canonical" href="https://vishnuroshan.in/blog/weakset-tracking.html" />
+    <meta name="author" content="Vishnu Roshan" />
+    <meta name="keywords" content="JavaScript, WeakSet, memory management, garbage collection, DOM, web development, best practices" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../blog.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
+</head>
+
+<body>
+    <article class="section">
+        <h1>WeakSet: Lightweight Tracker</h1>
+        <p>JavaScript’s <code>WeakSet</code> is like that one friend who never remembers your birthday—but still cares
+            if you're alive.</p>
+        <p>In technical terms, <code>WeakSet</code> is a special kind of set that:</p>
+        <ul>
+            <li>Only accepts <strong>objects</strong> (no primitives allowed).</li>
+            <li>Holds those objects <strong>weakly</strong>, meaning it doesn't prevent garbage collection.</li>
+            <li>Is <strong>non-enumerable</strong>—you can’t list, iterate, or size it.</li>
+        </ul>
+        <p>It's not meant for storing data you plan to access directly later. Instead, it's for passive tracking of
+            object presence while leaving memory management up to the engine.</p>
+
+        <h2>Weak References and Why They Matter</h2>
+        <p>In JavaScript, most data structures (like <code>Set</code> or <code>Map</code>) hold <em>strong
+                references</em>. If you put an object in a regular <code>Set</code>, it stays there forever unless you
+            explicitly remove it. This can inadvertently lead to memory leaks.</p>
+        <p>With <code>WeakSet</code>, the reference is <em>weak</em>. If there’s no other reference to the object
+            elsewhere in the app, the garbage collector is free to sweep it away—even if it’s still in a
+            <code>WeakSet</code>.
+        </p>
+        <p>This behavior makes <code>WeakSet</code> incredibly useful for keeping track of objects in memory-sensitive
+            scenarios.</p>
+
+        <h2>A Common Use Case: DOM Tracking</h2>
+        <p>Say you're building a web app with dynamically generated UI components. You want to attach event listeners to
+            elements—but only once. And you don’t want to accidentally retain memory by holding references to removed
+            elements.</p>
+        <pre><code class="language-js">const seenElements = new WeakSet();
+
+function handleClick(el) {
+  if (!seenElements.has(el)) {
+    el.addEventListener("click", () => doSomething(el));
+    seenElements.add(el);
+  }
+}
+</code></pre>
+        <p>When the element is removed from the DOM and no other reference to it exists, it gets garbage collected.
+            <code>WeakSet</code> doesn’t stop that. It lets go quietly.
+        </p>
+
+        <h2>Why Not Just Use Set?</h2>
+        <p>Here’s what happens with a regular <code>Set</code>:</p>
+        <pre><code class="language-js">const seen = new Set();
+
+function track(el) {
+  seen.add(el);
+  // now `el` is held strongly and won't be GC-ed
+}
+</code></pre>
+        <p>Unless you manually remove <code>el</code>, the garbage collector can’t clean it up. That’s a memory leak
+            waiting to happen if you’re not careful.</p>
+
+        <h2>Limitations of WeakSet</h2>
+        <p>Let’s get this out of the way—<code>WeakSet</code> isn’t perfect. You:</p>
+        <ul>
+            <li><strong>Can’t iterate</strong> over a <code>WeakSet</code></li>
+            <li><strong>Can’t clear</strong> it manually</li>
+            <li><strong>Can’t check its size</strong></li>
+        </ul>
+        <p>It's intentionally opaque:</p>
+        <pre><code class="language-js">const cache = new WeakSet();
+
+cache.add({ name: "Alice" });
+
+console.log(cache.size); // undefined
+console.log([...cache]); // TypeError: cache is not iterable
+</code></pre>
+        <p>So why use it? Because its strength is <em>not</em> in what it shows you—it’s in what it lets go of.</p>
+
+        <h2>When (Not) to Use WeakSet</h2>
+        <p>✅ Use <code>WeakSet</code> when:</p>
+        <ul>
+            <li>You’re associating metadata with DOM nodes or objects</li>
+            <li>You don’t need to enumerate or inspect the collection</li>
+            <li>Memory management is a concern and you want to avoid leaks</li>
+        </ul>
+        <p>❌ Don’t use <code>WeakSet</code> when:</p>
+        <ul>
+            <li>You need to inspect, loop, or count items</li>
+            <li>You’re dealing with primitives (they’re not allowed)</li>
+            <li>You’re building persistent state or data structures</li>
+        </ul>
+
+        <h3>Example: Needing Enumeration</h3>
+        <pre><code class="language-js">const myWeakSet = new WeakSet();
+const obj1 = {};
+myWeakSet.add(obj1);
+
+for (const item of myWeakSet) { // ❌ TypeError
+  console.log(item);
+}
+</code></pre>
+        <p>If you need to loop through items, <code>WeakSet</code> is not suitable. Use <code>Set</code> instead.</p>
+
+        <h3>Example: Storing Primitives</h3>
+        <pre><code class="language-js">const myWeakSet = new WeakSet();
+myWeakSet.add(42); // ❌ TypeError: Invalid value used in weak set
+</code></pre>
+        <p><code>WeakSet</code> only accepts objects. Primitives like numbers or strings will throw errors.</p>
+
+        <h3>Example: Persistent State</h3>
+        <pre><code class="language-js">const cache = new WeakSet();
+function rememberUser(user) {
+  cache.add(user);
+}
+
+// If `user` is lost elsewhere in the code,
+// it may be garbage collected even if you want to keep it.
+</code></pre>
+        <p>For persistent caching or long-term storage, <code>Map</code> or <code>Set</code> is more reliable since they
+            hold strong references.</p>
+
+        <h2>Under the Hood</h2>
+        <p>Internally, V8’s handling of <code>WeakSet</code> relies on ephemerons—structures that allow the engine to
+            determine reachability of keys without preventing garbage collection. The objects are stored in a way that
+            doesn't interfere with GC’s ability to detect unreferenced memory.</p>
+        <p>Unlike traditional strong maps or sets, these weak structures don't keep the object alive. If all other
+            references are gone, the object disappears quietly, and the engine does its job.</p>
+
+        <h2>Conclusion</h2>
+        <p><code>WeakSet</code> is a powerful tool for managing memory in JavaScript. It lets you associate data with
+            objects without preventing garbage collection, making it ideal for metadata, caches, and temporary storage.
+            Just remember its limitations—it's not meant for tracking or inspecting contents.</p>
+
+        <h2>What’s Next</h2>
+        <p>Stay tuned for a future deep dive into how V8’s garbage collector works under the hood—from memory spaces and
+            generational collection to mark-and-sweep algorithms and performance optimizations.</p>
+    </article>
+    <p style="margin-top:2rem;"><a href="index.html">← Back to Blog Index</a> &nbsp; <a href="../">← Back to
+            Home</a></p>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

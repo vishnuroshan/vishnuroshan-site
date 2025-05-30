@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeakMap Patterns for Leak-Free Code</title>
+    <meta name="description"
+        content="How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices." />
+    <meta property="og:title" content="WeakMap Patterns for Leak-Free Code" />
+    <meta property="og:description" content="How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vishnuroshan.in/blog/weakmap-memory-leak.html" />
+    <meta property="og:image" content="https://vishnuroshan.in/banner.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WeakMap Patterns for Leak-Free Code" />
+    <meta name="twitter:description" content="How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices." />
+    <meta name="twitter:image" content="https://vishnuroshan.in/banner.webp" />
+    <link rel="canonical" href="https://vishnuroshan.in/blog/weakmap-memory-leak.html" />
+    <meta name="author" content="Vishnu Roshan" />
+    <meta name="keywords" content="JavaScript, WeakMap, memory leaks, garbage collection, web development, best practices" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../blog.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
+</head>
+
+<body>
+    <article class="section">
+        <h1>WeakMap Patterns for Leak-Free Code</h1>
+        <p>Imagine a web app that autosaves user data, caches objects for speed, and attaches metadata to DOM nodes. You
+            need fast lookups without turning your cache into a memory black hole.</p>
+
+        <h2>Why <code>WeakMap</code> Matters</h2>
+        <p>A regular <code>Map</code> holds strong references to its keys and values. Even if the key object is no
+            longer used elsewhere, it stays alive inside the map. Over time, these orphaned entries accumulate and leak
+            memory.</p>
+        <p>A <code>WeakMap</code>, on the other hand, holds <em>weak</em> references to its keys. If there are no other
+            references to a key object, the GC can reclaim both the object and its associated entry in the
+            <code>WeakMap</code>—automatically.
+        </p>
+
+        <h2>Core Characteristics</h2>
+        <ul>
+            <li><strong>Keys must be objects</strong> (no primitives).</li>
+            <li><strong>Values can be anything</strong>.</li>
+            <li><strong>Non-enumerable</strong>: you can’t loop over entries, preventing accidental retention.</li>
+            <li><strong>No <code>size</code>, <code>keys()</code>, or <code>forEach()</code></strong>—by design, so GC
+                can collect safely.</li>
+        </ul>
+
+        <h2>Real-World Use Case: Metadata for DOM Nodes</h2>
+        <p>Suppose you’re building a rich text editor. You need to store extra info for certain nodes—like whether a
+            user has edited a paragraph—but you don’t want to attach properties directly to DOM elements or worry about
+            cleanup when a node is removed.</p>
+        <pre><code class="language-js">const nodeMeta = new WeakMap();
+
+function annotate(node, info) {
+  nodeMeta.set(node, info);
+}
+
+function getMeta(node) {
+  return nodeMeta.get(node);
+}
+
+// Usage
+const para = document.createElement('p');
+annotate(para, { edited: true });
+// Later, if `para` is removed and no references remain,
+// GC reclaims both the DOM node and its metadata entry.
+</code></pre>
+        <p>No manual <code>delete</code> calls. No risk of stale entries.</p>
+
+        <h2>Pattern: Caching API Responses</h2>
+        <p>You fetch user profiles and cache them to avoid repeat network calls. Using a <code>Map</code> can leak if
+            you never prune old entries. With <code>WeakMap</code>, you tie cache entries to user objects—once the user
+            object falls out of scope, the cache entry goes too.</p>
+        <pre><code class="language-js">const profileCache = new WeakMap();
+
+async function getUserProfile(user) {
+  if (profileCache.has(user)) {
+    return profileCache.get(user);
+  }
+  const profile = await fetch(`/api/users/${user.id}`).then(r => r.json());
+  profileCache.set(user, profile);
+  return profile;
+}
+</code></pre>
+        <p>When <code>user</code> is no longer referenced, its cache entry vanishes.</p>
+
+        <h2>Common Pitfalls and Tips</h2>
+        <ul>
+            <li><strong>No iteration</strong>: <code>WeakMap</code> doesn’t expose its entries. Use it when you don’t
+                need to list all keys.</li>
+            <li><strong>Avoid primitive keys</strong>: only objects work.</li>
+            <li><strong>Beware of hidden leaks</strong>: storing objects in closures or arrays still counts as strong
+                references.</li>
+        </ul>
+
+        <h2>When Not to Use <code>WeakMap</code></h2>
+        <p>There are cases where <code>WeakMap</code> isn’t the right tool:</p>
+        <ul>
+            <li><strong>Iteration or inspection needed</strong><br />
+                If you must list all keys or values—say, to generate a report of cached entries—you need a
+                <code>Map</code> or other structure that exposes its contents.
+                <pre><code class="language-js">// ❌ WeakMap has no .keys() or .size
+// ✅ Use Map if you need to log all sessions:
+const sessionMap = new Map();
+// ...
+console.log(`Active sessions: ${sessionMap.size}`);
+</code></pre>
+            </li>
+            <li><strong>Primitive keys required</strong><br />
+                WeakMap only accepts objects as keys. If your domain uses strings or numbers as identifiers,
+                <code>WeakMap</code> won’t work.
+                <pre><code class="language-js">// ❌ Invalid: WeakMap can’t use string keys
+const m = new WeakMap();
+m.set('user123', { name: 'Bob' }); // TypeError
+</code></pre>
+            </li>
+            <li><strong>Deterministic cleanup or size tracking</strong><br />
+                You can’t control exactly when the GC runs or when entries disappear. If you need to know when items are
+                removed or track the number of entries, a standard <code>Map</code> with manual cleanup is safer.
+                <pre><code class="language-js">// ❌ WeakMap doesn’t fire events on deletion
+// ✅ Use Map if you need to trigger actions on removal:
+const cache = new Map();
+// manual delete and callback
+</code></pre>
+            </li>
+            <li><strong>Persistent or serializable cache</strong><br />
+                WeakMap entries vanish without notice and aren’t serializable. For data you must persist or transfer
+                (e.g. saving to IndexedDB), use a plain object, Map, or other storage.
+            </li>
+        </ul>
+        <p>In these scenarios, choose collections that give you full control over their contents and lifecycle.</p>
+        <h2>Conclusion</h2>
+        <p><code>WeakMap</code> is a powerful tool for managing memory in JavaScript. It lets you associate data with
+            objects without preventing garbage collection, making it ideal for metadata, caches, and temporary storage.
+            By understanding its strengths and limitations, you can write cleaner, more efficient code that avoids
+            memory leaks.</p>
+
+        <h2>What’s Next</h2>
+        <p>But WeakMap isn’t the only weak structure in town. In the next post, we’ll explore WeakSet—its similarities,
+            its quirks, and the subtle ways it lets you track objects without ever holding them back.</p>
+    </article>
+    <p style="margin-top:2rem;"><a href="index.html">← Back to Blog Index</a> &nbsp; <a href="../">← Back to
+            Home</a></p>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,13 +23,15 @@
   <meta name="apple-mobile-web-app-title" content="Vishnu" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta property="og:title" content="Vishnu Roshan – Senior Software Engineer" />
-  <meta property="og:description" content="Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture." />
+  <meta property="og:description"
+    content="Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vishnuroshan.in" />
   <meta property="og:image" content="/banner.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vishnu Roshan – Senior Software Engineer" />
-  <meta name="twitter:description" content="Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture." />
+  <meta name="twitter:description"
+    content="Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture." />
   <meta name="twitter:image" content="/banner.webp" />
   <meta name="twitter:site" content="@vishnuroshan" />
   <meta http-equiv="Content-Security-Policy" content="
@@ -42,250 +45,18 @@
     base-uri 'self';
     form-action 'self';
   ">
-  <style>
-    body {
-      font-family: 'IBM Plex Mono', monospace;
-      background-color: #f4f1e9;
-      color: #222;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.6;
-      border: 2px solid #444;
-      box-shadow: 8px 8px 0 #aaa;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.25rem;
-      display: inline-block;
-      position: relative;
-    }
-
-    h1::after {
-      content: "_";
-      animation: blink 1s steps(1) infinite;
-      position: absolute;
-      right: -1ch;
-    }
-
-    h2,
-    h3 {
-      border-bottom: 1px dashed #999;
-      padding-bottom: 0.2rem;
-      margin-top: 2rem;
-      font-size: 1.25rem;
-    }
-
-    a:focus {
-      outline: 2px dashed #000;
-      outline-offset: 2px;
-    }
-
-    .contact a {
-      color: #0047ab;
-      text-decoration: none;
-      background: #e0dede;
-      padding: 2px 6px;
-      border: 1px solid #999;
-      margin-right: 0.5rem;
-      font-weight: bold;
-    }
-
-    .contact a:hover {
-      background: #cfcfcf;
-      text-decoration: underline;
-    }
-
-    .section {
-      margin-top: 2rem;
-    }
-
-    .job {
-      margin-bottom: 1.5rem;
-    }
-
-    .job .meta {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    ul {
-      margin: 0.5rem 0 0 1.2rem;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 0.4rem;
-    }
-
-    pre {
-      margin: 1.5rem 0 0.5rem;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    .color-shift {
-      animation: colorShift 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes colorShift {
-      0% {
-        color: #f8f8f2;
-      }
-
-      100% {
-        color: #00ffcc;
-      }
-    }
-
-    .slide-in {
-      animation: slideIn 0.6s ease-out both;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(-10px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes blink {
-
-      0%,
-      50% {
-        opacity: 1;
-      }
-
-      50.01%,
-      100% {
-        opacity: 0;
-      }
-    }
-
-    .highlight-animate {
-      background: none;
-      color: inherit;
-      position: relative;
-      transition: background 0.5s, color 0.5s, box-shadow 0.5s;
-      animation: highlight-flash 1.2s 0.5s 1 both;
-    }
-
-    @keyframes highlight-flash {
-      0% {
-        background: none;
-        color: inherit;
-        box-shadow: none;
-      }
-
-      60% {
-        background: linear-gradient(90deg, #fff7b2 0%, #ffe066 100%);
-        color: #222;
-        box-shadow: 0 2px 0 #ffe066, 0 0 8px #fff7b2;
-        border-radius: 2px;
-        padding: 0 2px;
-      }
-
-      100% {
-        background: linear-gradient(90deg, #fff7b2 0%, #ffe066 100%);
-        color: #222;
-        box-shadow: 0 2px 0 #ffe066, 0 0 8px #fff7b2;
-        border-radius: 2px;
-        padding: 0 2px;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #1a1a1a;
-        color: #cfc7b8;
-        border: 2px solid #999;
-        box-shadow: 8px 8px 0 #333;
-      }
-
-      a {
-        color: #ffcc33;
-        border-bottom: 1px solid #ffcc33;
-      }
-
-      a:hover,
-      a:focus {
-        color: #fff176;
-        border-color: #fff176;
-      }
-
-      h2,
-      h3 {
-        border-bottom: 1px dashed #666;
-      }
-
-      .job .meta {
-        color: #bbb;
-      }
-
-      .contact a {
-        color: #ffd700;
-        background: #222;
-        border-color: #666;
-      }
-
-      .contact a:hover {
-        background: #333;
-        text-decoration: underline;
-      }
-
-      a:focus {
-        outline: 2px dashed #ffd700;
-      }
-
-      .highlight-animate {
-        animation: highlight-flash-dark 1.2s 0.5s 1 both;
-      }
-    }
-
-    @keyframes highlight-flash-dark {
-      0% {
-        background: none;
-        color: inherit;
-        box-shadow: none;
-      }
-
-      60% {
-        background: linear-gradient(90deg, #ffe066 0%, #ffb347 100%);
-        color: #222;
-        box-shadow: 0 2px 0 #ffb347, 0 0 8px #ffe066;
-        border-radius: 2px;
-        padding: 0 2px;
-      }
-
-      100% {
-        background: linear-gradient(90deg, #ffe066 0%, #ffb347 100%);
-        color: #222;
-        box-shadow: 0 2px 0 #ffb347, 0 0 8px #ffe066;
-        border-radius: 4px;
-        padding: 0 2px;
-      }
-    }
-
-    @media (max-width: 500px) {
-      body {
-        font-size: 16px;
-        padding: 1.2rem;
-        border: none;
-        box-shadow: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="alternate" type="application/rss+xml" title="Vishnu Roshan Blog RSS" href="/blog/rss.xml" />
 </head>
 
 <body>
   <h1 class="color-shift slide-in">Vishnu Roshan</h1>
-  <div class="contact">
+
+  <address class="contact">
+    <div style="margin:1rem 0 1.5rem 0;text-align:left;">
+      <div><a href="blog/index.html">[ Read My Blog ]</a><span style="color:#888;font-size:0.95em; padding-left: 0.2em;">(May 30,
+          2025)</span></div>
+    </div>
     <div>Chennai, India 600097</div>
     <div><a href="tel:+919952029597">+91 99520 29597</a></div>
     <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
@@ -293,7 +64,7 @@
       <a href="https://github.com/vishnuroshan">[ GitHub ]</a>
       <a href="https://linkedin.com/in/vishnu-roshan">[ LinkedIn ]</a>
     </div>
-  </div>
+  </address>
 
   <pre>Professional Summary</pre>
   <div class="section">
@@ -370,9 +141,18 @@
     </div>
   </div>
 
+  <div class="section">
+    <h2>Recent Blog Posts</h2>
+    <ul>
+      <li><a href="blog/index.html">Welcome to My Blog</a> <span style="color:#888;font-size:0.95em;">(May 30,
+          2025)</span></li>
+    </ul>
+  </div>
+
   <div style="text-align:center;margin:2rem 0 0 0;font-size:0.85rem;color:#888;letter-spacing:0.01em;">
     <footer>
-      <span aria-label="love" style="color:#e25555;">♥</span> Made with love and a sprinkle of <code>↑ ↑ ↓ ↓ ← → ← → B A</code>
+      <span aria-label="love" style="color:#e25555;">♥</span> Made with love and a sprinkle of
+      <code>↑ ↑ ↓ ↓ ← → ← → B A</code>
       <!-- | Time spent here: <span id="time-spent">0s</span> -->
     </footer>
   </div>
@@ -445,4 +225,5 @@ Well... you at least know the Konami code 💁.
     }, 1000);
   </script> -->
 </body>
+
 </html>

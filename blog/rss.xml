@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Vishnu Roshan Blog</title>
+    <link>https://vishnuroshan.in/blog/</link>
+    <description>Blog posts by Vishnu Roshan</description>
+    <language>en-us</language>
+    <item>
+      <title>Welcome to My Blog</title>
+      <link>https://vishnuroshan.in/blog/first-post.html</link>
+      <description>This is a placeholder for your first blog post. Replace this with your content!</description>
+      <pubDate>Thu, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://vishnuroshan.in/blog/first-post.html</guid>
+    </item>
+    <item>
+      <title>A Gentle Intro to Garbage Collection</title>
+      <link>https://vishnuroshan.in/blog/js-memory-gc.html</link>
+      <description>A gentle introduction to JavaScript memory management and garbage collection, with practical examples for web developers.</description>
+      <pubDate>Thu, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://vishnuroshan.in/blog/js-memory-gc.html</guid>
+    </item>
+    <item>
+      <title>WeakMap Patterns for Leak-Free Code</title>
+      <link>https://vishnuroshan.in/blog/weakmap-memory-leak.html</link>
+      <description>How WeakMap helps prevent memory leaks in JavaScript, with real-world examples and best practices.</description>
+      <pubDate>Thu, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://vishnuroshan.in/blog/weakmap-memory-leak.html</guid>
+    </item>
+    <item>
+      <title>WeakSet: Lightweight Tracker</title>
+      <link>https://vishnuroshan.in/blog/weakset-tracking.html</link>
+      <description>A practical guide to JavaScript's WeakSet: how it works, when to use it, and how it helps prevent memory leaks in modern web apps.</description>
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://vishnuroshan.in/blog/weakset-tracking.html</guid>
+    </item>
+    <item>
+      <title>How V8 Cleans Up After Your Code</title>
+      <link>https://vishnuroshan.in/blog/v8-gc-internals.html</link>
+      <description>A practical deep dive into how V8’s garbage collector works, with tips for writing responsive, memory-efficient JavaScript.</description>
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://vishnuroshan.in/blog/v8-gc-internals.html</guid>
+    </item>
+    <item>
+      <title>Simple Patterns, Confusing Names</title>
+      <link>https://vishnuroshan.in/blog/simple-patterns-vs-jargon.html</link>
+      <description>A plain-English rant about how common coding patterns get buried under intimidating jargon, with real JavaScript examples.</description>
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://vishnuroshan.in/blog/simple-patterns-vs-jargon.html</guid>
+    </item>
+  </channel>
+</rss>

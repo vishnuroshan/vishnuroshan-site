@@ -1,0 +1,38 @@
+body {
+  font-family: "IBM Plex Mono", monospace;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f4f1e9;
+  color: #222;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.meta {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+a {
+  color: #ffd700;
+  background: #222;
+  border-color: #666;
+  text-decoration: none;
+}
+a:hover {
+  background: #333;
+  text-decoration: underline;
+}
+a:focus {
+  outline: 2px dashed #ffd700;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1a1a1a;
+    color: #cfc7b8;
+  }
+}

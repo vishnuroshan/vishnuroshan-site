@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How V8 Cleans Up After Your Code</title>
+    <meta name="description"
+        content="A practical deep dive into how V8’s garbage collector works, with tips for writing responsive, memory-efficient JavaScript." />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../blog.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
+
+    <meta property="og:title" content="Inside V8’s Garbage Collector" />
+    <meta property="og:description" content="A practical deep dive into how V8’s garbage collector works, with tips for writing responsive, memory-efficient JavaScript." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vishnuroshan.in/blog/v8-gc-internals.html" />
+    <meta property="og:image" content="https://vishnuroshan.in/banner.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Inside V8’s Garbage Collector" />
+    <meta name="twitter:description" content="A practical deep dive into how V8’s garbage collector works, with tips for writing responsive, memory-efficient JavaScript." />
+    <meta name="twitter:image" content="https://vishnuroshan.in/banner.webp" />
+    <link rel="canonical" href="https://vishnuroshan.in/blog/v8-gc-internals.html" />
+    <meta name="author" content="Vishnu Roshan" />
+    <meta name="keywords" content="V8, garbage collector, JavaScript, memory management, performance, Node.js, Chrome, GC" />
+</head>
+
+<body>
+    <article class="section">
+        <h1>How V8 Cleans Up After Your Code</h1>
+        <p>Your web app feels smooth—until it doesn’t. UI stutters, interactions lag, and users wonder if they’ve opened
+            a legacy browser. Underneath, V8’s garbage collector (GC) decides which objects live on and which vanish.
+            Understanding how V8 organises memory and runs collections helps you write code that stays responsive.</p>
+
+        <h2>Why You Should Care</h2>
+        <p>GC pauses can interrupt animations, delay event handlers, and degrade user experience. By knowing how V8
+            allocates, promotes, and reclaims memory, you gain control over performance and stability.</p>
+
+        <h2>V8’s Heap Layout</h2>
+        <p>The <strong>heap</strong> is the area of memory where JavaScript objects and data structures are dynamically
+            allocated at runtime. V8 manages this region to store and reclaim memory as your application creates and
+            discards objects.</p>
+        <p>V8 splits its heap into three primary regions:</p>
+        <ol>
+            <li><strong>Young Space</strong>: New objects land here. Collected frequently because most objects are
+                short-lived.</li>
+            <li><strong>Old Space</strong>: Survivors of young collections move here. Houses longer-lived data.</li>
+            <li><strong>Large Object Space</strong>: Objects above a size threshold skip young space to avoid costly
+                moves.</li>
+        </ol>
+        <p>Segregating by age minimises work for frequent collections, focusing effort where garbage accumulates most.
+        </p>
+
+        <h2>Generational Collection</h2>
+        <p>V8 uses a two-tiered approach:</p>
+        <ul>
+            <li><strong>Scavenge (Young Space)</strong>: A copying process moves live objects between two halves of
+                young space. Dead objects are left behind, implicitly discarded. This makes minor collections extremely
+                fast.</li>
+            <li><strong>Mark-and-Sweep & Compaction (Old Space)</strong>:
+                <ol>
+                    <li><strong>Mark</strong>: Trace from roots (globals, stack, closures) and flag reachable objects.
+                    </li>
+                    <li><strong>Sweep</strong>: Free unflagged objects.</li>
+                    <li><strong>Compact</strong> (if fragmentation exceeds threshold): Slide live objects together to
+                        eliminate gaps.</li>
+                </ol>
+            </li>
+        </ul>
+        <p>Young collections occur often with minimal pause, while old collections run less frequently but handle more
+            data.</p>
+
+        <h2>Cutting Down Pause Times</h2>
+        <p>To avoid long pauses, V8 applies:</p>
+        <ul>
+            <li><strong>Incremental Marking</strong>: Breaks marking into small steps interleaved with JavaScript
+                execution.</li>
+            <li><strong>Concurrent Sweeping</strong>: Reclaims memory on background threads while your code runs.</li>
+            <li><strong>Parallel Workloads</strong>: Distributes copying and sweeping across CPU cores for large heaps.
+            </li>
+        </ul>
+        <p>These techniques keep pause durations low, even in complex applications.</p>
+
+        <h2>Diagnosing GC Behavior</h2>
+        <ul>
+            <li>Use heap snapshots in Chrome DevTools to inspect object counts and retained sizes.</li>
+            <li>Enable GC tracing: run Node.js with <code class="language-bash">--trace-gc --trace-gc-verbose</code> to
+                log collection events.</li>
+            <li>Analyze Performance tab recordings to spot GC markers and measure pause times.</li>
+        </ul>
+
+        <h2>Tips for Developers</h2>
+        <ul>
+            <li><strong>Minimize short-lived allocations</strong> in tight loops; reuse objects when possible.</li>
+            <li><strong>Manage resources</strong>: clear intervals/timeouts and detach event listeners.</li>
+            <li><strong>Leverage weak references</strong> (<code>WeakMap</code>/<code>WeakSet</code>) for caches to let
+                GC clean up entries.</li>
+            <li><strong>Monitor and tune</strong>: adjust Node.js’s <code
+                    class="language-bash">--max-old-space-size</code> to suit your workload.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>Turns out, memory leaks aren’t always about writing bad code. Sometimes, it’s just about forgetting
+            things—literally. Objects hanging around long after the party’s over.
+
+            Over the past few posts, we wandered through the world of garbage collection, discovered the quiet
+            usefulness of WeakMap and WeakSet, and lifted the hood on how V8 keeps it all together.
+
+            Nothing groundbreaking. Just small things that help you sleep better when your app's been running for days.
+        </p><br />
+        <p>That’s it. No grand finale. Just a quiet exit and a cleaner heap.</p>
+    </article>
+    <p style="margin-top:2rem;"><a href="index.html">← Back to Blog Index</a> &nbsp; <a href="../">← Back to
+            Home</a></p>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+</body>
+
+</html>
