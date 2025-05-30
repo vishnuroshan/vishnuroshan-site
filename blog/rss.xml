@@ -12,7 +12,7 @@
       <pubDate>Thu, 30 May 2025 00:00:00 +0000</pubDate>
       <guid>https://vishnuroshan.in/blog/first-post.html</guid>
     </item>
-    <item>
+    <!-- <item>
       <title>A Gentle Intro to Garbage Collection</title>
       <link>https://vishnuroshan.in/blog/js-memory-gc.html</link>
       <description>A gentle introduction to JavaScript memory management and garbage collection, with practical examples for web developers.</description>
@@ -46,6 +46,6 @@
       <description>A plain-English rant about how common coding patterns get buried under intimidating jargon, with real JavaScript examples.</description>
       <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
       <guid>https://vishnuroshan.in/blog/simple-patterns-vs-jargon.html</guid>
-    </item>
+    </item> -->
   </channel>
 </rss>
