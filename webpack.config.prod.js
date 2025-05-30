@@ -42,6 +42,7 @@ module.exports = merge(common, {
         { from: 'main.css', to: 'main.css' },
         { from: 'blog.css', to: 'blog.css' },
         { from: 'blog', to: 'blog' },
+        { from: 'sitemap.xml', to: 'sitemap.xml' },
       ],
     }),
   ],

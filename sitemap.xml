@@ -3,33 +3,49 @@
   <url>
     <loc>https://vishnuroshan.in/</loc>
     <priority>1.0</priority>
+    <lastmod>2025-05-31</lastmod>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://vishnuroshan.in/blog/</loc>
     <priority>0.9</priority>
+    <lastmod>2025-05-31</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://vishnuroshan.in/blog/first-post.html</loc>
     <priority>0.8</priority>
+    <lastmod>2025-02-09</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://vishnuroshan.in/blog/js-memory-gc.html</loc>
     <priority>0.8</priority>
+    <lastmod>2025-02-22</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://vishnuroshan.in/blog/weakmap-memory-leak.html</loc>
     <priority>0.8</priority>
+    <lastmod>2025-03-09</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://vishnuroshan.in/blog/weakset-tracking.html</loc>
     <priority>0.8</priority>
+    <lastmod>2025-03-29</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://vishnuroshan.in/blog/v8-gc-internals.html</loc>
     <priority>0.8</priority>
+    <lastmod>2025-04-13</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://vishnuroshan.in/blog/simple-patterns-vs-jargon.html</loc>
     <priority>0.8</priority>
+    <lastmod>2025-05-10</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
 </urlset>
