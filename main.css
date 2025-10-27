@@ -10,6 +10,39 @@ body {
   box-shadow: 8px 8px 0 #aaa;
 }
 
+/* Skip Links for Accessibility */
+.skip-links {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 1000;
+}
+
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  background-color: #222;
+  color: #f4f1e9;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: bold;
+  border: 2px solid #444;
+}
+
+.skip-link:focus {
+  position: static;
+  left: auto;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  margin-right: 8px;
+}
+
 h1 {
   font-size: 2rem;
   margin-bottom: 0.25rem;
