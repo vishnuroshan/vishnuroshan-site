@@ -46,7 +46,56 @@
     form-action 'self';
   ">
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
-  <link rel="stylesheet" href="main.css" />
+
+  <!-- Critical CSS inlined for faster rendering -->
+  <style>
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      background-color: #f4f1e9;
+      color: #222;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+      border: 2px solid #444;
+      box-shadow: 8px 8px 0 #aaa;
+    }
+
+    /* Skip Links for Accessibility */
+    .skip-links { position: absolute; top: 0; left: 0; z-index: 1000; }
+    .skip-link {
+      position: absolute; top: -9999px; left: -9999px;
+      background-color: #222; color: #f4f1e9;
+      padding: 8px 16px; text-decoration: none;
+      border-radius: 3px; font-weight: bold;
+      border: 2px solid #444; white-space: nowrap;
+    }
+    .skip-link:focus { position: fixed; top: 10px; left: 10px; z-index: 1001; }
+
+    h1 {
+      font-size: 2rem; margin-bottom: 0.25rem;
+      display: inline-block; position: relative;
+    }
+    h1::after {
+      content: "_"; animation: blink 1s steps(1) infinite;
+      position: absolute; right: -1ch;
+    }
+
+    .contact a {
+      color: #0047ab; text-decoration: none;
+      background: #e0dede; padding: 2px 6px;
+      border: 1px solid #999; margin-right: 0.5rem;
+      font-weight: bold;
+    }
+    .contact a:hover { background: #cfcfcf; }
+
+    @keyframes blink { 50% { opacity: 0; } }
+  </style>
+
+  <!-- Load full CSS asynchronously -->
+  <link rel="preload" href="main.css?v=2024" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="main.css?v=2024"></noscript>
+
   <link rel="alternate" type="application/rss+xml" title="Vishnu Roshan Blog RSS" href="/blog/rss.xml" />
 </head>
 
