@@ -51,33 +51,37 @@
 </head>
 
 <body>
-  <h1 class="color-shift slide-in">Vishnu Roshan</h1>
+  <header role="banner">
+    <h1 class="color-shift slide-in">Vishnu Roshan</h1>
 
-  <address class="contact">
-    
-    <div>Chennai, India 600097</div>
-    <div><a href="tel:+919952029597">+91 99520 29597</a></div>
-    <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
-    <div>
-      <a href="https://github.com/vishnuroshan">[ GitHub ]</a>
-      <a href="https://linkedin.com/in/vishnu-roshan">[ LinkedIn ]</a>
-    </div>
-  </address>
+    <address class="contact" role="navigation" aria-label="Contact information and social links">
 
-  <pre>Professional Summary</pre>
+      <div>Chennai, India 600097</div>
+      <div><a href="tel:+919952029597">+91 99520 29597</a></div>
+      <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
+      <div>
+        <a href="https://github.com/vishnuroshan">[ GitHub ]</a>
+        <a href="https://linkedin.com/in/vishnu-roshan">[ LinkedIn ]</a>
+      </div>
+    </address>
+  </header>
+
+  <main role="main">
+
+  <pre id="professional-summary">Professional Summary</pre>
   <section class="section">
     I'm a <span class="highlight-animate">Senior Software Engineer</span> with <span id="exp-years">few solid
       years</span> of experience building high-performance
-    web applications and scalable backend systems. I’m most at home crafting fast, clean user interfaces and backend
-    architectures that can keep up with real-world demands. I care a lot about writing code that’s easy to read, easy to
-    maintain, and reliable when things get busy. I’m not trying to reinvent the wheel—I just want to build solid,
+    web applications and scalable backend systems. I'm most at home crafting fast, clean user interfaces and backend
+    architectures that can keep up with real-world demands. I care a lot about writing code that's easy to read, easy to
+    maintain, and reliable when things get busy. I'm not trying to reinvent the wheel—I just want to build solid,
     dependable solutions that solve real problems. I ask a lot of questions, stay curious, and always try to make the
     next version better than the last.
   </section>
 
 
-  <pre>Work History</pre>
-  <section class="section">
+  <pre id="work-history">Work History</pre>
+  <section class="section" >
     <div class="job">
       <strong>Sedin Technologies - Railsfactory Division</strong><br />
       <span class="meta">Chennai, India — Oct 2020 to Present</span>
@@ -119,14 +123,14 @@
     </div>
   </section>
 
-  <pre>Skills</pre>
-  <section class="section">
+  <pre id="skills">Skills</pre>
+  <section class="section" >
     Microservices architecture · Project leadership · Client requirements · Software architecture · Web application
     development · AI-assisted software development
   </section>
 
-  <pre>Education</pre>
-  <section class="section">
+  <pre id="education">Education</pre>
+  <section class="section" >
     <div>
       <strong>PSG College of Technology</strong><br />
       Master of Computer Applications<br />
@@ -138,14 +142,13 @@
       Jul 2012 – May 2015
     </div>
   </section>
+  </main>
 
-  <div style="text-align:center;margin:2rem 0 0 0;font-size:0.85rem;color:#888;letter-spacing:0.01em;">
-    <footer>
-      <span aria-label="love" style="color:#e25555;">♥</span> Made with love and a sprinkle of
-      <code>↑ ↑ ↓ ↓ ← → ← → B A</code>
-      <!-- | Time spent here: <span id="time-spent">0s</span> -->
-    </footer>
-  </div>
+  <footer id="footer" role="contentinfo" style="text-align:center;margin:2rem 0 0 0;font-size:0.85rem;color:#555;letter-spacing:0.01em;">
+    <span aria-label="love" style="color:#e25555;">♥</span> Made with love and a sprinkle of
+    <code>↑ ↑ ↓ ↓ ← → ← → B A</code>
+    <!-- | Time spent here: <span id="time-spent">0s</span> -->
+  </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -178,20 +181,20 @@
       input.splice(-konamiCode.length - 1, input.length - konamiCode.length);
 
       if (konamiCode.every((v, i) => v === input[i])) {
-        alert("🎉 Nice! You cracked the Konami code. Open Dev Tools (F12) 👀");
+        alert("Nice! You cracked the Konami code. Open Dev Tools (F12)");
 
         console.log(`
 
-▓██   ██▓ ▒█████   █    ██     ▄▄▄       ██▀███  ▓█████     ▄▄▄       █     █░▓█████   ██████  ▒█████   ███▄ ▄███▓▓█████ 
- ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒████▄    ▓██ ▒ ██▒▓█   ▀    ▒████▄    ▓█░ █ ░█░▓█   ▀ ▒██    ▒ ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀ 
-  ▒██ ██░▒██░  ██▒▓██  ▒██░   ▒██  ▀█▄  ▓██ ░▄█ ▒▒███      ▒██  ▀█▄  ▒█░ █ ░█ ▒███   ░ ▓██▄   ▒██░  ██▒▓██    ▓██░▒███   
-  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░██▄▄▄▄██ ▒██▀▀█▄  ▒▓█  ▄    ░██▄▄▄▄██ ░█░ █ ░█ ▒▓█  ▄   ▒   ██▒▒██   ██░▒██    ▒██ ▒▓█  ▄ 
+▓██   ██▓ ▒█████   █    ██     ▄▄▄       ██▀███  ▓█████     ▄▄▄       █     █░▓█████   ██████  ▒█████   ███▄ ▄███▓▓█████
+ ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒████▄    ▓██ ▒ ██▒▓█   ▀    ▒████▄    ▓█░ █ ░█░▓█   ▀ ▒██    ▒ ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀
+  ▒██ ██░▒██░  ██▒▓██  ▒██░   ▒██  ▀█▄  ▓██ ░▄█ ▒▒███      ▒██  ▀█▄  ▒█░ █ ░█ ▒███   ░ ▓██▄   ▒██░  ██▒▓██    ▓██░▒███
+  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░██▄▄▄▄██ ▒██▀▀█▄  ▒▓█  ▄    ░██▄▄▄▄██ ░█░ █ ░█ ▒▓█  ▄   ▒   ██▒▒██   ██░▒██    ▒██ ▒▓█  ▄
   ░ ██▒▓░░ ████▓▒░▒▒█████▓     ▓█   ▓██▒░██▓ ▒██▒░▒████▒    ▓█   ▓██▒░░██▒██▓ ░▒████▒▒██████▒▒░ ████▓▒░▒██▒   ░██▒░▒████▒
    ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒   ▓▒█░░ ▒▓ ░▒▓░░░ ▒░ ░    ▒▒   ▓▒█░░ ▓░▒ ▒  ░░ ▒░ ░▒ ▒▓▒ ▒ ░░ ▒░▒░▒░ ░ ▒░   ░  ░░░ ▒░ ░
  ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░      ▒   ▒▒ ░  ░▒ ░ ▒░ ░ ░  ░     ▒   ▒▒ ░  ▒ ░ ░   ░ ░  ░░ ░▒  ░ ░  ░ ▒ ▒░ ░  ░      ░ ░ ░  ░
- ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░      ░   ▒     ░░   ░    ░        ░   ▒     ░   ░     ░   ░  ░  ░  ░ ░ ░ ▒  ░      ░      ░   
+ ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░      ░   ▒     ░░   ░    ░        ░   ▒     ░   ░     ░   ░  ░  ░  ░ ░ ░ ▒  ░      ░      ░
  ░ ░         ░ ░     ░              ░  ░   ░        ░  ░         ░  ░    ░       ░  ░      ░      ░ ░         ░      ░  ░
- ░ ░                                                                                                                     
+ ░ ░
 
 YOU WIN!
 Well... you at least know the Konami code 💁.

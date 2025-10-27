@@ -1,10 +1,17 @@
 {
-  "name": " ",
+  "name": "vishnuroshan-site",
   "version": "0.0.1",
   "description": "",
   "private": true,
   "keywords": [
-    ""
+    "Vishnu Roshan",
+    "Full Stack Developer",
+    "Portfolio",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "India"
   ],
   "license": "MIT",
   "author": "Vishnu Roshan",
