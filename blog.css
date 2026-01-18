@@ -1,38 +1,245 @@
-body {
-  font-family: "IBM Plex Mono", monospace;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: #f4f1e9;
-  color: #222;
+/* ==========================================================================
+   Blog - Space Theme
+   ========================================================================== */
+
+:root {
+  --space-bg-deep: #0a0a1a;
+  --space-bg-medium: #12122a;
+  --text-primary: #e8e6e3;
+  --text-secondary: #b4b2af;
+  --text-muted: #8a8886;
+  --accent-cyan: #5ce1e6;
+  --accent-purple: #b388ff;
+  --accent-orange: #ffb347;
+  --flat-surface: rgba(255, 255, 255, 0.05);
+  --flat-border: rgba(255, 255, 255, 0.1);
+  --flat-hover: rgba(255, 255, 255, 0.08);
 }
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: var(--space-bg-deep);
+  color: var(--text-primary);
+  line-height: 1.7;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Star background */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, white, transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 90px 40px, white, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 160px 120px, white, transparent),
+    radial-gradient(1px 1px at 200px 50px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 220px 150px, white, transparent),
+    radial-gradient(1px 1px at 250px 90px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 280px 180px, white, transparent);
+  background-repeat: repeat;
+  background-size: 300px 200px;
+  animation: twinkle 8s ease-in-out infinite;
+}
+
+body::after {
+  background-image:
+    radial-gradient(2px 2px at 100px 50px, var(--accent-cyan), transparent),
+    radial-gradient(2px 2px at 200px 150px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(2px 2px at 300px 100px, var(--accent-purple), transparent);
+  background-repeat: repeat;
+  background-size: 400px 200px;
+  animation: twinkle 12s ease-in-out infinite reverse;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 h1 {
-  font-size: 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-primary);
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--accent-cyan);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
 .meta {
-  color: #888;
-  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
   margin-bottom: 2rem;
 }
 
-a {
-  color: #ffd700;
-  background: #222;
-  border-color: #666;
-  text-decoration: none;
-}
-a:hover {
-  background: #333;
-  text-decoration: underline;
-}
-a:focus {
-  outline: 2px dashed #ffd700;
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
 }
 
-@media (prefers-color-scheme: dark) {
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-purple);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:focus {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Code blocks */
+pre, code {
+  font-family: 'Space Mono', 'IBM Plex Mono', monospace;
+}
+
+code {
+  background: var(--flat-surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--accent-orange);
+}
+
+pre {
+  background: var(--flat-surface);
+  border: 1px solid var(--flat-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--text-primary);
+}
+
+/* Lists */
+ul, ol {
+  color: var(--text-secondary);
+  margin: 1rem 0 1rem 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+li::marker {
+  color: var(--accent-purple);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--accent-cyan);
+  margin: 1.5rem 0;
+  padding: 0.75rem 1.25rem;
+  background: var(--flat-surface);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Blog post list */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.post-list li {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: var(--flat-surface);
+  border: 1px solid var(--flat-border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.post-list li:hover {
+  border-color: rgba(92, 225, 230, 0.3);
+}
+
+.post-list a {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding: 8px 16px;
+  background: var(--flat-surface);
+  border: 1px solid var(--flat-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  border-color: var(--accent-cyan);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
   body {
-    background: #1a1a1a;
-    color: #cfc7b8;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
   }
 }
