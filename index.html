@@ -149,6 +149,7 @@
   <!-- Parallax planets layer - spread throughout viewport -->
   <div class="planets-layer" aria-hidden="true">
     <img src="/assets/neptune.png" alt="" class="planet planet--1 rellax" data-rellax-speed="-1.5">
+    <img src="/assets/earth.png" alt="" class="planet planet--2 rellax" data-rellax-speed="-0.8">
     <img src="/assets/mars.png" alt="" class="planet planet--3 rellax" data-rellax-speed="-2">
     <img src="/assets/jupiter.png" alt="" class="planet planet--4 rellax" data-rellax-speed="-0.5">
     <img src="/assets/venus.png" alt="" class="planet planet--5 rellax" data-rellax-speed="-1.8">
@@ -166,10 +167,7 @@
   </div>
 
   <header role="banner">
-    <div class="name-wrapper" style="position: relative; display: inline-block;">
-      <h1 class="color-shift slide-in">Vishnu Roshan</h1>
-      <img src="/assets/earth.png" alt="" class="planet--earth-name" id="earth-spinner" aria-hidden="true">
-    </div>
+    <h1 class="color-shift slide-in">Vishnu Roshan</h1>
 
     <address class="contact" role="navigation" aria-label="Contact information and social links" id="navigation">
 
@@ -373,27 +371,6 @@ Well... you at least know the Konami code 💁.
       } catch (e) {
         console.error('Rellax error:', e);
       }
-
-      // Earth spin on scroll
-      var earth = document.getElementById('earth-spinner');
-      var rotation = 0;
-      var lastScrollY = window.scrollY;
-      var ticking = false;
-
-      function updateEarthSpin() {
-        var scrollDelta = window.scrollY - lastScrollY;
-        rotation += scrollDelta * 0.5; // Adjust spin speed
-        earth.style.transform = 'translateY(-50%) rotate(' + rotation + 'deg)';
-        lastScrollY = window.scrollY;
-        ticking = false;
-      }
-
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          requestAnimationFrame(updateEarthSpin);
-          ticking = true;
-        }
-      }, { passive: true });
     });
   </script>
 </body>

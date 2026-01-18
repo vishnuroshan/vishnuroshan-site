@@ -38,12 +38,14 @@ body {
   font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--space-bg-deep);
   color: var(--text-primary);
-  max-width: 750px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 2.5rem;
-  line-height: 1.7;
+  padding: 3rem 2rem;
+  line-height: 1.75;
   min-height: 100vh;
   position: relative;
+  font-size: 15px;
+  letter-spacing: 0.01em;
 }
 
 /* Animated star background layers */
@@ -147,12 +149,16 @@ footer {
 /* Typography */
 h1 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   display: inline-block;
   position: relative;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h1::after {
@@ -176,16 +182,17 @@ h3 {
 
 pre {
   font-family: 'Space Mono', 'IBM Plex Mono', monospace;
-  margin: 2rem 0 0.75rem;
-  font-weight: 700;
-  font-size: 0.9rem;
+  margin: 2.5rem 0 1rem;
+  font-weight: 500;
+  font-size: 0.7rem;
   color: var(--accent-cyan);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: var(--flat-surface);
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  border-left: 3px solid var(--accent-cyan);
+  letter-spacing: 0.2em;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border-left: none;
+  opacity: 0.9;
 }
 
 /* Links */
@@ -207,101 +214,109 @@ a:focus {
   border-radius: 2px;
 }
 
-/* Contact links - flat button style */
+/* Contact links - minimal style */
 .contact {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
 .contact > div {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .contact a {
   display: inline-block;
-  color: var(--text-primary);
-  background: var(--flat-surface);
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--flat-border);
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  padding: 4px 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid transparent;
+  margin-right: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 400;
   font-size: 0.9rem;
   transition: all 0.2s ease;
 }
 
 .contact a:hover {
-  background: var(--flat-hover);
-  border-color: var(--accent-cyan);
+  background: transparent;
+  border-bottom: 1px solid var(--accent-cyan);
   color: var(--accent-cyan);
   text-decoration: none;
 }
 
 /* Sections */
 .section {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   color: var(--text-secondary);
+  font-size: 0.95rem;
 }
 
-/* Job entries - flat card style */
+/* Job entries - minimal card style */
 .job {
-  margin-bottom: 2rem;
-  padding: 1.25rem;
-  background: var(--flat-surface);
-  border-radius: 12px;
-  border: 1px solid var(--flat-border);
+  margin-bottom: 1.75rem;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  border-left: 2px solid var(--flat-border);
+  padding-left: 1.25rem;
   transition: border-color 0.2s ease;
 }
 
 .job:hover {
-  border-color: rgba(92, 225, 230, 0.3);
+  border-left-color: var(--accent-cyan);
 }
 
 .job strong {
   color: var(--text-primary);
   font-weight: 600;
+  font-size: 1rem;
 }
 
 .job strong a {
+  color: var(--text-primary);
+  border-bottom: 1px dashed var(--accent-cyan);
+}
+
+.job strong a:hover {
   color: var(--accent-cyan);
 }
 
 .job .meta {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  margin-top: 0.25rem;
+  margin-top: 0.2rem;
+  letter-spacing: 0.02em;
 }
 
 ul {
-  margin: 0.75rem 0 0 1.2rem;
+  margin: 0.5rem 0 0 0;
   padding: 0;
   color: var(--text-secondary);
+  list-style: none;
 }
 
 li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
   line-height: 1.6;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 1rem;
 }
 
-li::marker {
-  color: var(--accent-purple);
+li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
 }
 
 /* Animations */
 .color-shift {
-  animation: colorShift 6s ease-in-out infinite alternate;
-}
-
-@keyframes colorShift {
-  0% {
-    color: var(--text-primary);
-  }
-  50% {
-    color: var(--accent-cyan);
-  }
-  100% {
-    color: var(--accent-purple);
-  }
+  /* Static gradient, no animation for cleaner look */
 }
 
 .slide-in {
@@ -328,46 +343,33 @@ li::marker {
   }
 }
 
-/* Highlight animation - space themed */
+/* Highlight animation - minimal space themed */
 .highlight-animate {
   background: none;
-  color: inherit;
+  color: var(--accent-cyan);
   position: relative;
-  transition: all 0.3s ease;
-  animation: highlight-flash 1.5s 0.5s 1 both;
-}
-
-@keyframes highlight-flash {
-  0% {
-    background: none;
-    color: inherit;
-  }
-  40%, 100% {
-    background: linear-gradient(135deg, rgba(92, 225, 230, 0.2) 0%, rgba(179, 136, 255, 0.2) 100%);
-    color: var(--accent-cyan);
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin: 0 -8px;
-  }
+  font-weight: 500;
 }
 
 /* Footer */
 footer {
-  margin-top: 3rem;
-  padding-top: 2rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--flat-border);
   text-align: center;
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 footer code {
-  background: var(--flat-surface);
-  padding: 2px 8px;
-  border-radius: 4px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
 }
 
 /* Address styling */
@@ -396,77 +398,79 @@ address {
   pointer-events: none;
   will-change: transform;
   object-fit: contain;
+  animation: planet-spin 60s linear infinite;
 }
 
-/* Individual planet sizes and positions - spread throughout viewport */
+/* Slow spin animation for planets */
+@keyframes planet-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Vary spin speeds for different planets */
+.planet--1 { animation-duration: 80s; }
+.planet--2 { animation-duration: 50s; } /* Earth - slightly faster */
+.planet--3 { animation-duration: 70s; }
+.planet--4 { animation-duration: 120s; } /* Jupiter - slow, it's big */
+.planet--5 { animation-duration: 65s; }
+.planet--6 { animation-duration: 90s; }
+.planet--7 { animation-duration: 45s; } /* Mercury - faster */
+.planet--8 { animation-duration: 100s; }
+.planet--9 { animation-duration: 55s; }
+
+/* Individual planet sizes and positions - closer to content, spread evenly */
 .planet--1 { /* Neptune - top right */
   width: 140px;
-  right: 5%;
+  right: 12%;
+  top: 2%;
+}
+
+.planet--2 { /* Earth - large, right side */
+  width: 200px;
+  right: 18%;
+  top: 15%;
+}
+
+.planet--3 { /* Mars - left side upper */
+  width: 100px;
+  left: 22%;
   top: 8%;
 }
 
-.planet--2 { /* Earth - next to name, special positioning */
-  width: 60px;
-  /* Positioned via inline style for name alignment */
-}
-
-.planet--3 { /* Mars - center-left area */
-  width: 100px;
-  left: 30%;
-  top: 18%;
-}
-
-.planet--4 { /* Jupiter - large, center-right */
+.planet--4 { /* Jupiter - large, left side */
   width: 220px;
-  right: 15%;
-  top: 35%;
+  left: 12%;
+  top: 30%;
 }
 
-.planet--5 { /* Venus - mid-left */
+.planet--5 { /* Venus - right side mid */
   width: 120px;
-  left: 20%;
-  top: 45%;
+  right: 18%;
+  top: 42%;
 }
 
-.planet--6 { /* Uranus - center area */
+.planet--6 { /* Uranus - left side mid */
   width: 160px;
-  left: 45%;
-  top: 60%;
+  left: 10%;
+  top: 55%;
 }
 
-.planet--7 { /* Mercury - small, scattered */
+.planet--7 { /* Mercury - right side lower */
   width: 80px;
-  right: 25%;
-  top: 75%;
+  right: 22%;
+  top: 68%;
 }
 
-.planet--8 { /* Pluto - bottom center-left */
+.planet--8 { /* Pluto - left side bottom */
   width: 90px;
-  left: 35%;
-  top: 85%;
+  left: 12%;
+  top: 78%;
 }
 
-.planet--9 { /* Planet X - bottom right */
+.planet--9 { /* Planet X - right side bottom */
   width: 70px;
-  right: 20%;
-  top: 92%;
-}
-
-/* Earth special: positioned inline near the name */
-.planet--earth-name {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  right: -70px;
-  pointer-events: none;
-  will-change: transform;
-}
-
-/* Earth spin on scroll - controlled via JS */
-.planet--earth-name.spinning {
-  transition: transform 0.1s linear;
+  right: 10%;
+  top: 90%;
 }
 
 /* Wrapper to prevent horizontal scroll while allowing planet visibility */
@@ -500,7 +504,7 @@ html {
 
   /* Smaller planets on mobile */
   .planet--1 { width: 50px; }
-  .planet--2 { width: 35px; } /* Earth in layer */
+  .planet--2 { width: 70px; } /* Earth */
   .planet--3 { width: 40px; }
   .planet--4 { width: 80px; }
   .planet--5 { width: 45px; }
@@ -508,12 +512,6 @@ html {
   .planet--7 { width: 30px; }
   .planet--8 { width: 35px; }
   .planet--9 { width: 25px; }
-
-  .planet--earth-name {
-    width: 30px;
-    height: 30px;
-    right: -40px;
-  }
 }
 
 /* Reduced motion preference */
