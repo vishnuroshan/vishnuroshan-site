@@ -108,12 +108,12 @@ body::after {
   50% { opacity: 0.7; }
 }
 
-/* Content container - flat glass effect */
+/* Content container - sits above planets */
 main,
 header,
 footer {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 /* Skip Links for Accessibility */
@@ -375,9 +375,103 @@ address {
   font-style: normal;
 }
 
-/* Parallax preparation - elements with rellax class */
-.rellax {
+/* ==========================================================================
+   Parallax Planets
+   ========================================================================== */
+
+/* Full-viewport planets layer */
+.planets-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.planet {
+  position: absolute;
+  pointer-events: none;
   will-change: transform;
+  object-fit: contain;
+}
+
+/* Individual planet sizes and positions - spread throughout viewport */
+.planet--1 { /* Neptune - top right */
+  width: 140px;
+  right: 5%;
+  top: 8%;
+}
+
+.planet--2 { /* Earth - next to name, special positioning */
+  width: 60px;
+  /* Positioned via inline style for name alignment */
+}
+
+.planet--3 { /* Mars - center-left area */
+  width: 100px;
+  left: 30%;
+  top: 18%;
+}
+
+.planet--4 { /* Jupiter - large, center-right */
+  width: 220px;
+  right: 15%;
+  top: 35%;
+}
+
+.planet--5 { /* Venus - mid-left */
+  width: 120px;
+  left: 20%;
+  top: 45%;
+}
+
+.planet--6 { /* Uranus - center area */
+  width: 160px;
+  left: 45%;
+  top: 60%;
+}
+
+.planet--7 { /* Mercury - small, scattered */
+  width: 80px;
+  right: 25%;
+  top: 75%;
+}
+
+.planet--8 { /* Pluto - bottom center-left */
+  width: 90px;
+  left: 35%;
+  top: 85%;
+}
+
+.planet--9 { /* Planet X - bottom right */
+  width: 70px;
+  right: 20%;
+  top: 92%;
+}
+
+/* Earth special: positioned inline near the name */
+.planet--earth-name {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -70px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Earth spin on scroll - controlled via JS */
+.planet--earth-name.spinning {
+  transition: transform 0.1s linear;
+}
+
+/* Wrapper to prevent horizontal scroll while allowing planet visibility */
+html {
+  overflow-x: clip;
 }
 
 /* Mobile responsive */
@@ -403,6 +497,23 @@ address {
     padding: 8px 12px;
     font-size: 0.85rem;
   }
+
+  /* Smaller planets on mobile */
+  .planet--1 { width: 50px; }
+  .planet--2 { width: 35px; } /* Earth in layer */
+  .planet--3 { width: 40px; }
+  .planet--4 { width: 80px; }
+  .planet--5 { width: 45px; }
+  .planet--6 { width: 60px; }
+  .planet--7 { width: 30px; }
+  .planet--8 { width: 35px; }
+  .planet--9 { width: 25px; }
+
+  .planet--earth-name {
+    width: 30px;
+    height: 30px;
+    right: -40px;
+  }
 }
 
 /* Reduced motion preference */
@@ -421,5 +532,10 @@ address {
   h1::after {
     animation: none;
     opacity: 1;
+  }
+
+  .planet {
+    /* Disable parallax transform on reduced motion */
+    transform: none !important;
   }
 }
