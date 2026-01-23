@@ -123,7 +123,8 @@
         padding: 2.5rem;
         line-height: 1.7;
         min-height: 100vh;
-        font-size: 16px;
+        font-size: 1.25rem;
+        /* 20px base for better readability */
       }
 
       /* Skip Links for Accessibility */
@@ -153,12 +154,18 @@
       }
 
       h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 3.5rem;
+        margin-bottom: 0.7rem;
         display: inline-block;
         position: relative;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        background: linear-gradient(90deg, #5ce1e6 10%, #b388ff 50%, #ff6ec4 90%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        filter: brightness(1.15) drop-shadow(0 2px 12px #5ce1e6aa);
       }
       h1::after {
         content: "_";
@@ -192,20 +199,21 @@
 
       .section {
         min-height: 1.6em;
+        font-size: 1.15em;
       }
       .highlight-animate {
         display: inline;
       }
       pre {
-        margin: 2rem 0 0.75rem;
-        font-size: 0.9rem;
+        margin: 2.5rem 0 1.2rem;
+        font-size: 1.3rem;
         color: var(--accent-cyan);
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.13em;
         background: var(--flat-surface);
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        border-left: 3px solid var(--accent-cyan);
+        padding: 1.1rem 1.5rem;
+        border-radius: 10px;
+        border-left: 4px solid var(--accent-cyan);
       }
     </style>
 
