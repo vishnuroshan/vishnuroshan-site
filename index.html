@@ -75,7 +75,7 @@
         display: grid;
         gap: var(--gap);
         grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.5fr) minmax(300px, 1.3fr);
-        grid-template-rows: auto auto 1fr;
+        grid-template-rows: auto 1fr auto;
         grid-template-areas:
           "ident   summary  work"
           "skills  projects work"
@@ -97,10 +97,11 @@
           0 1px 2px rgba(39, 32, 28, 0.05),
           0 8px 24px -8px rgba(39, 32, 28, 0.12);
       }
-      .panel--work {
+      .panel--work,
+      .panel--skills {
         overflow-y: auto;
       }
-      .panel > pre:first-child {
+      .panel-title {
         position: sticky;
         top: 0;
         z-index: 1;
@@ -157,22 +158,24 @@
   <body>
     <div class="skip-links">
       <a href="#main-content" class="skip-link">Skip to main content</a>
-      <a href="#navigation" class="skip-link">Skip to navigation</a>
     </div>
 
-    <header role="banner" class="panel">
-      <pre>whoami</pre>
+    <header class="panel">
+      <p class="panel-title">whoami</p>
       <h1>Vishnu Roshan</h1>
-      <address
-        class="contact"
-        role="navigation"
-        aria-label="Contact information and social links"
-        id="navigation"
-      >
+      <address class="contact">
         <div>Chennai, India 600097</div>
         <div><a href="tel:+919952029597">+91 99520 29597</a></div>
         <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
         <div class="links">
+          <a class="resume-btn" href="/vishnu-Roshan-Resume.pdf" download="Vishnu-Roshan-Resume.pdf">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12" />
+              <path d="M7 11l5 5 5-5" />
+              <path d="M4 21h16" />
+            </svg>
+            Résumé
+          </a>
           <a
             href="https://github.com/vishnuroshan"
             class="icon-btn"
@@ -199,32 +202,34 @@
       </address>
     </header>
 
-    <main role="main" id="main-content">
-      <section class="panel panel--summary">
-        <pre>Professional Summary</pre>
-        I'm a <span class="emphasis">Senior Software Engineer</span> with
-        <span id="exp-years">several years</span> of experience building
-        high-performance web applications and scalable backend systems. I'm most
-        at home crafting fast, clean user interfaces and backend architectures
-        that can keep up with real-world demands. I care a lot about writing code
-        that's easy to read, easy to maintain, and reliable when things get busy.
-        I'm not trying to reinvent the wheel—I just want to build solid,
-        dependable solutions that solve real problems. I ask a lot of questions,
-        stay curious, and always try to make the next version better than the
-        last.
+    <main id="main-content">
+      <section class="panel panel--summary" aria-labelledby="summary-heading">
+        <h2 class="panel-title" id="summary-heading">Professional Summary</h2>
+        <p>
+          I'm a <strong class="emphasis">Senior Software Engineer</strong> with
+          over 8 years of experience building high-performance web applications
+          and scalable backend systems. I'm
+          most at home crafting fast, clean user interfaces and backend
+          architectures that can keep up with real-world demands. I care a lot
+          about writing code that's easy to read, easy to maintain, and reliable
+          when things get busy. I'm not trying to reinvent the wheel—I just want
+          to build solid, dependable solutions that solve real problems. I ask a
+          lot of questions, stay curious, and always try to make the next version
+          better than the last.
+        </p>
       </section>
 
-      <section class="panel panel--projects">
-        <pre>Projects</pre>
+      <section class="panel panel--projects" aria-labelledby="projects-heading">
+        <h2 class="panel-title" id="projects-heading">Projects</h2>
         <div class="job">
-          <strong
-            ><a
+          <h3 class="job-title">
+            <a
               href="https://lovedoku.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               >Lovedoku</a
-            ></strong
-          >
+            >
+          </h3>
           <span class="meta">A feature-rich, ad-free Sudoku app</span>
           <ul>
             <li>
@@ -234,14 +239,14 @@
           </ul>
         </div>
         <div class="job">
-          <strong
-            ><a
+          <h3 class="job-title">
+            <a
               href="https://steamlib.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               >Steam Lib</a
-            ></strong
-          >
+            >
+          </h3>
           <span class="meta">Browse and manage Steam game libraries</span>
           <ul>
             <li>
@@ -251,14 +256,14 @@
           </ul>
         </div>
         <div class="job">
-          <strong
-            ><a
+          <h3 class="job-title">
+            <a
               href="https://www.npmjs.com/package/tuitactoe"
               target="_blank"
               rel="noopener noreferrer"
               >tui-tac-toe</a
-            ></strong
-          >
+            >
+          </h3>
           <span class="meta"
             >A terminal-based Tic Tac Toe game built with
             <a
@@ -277,10 +282,10 @@
         </div>
       </section>
 
-      <section class="panel panel--work">
-        <pre>Work History</pre>
+      <section class="panel panel--work" aria-labelledby="work-heading">
+        <h2 class="panel-title" id="work-heading">Work History</h2>
         <div class="job">
-          <strong>Sedin Technologies - Railsfactory Division</strong>
+          <h3 class="job-title">Sedin Technologies - Railsfactory Division</h3>
           <span class="meta">Chennai, India — Oct 2020 to Present</span>
           <ul>
             <li>Led agile teams to deliver scalable web apps across varied domains.</li>
@@ -291,7 +296,7 @@
         </div>
 
         <div class="job">
-          <strong>Teknuance Info Solutions</strong>
+          <h3 class="job-title">Teknuance Info Solutions</h3>
           <span class="meta">Chennai, India — Jul 2019 to Jun 2020</span>
           <ul>
             <li>Built scalable RESTful APIs with Node.js, PostgreSQL, and MongoDB.</li>
@@ -302,7 +307,7 @@
         </div>
 
         <div class="job">
-          <strong>Bionworks Technologies (Now part of IQVIA)</strong>
+          <h3 class="job-title">Bionworks Technologies (Now part of IQVIA)</h3>
           <span class="meta">Chennai, India — May 2018 to Jun 2019</span>
           <ul>
             <li>Built and maintained <strong>Healthcommand</strong>, a secure health record app.</li>
@@ -312,7 +317,7 @@
         </div>
 
         <div class="job">
-          <strong>Aosta Software Solutions</strong>
+          <h3 class="job-title">Aosta Software Solutions</h3>
           <span class="meta">Coimbatore, India — Dec 2017 to May 2018</span>
           <ul>
             <li>Built an Android app for inpatient workflows during internship.</li>
@@ -320,41 +325,49 @@
         </div>
       </section>
 
-      <section class="panel panel--skills">
-        <pre>Skills</pre>
-        <ul class="badges">
-          <li>Microservices architecture</li>
+      <section class="panel panel--skills" aria-labelledby="skills-heading">
+        <h2 class="panel-title" id="skills-heading">Skills</h2>
+        <ul class="badges" role="list">
+          <li>TypeScript</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>Node.js</li>
+          <li>Express.js</li>
+          <li>UX Design</li>
+          <li>Interaction Design (IxD)</li>
+          <li>Design systems</li>
+          <li>Figma</li>
+          <li>Responsive design</li>
+          <li>Accessibility (a11y)</li>
+          <li>Web performance</li>
+          <li>SEO</li>
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+          <li>REST APIs</li>
+          <li>WebSockets</li>
+          <li>PWAs</li>
+          <li>Microservices</li>
+          <li>System design</li>
+          <li>Clean architecture</li>
+          <li>Design patterns</li>
+          <li>CI/CD</li>
           <li>Project leadership</li>
-          <li>Client requirements</li>
-          <li>Software architecture</li>
-          <li>Web application development</li>
           <li>AI-assisted development</li>
         </ul>
       </section>
 
-      <section class="panel panel--edu">
-        <pre>Education</pre>
+      <section class="panel panel--edu" aria-labelledby="education-heading">
+        <h2 class="panel-title" id="education-heading">Education</h2>
         <div class="job">
-          <strong>PSG College of Technology</strong>
+          <h3 class="job-title">PSG College of Technology</h3>
           <span class="meta">Master of Computer Applications · Aug 2015 – May 2018</span>
         </div>
         <div class="job">
-          <strong>Guru Nanak College of Arts &amp; Science</strong>
+          <h3 class="job-title">Guru Nanak College of Arts &amp; Science</h3>
           <span class="meta">B.Sc, Computer Science &amp; Programming · Jul 2012 – May 2015</span>
         </div>
       </section>
     </main>
-
-    <script>
-      // Keep the years-of-experience figure current.
-      (function () {
-        var start = new Date("2017-11-01");
-        var now = new Date();
-        var years = now.getFullYear() - start.getFullYear();
-        if (now.getMonth() < start.getMonth()) years -= 1;
-        var el = document.getElementById("exp-years");
-        if (el) el.textContent = "over " + years + " years";
-      })();
-    </script>
   </body>
 </html>
