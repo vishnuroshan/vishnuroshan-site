@@ -3,7 +3,7 @@
   "name_for_human": "My Personal Site Plugin",
   "name_for_model": "personalSite",
   "description_for_human": "Access information and articles from my personal website.",
-  "description_for_model": "Plugin for accessing content from my personal website. You can search for blog posts or ask about topics covered on the site.",
+  "description_for_model": "Plugin for accessing content from my personal website. You can ask about my professional background, projects, work history, and skills.",
   "auth": {
     "type": "none"
   },

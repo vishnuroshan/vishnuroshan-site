@@ -153,20 +153,6 @@ module.exports = merge(common, {
           // Add hash to filename for better caching
           // to: "main.[contenthash:8].css" // Uncomment if you want hash-based caching
         },
-        {
-          from: "blog.css",
-          to: "blog.css",
-          // to: "blog.[contenthash:8].css" // Uncomment if you want hash-based caching
-        },
-
-        // Directories
-        {
-          from: "blog",
-          to: "blog",
-          globOptions: {
-            ignore: ["**/.DS_Store"], // Ignore system files
-          },
-        },
 
         // Security files
         {
