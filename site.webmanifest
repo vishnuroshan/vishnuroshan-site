@@ -15,7 +15,18 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ff4646",
-  "background_color": "#ff4646",
-  "display": "standalone"
+  "categories": [
+    "portfolio",
+    "personal"
+  ],
+  "id": "/",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": [
+    "fullscreen",
+    "minimal-ui"
+  ],
+  "theme_color": "#f7f6f2",
+  "background_color": "#f7f6f2"
 }
