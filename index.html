@@ -491,12 +491,12 @@
             class="g-recaptcha"
             data-sitekey="6LdxBFItAAAAAH53YN4s13dJbJSvXon0Q1DdDlF1"
             data-size="invisible"
-            data-callback="onPhoneVerified"
+            data-callback="onVerified"
           ></div>
         </div>
         <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
         <div class="links">
-          <a class="resume-btn" href="/vishnu-Roshan-Resume.pdf" download="Vishnu-Roshan-Resume.pdf">
+          <a id="resume-btn" class="resume-btn" href="/vishnu-Roshan-Resume.pdf" download="Vishnu-Roshan-Resume.pdf">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 3v12" />
               <path d="M7 11l5 5 5-5" />
@@ -700,7 +700,9 @@
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
-      function onPhoneVerified() {
+      var pendingAction = null;
+
+      function revealPhone() {
         var link = document.createElement("a");
         link.href = "tel:" + atob("KzkxOTk1MjAyOTU5Nw==");
         link.textContent = atob("KzkxIDk5NTIwIDI5NTk3");
@@ -709,7 +711,30 @@
         slot.appendChild(link);
       }
 
+      function downloadResume() {
+        var link = document.createElement("a");
+        link.href = "/vishnu-Roshan-Resume.pdf";
+        link.download = "Vishnu-Roshan-Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      function onVerified() {
+        var action = pendingAction;
+        pendingAction = null;
+        grecaptcha.reset();
+        if (action) action();
+      }
+
       document.getElementById("reveal-phone").addEventListener("click", function () {
+        pendingAction = revealPhone;
+        grecaptcha.execute();
+      });
+
+      document.getElementById("resume-btn").addEventListener("click", function (event) {
+        event.preventDefault();
+        pendingAction = downloadResume;
         grecaptcha.execute();
       });
     </script>
