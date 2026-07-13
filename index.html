@@ -58,7 +58,7 @@
 
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src https://www.google.com/recaptcha/; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
 
     <style>
@@ -217,7 +217,9 @@
         gap: 0.4rem;
         height: 38px;
         padding: 0 0.7rem;
+        font-family: inherit;
         font-size: 0.82rem;
+        cursor: pointer;
         color: var(--text);
         background: var(--panel);
         border: 1px solid var(--line);
@@ -486,24 +488,17 @@
         <div>Chennai, India 600097</div>
         <div id="phone-slot">
           <button type="button" id="reveal-phone" class="phone-reveal">Show phone number</button>
-          <div
-            id="recaptcha-phone"
-            class="g-recaptcha"
-            data-sitekey="6LdxBFItAAAAAH53YN4s13dJbJSvXon0Q1DdDlF1"
-            data-size="invisible"
-            data-callback="onVerified"
-          ></div>
         </div>
         <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
         <div class="links">
-          <a id="resume-btn" class="resume-btn" href="/vishnu-Roshan-Resume.pdf" download="Vishnu-Roshan-Resume.pdf">
+          <button type="button" id="resume-btn" class="resume-btn">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 3v12" />
               <path d="M7 11l5 5 5-5" />
               <path d="M4 21h16" />
             </svg>
             Résumé
-          </a>
+          </button>
           <a
             href="https://github.com/vishnuroshan"
             class="icon-btn"
@@ -527,6 +522,7 @@
             </svg>
           </a>
         </div>
+        <div id="turnstile-container" hidden></div>
       </address>
     </header>
 
@@ -698,44 +694,81 @@
       </section>
     </main>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
+      var TURNSTILE_SITEKEY = "0x4AAAAAAD1O7oM83flDL2Xm";
       var pendingAction = null;
+      var widgetId = null;
 
-      function revealPhone() {
+      function runAction(action) {
+        if (typeof turnstile === "undefined") return;
+        pendingAction = action;
+        var container = document.getElementById("turnstile-container");
+        container.hidden = false;
+        if (widgetId === null) {
+          widgetId = turnstile.render("#turnstile-container", {
+            sitekey: TURNSTILE_SITEKEY,
+            callback: onVerified,
+            "error-callback": resetWidget,
+            "expired-callback": resetWidget,
+          });
+        } else {
+          turnstile.reset(widgetId);
+        }
+      }
+
+      function resetWidget() {
+        if (widgetId !== null) turnstile.reset(widgetId);
+      }
+
+      async function onVerified(token) {
+        var action = pendingAction;
+        pendingAction = null;
+        document.getElementById("turnstile-container").hidden = true;
+        if (action) await action(token);
+        resetWidget();
+      }
+
+      async function revealPhone(token) {
+        var res = await fetch("/api/phone", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token: token }),
+        });
+        if (!res.ok) return;
+        var data = await res.json();
         var link = document.createElement("a");
-        link.href = "tel:" + atob("KzkxOTk1MjAyOTU5Nw==");
-        link.textContent = atob("KzkxIDk5NTIwIDI5NTk3");
+        link.href = "tel:" + data.phone.replace(/\s/g, "");
+        link.textContent = data.phone;
         var slot = document.getElementById("phone-slot");
         slot.textContent = "";
         slot.appendChild(link);
       }
 
-      function downloadResume() {
+      async function downloadResume(token) {
+        var res = await fetch("/api/resume", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token: token }),
+        });
+        if (!res.ok) return;
+        var blob = await res.blob();
+        var url = URL.createObjectURL(blob);
         var link = document.createElement("a");
-        link.href = "/vishnu-Roshan-Resume.pdf";
+        link.href = url;
         link.download = "Vishnu-Roshan-Resume.pdf";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-      }
-
-      function onVerified() {
-        var action = pendingAction;
-        pendingAction = null;
-        grecaptcha.reset();
-        if (action) action();
+        URL.revokeObjectURL(url);
       }
 
       document.getElementById("reveal-phone").addEventListener("click", function () {
-        pendingAction = revealPhone;
-        grecaptcha.execute();
+        runAction(revealPhone);
       });
 
-      document.getElementById("resume-btn").addEventListener("click", function (event) {
-        event.preventDefault();
-        pendingAction = downloadResume;
-        grecaptcha.execute();
+      document.getElementById("resume-btn").addEventListener("click", function () {
+        runAction(downloadResume);
       });
     </script>
   </body>

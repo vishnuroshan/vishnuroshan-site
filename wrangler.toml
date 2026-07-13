@@ -1,0 +1,7 @@
+name = "vishnuroshan-site"
+pages_build_output_dir = "."
+compatibility_date = "2024-11-01"
+
+[[r2_buckets]]
+binding = "RESUME_BUCKET"
+bucket_name = "resume"
