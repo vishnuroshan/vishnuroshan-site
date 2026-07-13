@@ -4,4 +4,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://vishnuroshan.in/sitemap.xml
+Sitemap: https://www.vishnuroshan.in/sitemap.xml
