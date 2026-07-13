@@ -1,10 +1,4 @@
 #!/usr/bin/env node
-// Recomputes years of professional experience and patches index.html in place.
-// Keeps the page fully static (no runtime JS) while the figure stays current.
-//
-// Run manually:            node scripts/update-experience.js
-// Runs automatically via:  .github/workflows/update-experience.yml (yearly)
-
 const fs = require("fs");
 const path = require("path");
 

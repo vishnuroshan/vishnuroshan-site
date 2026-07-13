@@ -61,21 +61,20 @@
       content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
 
-    <!-- All CSS inlined: one request, first paint = final render (no reflow/CLS) -->
     <style>
       :root {
-        --bg: #f7f6f2; /* light off-white page */
-        --panel: #fcfcfa; /* slightly lifted panel */
-        --text: #171717; /* near-black body text */
-        --muted: #565a5f; /* meta / secondary */
-        --line: #e2ded2; /* warm hairline border */
-        --accent: #0a6c7d; /* deep cyan (AA on light) */
+        --bg: #f7f6f2;
+        --panel: #fcfcfa;
+        --text: #171717;
+        --muted: #565a5f;
+        --line: #e2ded2;
+        --accent: #0a6c7d;
         --accent-strong: #084e5a;
-        --header-bg: #27201c; /* dark warm section-header bar (Chroma) */
-        --header-text: #f3eee6; /* text on the dark header */
+        --header-bg: #27201c;
+        --header-text: #f3eee6;
         --radius: 4px;
         --gap: 1rem;
-        --pad: 0.8rem; /* panel inner padding */
+        --pad: 0.8rem;
         --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
           "Liberation Mono", monospace;
       }
@@ -94,7 +93,7 @@
         padding: var(--gap);
         width: 100%;
         height: 100dvh;
-        overflow: hidden; /* page never scrolls; tall panels scroll internally */
+        overflow: hidden;
         display: grid;
         gap: var(--gap);
         grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.5fr) minmax(300px, 1.3fr);
@@ -109,12 +108,11 @@
         display: contents;
       }
 
-      /* --- Terminal-framed panels --- */
       .panel {
         position: relative;
         grid-area: var(--area);
-        min-height: 0; /* lets a grid item scroll instead of stretching */
-        overflow: hidden; /* clip; only the work/skills panels scroll */
+        min-height: 0;
+        overflow: hidden;
         padding: 0 var(--pad) var(--pad);
         background: var(--panel);
         border: 1px solid var(--line);
@@ -124,7 +122,6 @@
           0 8px 24px -8px rgba(39, 32, 28, 0.12);
       }
 
-      /* Panels taller than their cell scroll internally instead of clipping */
       .panel--work,
       .panel--skills {
         overflow-y: auto;
@@ -166,7 +163,6 @@
         --area: edu;
       }
 
-      /* --- Identity / hero --- */
       h1 {
         font-size: 1.9rem;
         line-height: 1.1;
@@ -240,7 +236,6 @@
         display: block;
       }
 
-      /* --- Links (Chroma-style underline) --- */
       a {
         color: var(--accent);
         text-decoration: none;
@@ -259,7 +254,6 @@
         border-radius: 2px;
       }
 
-      /* --- Content --- */
       .emphasis {
         color: var(--accent-strong);
         font-weight: 700;
@@ -305,7 +299,6 @@
         font-size: 0.9rem;
       }
 
-      /* --- Skills badges --- */
       .badges {
         list-style: none;
         display: flex;
@@ -341,7 +334,6 @@
         border-radius: 3px;
       }
 
-      /* --- Skip links (a11y) --- */
       .skip-links {
         position: absolute;
         top: 0;
@@ -369,7 +361,6 @@
         z-index: 1001;
       }
 
-      /* --- Thin scrollbar for the scrollable panels --- */
       .panel--work::-webkit-scrollbar,
       .panel--skills::-webkit-scrollbar {
         width: 8px;
@@ -397,7 +388,6 @@
         }
       }
 
-      /* --- Collapse to a single column on narrow screens --- */
       @media (max-width: 900px) {
         body {
           display: block;

@@ -1,10 +1,12 @@
 /* TEAM */
-Your Name: Vishnu Roshan
-Contact: vishnuroshan4@gmail.com
-Location: Chennai, India
+	Developer: Vishnu Roshan
+	Role: Senior Software Engineer
+	Contact: vishnuroshan4@gmail.com
+	Twitter: @vishnuroshan
+	Location: Chennai, India
 
 /* SITE */
-Last update: 2025/05/31
-Standards: HTML5, CSS3, JavaScript
-Components: Webpack, Prism.js
-Software: VS Code
+	Last update: 2026/07/14
+	Language: English
+	Standards: HTML5, CSS3
+	Software: VS Code

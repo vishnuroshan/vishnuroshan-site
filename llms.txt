@@ -1,0 +1,24 @@
+# Vishnu Roshan
+
+> Senior Software Engineer based in Chennai, India, building high-performance web applications and scalable backends with a focus on clean architecture, fast interfaces, and good UX.
+
+## About
+
+- 8+ years of experience across full-stack web development and backend systems.
+- Core stack: TypeScript, JavaScript, React, Next.js, Node.js, PostgreSQL, MongoDB.
+- Strengths: system design, microservices, clean architecture, design patterns, UX and interaction design, web performance, and accessibility.
+- Currently at Sedin Technologies (Railsfactory Division), Chennai.
+
+## Projects
+
+- [Lovedoku](https://lovedoku.vercel.app/): A feature-rich, ad-free Sudoku app with a custom puzzle-generation algorithm.
+- [Steam Lib](https://steamlib.vercel.app/): Browse and manage Steam game libraries, built with Next.js on the Steam and IGDB APIs with heavy caching.
+- [tui-tac-toe](https://www.npmjs.com/package/tuitactoe): A terminal-based Tic Tac Toe game built with Ink.
+
+## Links
+
+- [Website](https://www.vishnuroshan.in/)
+- [GitHub](https://github.com/vishnuroshan)
+- [LinkedIn](https://linkedin.com/in/vishnu-roshan)
+- [Resume](https://www.vishnuroshan.in/vishnu-Roshan-Resume.pdf)
+- [Email](mailto:vishnuroshan4@gmail.com)
