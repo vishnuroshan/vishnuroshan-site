@@ -709,16 +709,16 @@
           widgetId = turnstile.render("#turnstile-container", {
             sitekey: TURNSTILE_SITEKEY,
             callback: onVerified,
-            "error-callback": resetWidget,
-            "expired-callback": resetWidget,
+            "error-callback": hideWidget,
           });
         } else {
           turnstile.reset(widgetId);
         }
       }
 
-      function resetWidget() {
-        if (widgetId !== null) turnstile.reset(widgetId);
+      function hideWidget() {
+        pendingAction = null;
+        document.getElementById("turnstile-container").hidden = true;
       }
 
       async function onVerified(token) {
@@ -726,7 +726,6 @@
         pendingAction = null;
         document.getElementById("turnstile-container").hidden = true;
         if (action) await action(token);
-        resetWidget();
       }
 
       async function revealPhone(token) {
