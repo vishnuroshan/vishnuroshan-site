@@ -1,7 +1,11 @@
 name = "vishnuroshan-site"
-pages_build_output_dir = "."
+main = "worker/index.js"
 compatibility_date = "2024-11-01"
+
+[assets]
+directory = "."
+binding = "ASSETS"
 
 [[r2_buckets]]
 binding = "RESUME_BUCKET"
-bucket_name = "resume"
+bucket_name = "vishnuroshan-site"

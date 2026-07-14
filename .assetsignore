@@ -1,0 +1,15 @@
+.git
+node_modules
+worker
+wrangler.toml
+.assetsignore
+.dev.vars
+.dev.vars.example
+scripts
+.github
+.vscode
+.editorconfig
+.gitignore
+.gitattributes
+.DS_Store
+LICENSE
