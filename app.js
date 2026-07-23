@@ -1,12 +1,37 @@
 var TURNSTILE_SITEKEY = "0x4AAAAAAD1O7oM83flDL2Xm";
+var TURNSTILE_API =
+  "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
 var pendingAction = null;
 var widgetId = null;
+var apiLoader = null;
 
-function runAction(action) {
-  if (typeof turnstile === "undefined") return;
+function loadTurnstile() {
+  if (apiLoader) return apiLoader;
+  apiLoader = new Promise(function (resolve, reject) {
+    var script = document.createElement("script");
+    script.src = TURNSTILE_API;
+    script.async = true;
+    script.onload = function () {
+      turnstile.ready(resolve);
+    };
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+  return apiLoader;
+}
+
+async function runAction(action) {
   pendingAction = action;
-  var container = document.getElementById("turnstile-container");
-  container.hidden = false;
+  document.getElementById("turnstile-container").hidden = false;
+
+  try {
+    await loadTurnstile();
+  } catch {
+    apiLoader = null;
+    hideWidget();
+    return;
+  }
+
   if (widgetId === null) {
     widgetId = turnstile.render("#turnstile-container", {
       sitekey: TURNSTILE_SITEKEY,
