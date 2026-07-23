@@ -13,3 +13,4 @@ scripts
 .gitattributes
 .DS_Store
 LICENSE
+.wrangler
