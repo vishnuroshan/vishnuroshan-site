@@ -1,10 +1,10 @@
 ---
 id: TASK-7
 title: Strengthen project entries with technical hooks and metrics
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-21 06:28'
-updated_date: '2026-09-22 19:19'
+updated_date: '2026-09-22 20:03'
 labels:
   - content
   - projects
@@ -38,20 +38,17 @@ Per project:
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-SCOPE NARROWED. Vishnu is deferring the technical detail and will add repository links himself later.
+Complete. Every strand closed.
 
-Deferred, needs Vishnu:
-- Lovedoku's generation approach. Constraint propagation, backtracking solver, difficulty grading? The entry currently says 'a custom puzzle generator', which asserts without evidence.
-- Steam Lib's caching strategy. ISR, stale-while-revalidate, Redis? What the rate limit budget was and how much it was cut. Currently 'heavily cached to stay inside rate limits'.
+Technical hooks, recovered by reading the repositories rather than asking:
+- Lovedoku is not 'a custom puzzle generator' and not, as Vishnu described it, mostly backtracking. ALGORITHM.md documents a Dancing Links exact-cover solver over a 729 by 324 matrix proving uniqueness, a second human-technique solver grading difficulty by the hardest technique required, and grade-targeted carving in 180-degree rotationally symmetric pairs with uniqueness re-verified after every removal. The bullet now says so.
+- Steam Lib is not 'heavily cached'. lib/igdb.ts implements a read-through cache in Supabase Postgres: query game_metadata for the requested appids, diff against what is missing, fetch only the misses from IGDB in batches of IGDB_BATCH_SIZE 500, upsert on conflict appid. A module-level cache in useGameMetadata dedupes across components. Three tiers in total.
 
-NEW, raised by Vishnu: add repository links to the Playground entries. Each entry currently links only to the live demo or the npm page. For an engineer's portfolio the source is often the more useful link, since it is the only place a reader can actually assess the work.
+Measured outcome found in the Lovedoku repo: hardest-difficulty generation went from roughly 1,000ms to roughly 6ms, documented with run counts in ALGORITHM.md. This is the only benchmarked figure available anywhere in the resume and it is now on it.
 
-Questions this raises, to settle before implementing:
-- Are the repositories public? A link to a private repo is worse than no link, because it looks like an oversight.
-- Where does the second link go? The title is already the demo link. Options are a trailing 'source' link in the meta line, or a small icon matching the existing inline SVG set.
-- Does the repo link belong in the PDF as well? A second URL per project adds length to an already two-page document, and recruiters do click through. Probably yes for the source, since it is the more substantive of the two.
+Source links added for the three projects with public repositories: sudoku, steamlib and tuitactoe. Zero Hero has none; 92 public repos were listed and searched, with no match. The asymmetry is fine, since a jam game's demo is the point.
 
-The structural rewrite of this section is already done. Entries were collapsed to one line each, the Zero Hero rules dump removed, 'Built for my wife' kept, and Ink's marketing language dropped. What remains is content only Vishnu can supply.
+Project and source URLs both reach the PDF. They previously did not: on screen the titles are links, but the print stylesheet flattens link styling, so the generated resume showed bare names with no way to reach anything. Fixed with a scoped print rule appending href for project titles, source links and work-bullet links, deliberately excluding the inline Ink attribution.
 
-tuitactoe download count was looked up at 969 over the last 365 days and recommended against. Under a thousand reads as a weak number on a senior resume; 'npx tuitactoe' is the stronger signal because it is instantly verifiable.
+tuitactoe download count, 969 over the last 365 days, was looked up and deliberately left off. Under a thousand invites a dismissive reaction; npx tuitactoe is the stronger signal because it is instantly verifiable.
 <!-- SECTION:NOTES:END -->

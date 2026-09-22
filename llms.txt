@@ -24,9 +24,9 @@
 ## Playground
 
 - [Zero Hero](https://zerohero.vishnuroshan.in/): Reach exactly zero before the timer runs out. React, TypeScript, and Vite, built for the GMTK Game Jam 2026.
-- [Lovedoku](https://lovedoku.vercel.app/): Ad-free Sudoku, built for my wife. Rewrote the generator around a Dancing Links exact-cover solver with technique-based difficulty grading, cutting hardest-level generation from ~1s to ~6ms.
-- [Steam Lib](https://steamlib.vercel.app/): Browse and manage Steam game libraries. Next.js over the Steam and IGDB APIs, with a Postgres-backed metadata cache that fetches only uncached titles, in batches of 500.
-- [tui-tac-toe](https://www.npmjs.com/package/tuitactoe): Tic Tac Toe in the terminal, built with Ink. Install with `npx tuitactoe`.
+- [Lovedoku](https://lovedoku.vercel.app/): Ad-free Sudoku, built for my wife. Rewrote the generator around a Dancing Links exact-cover solver with technique-based difficulty grading, cutting hardest-level generation from ~1s to ~6ms. Source.
+- [Steam Lib](https://steamlib.vercel.app/): Browse and manage Steam game libraries. Next.js over the Steam and IGDB APIs, with a Postgres-backed metadata cache that fetches only uncached titles, in batches of 500. Source.
+- [tui-tac-toe](https://www.npmjs.com/package/tuitactoe): Tic Tac Toe in the terminal, built with Ink. Install with `npx tuitactoe`. Source.
 
 ## Links
 
