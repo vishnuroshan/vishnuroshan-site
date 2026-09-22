@@ -26,6 +26,7 @@ async function runAction(action) {
   try {
     await loadTurnstile();
   } catch {
+    console.error("turnstile: script failed to load");
     apiLoader = null;
     hideWidget();
     return;
@@ -37,7 +38,10 @@ async function runAction(action) {
     widgetId = turnstile.render("#turnstile-container", {
       sitekey: TURNSTILE_SITEKEY,
       callback: onVerified,
-      "error-callback": hideWidget,
+      "error-callback": function (code) {
+        console.error("turnstile: widget error", code);
+        hideWidget();
+      },
     });
   } else {
     turnstile.reset(widgetId);
