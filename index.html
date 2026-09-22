@@ -529,6 +529,13 @@
           font-size: 10pt;
         }
 
+        .panel--projects .job-title a::after,
+        .panel--work li a::after {
+          content: " " attr(href);
+          font-weight: 400;
+          word-break: break-all;
+        }
+
         .job .company,
         .job .meta {
           font-size: 9pt;
@@ -758,10 +765,10 @@
           <ul>
             <li>
               Delivered 10–12 client projects across healthcare,
-              <span class="nb">e-commerce</span>, publishing, warehouse
-              management, HR technology, management consulting, and retail
-              analytics; led three frontend and backend engineers on a recent
-              project.
+              <span class="nb">e-commerce</span>, publishing,
+              <span class="nb">logistics (WMS)</span>, HR technology, management
+              consulting, and retail analytics; led three frontend and backend
+              engineers on a recent project.
             </li>
             <li>
               <strong>Management consulting</strong> — migrated vector storage
@@ -784,8 +791,14 @@
               computer vision to read product insights from shelf photography.
             </li>
             <li>
-              <strong>Sedstart</strong> — cut render times on Sedin's in-house
-              end-to-end testing product by restructuring its React render tree.
+              <a
+                href="https://sedstart.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><strong>Sedstart</strong></a
+              >
+              — cut render times on Sedin's no-code E2E test automation
+              platform by restructuring its React render tree.
             </li>
           </ul>
         </div>
