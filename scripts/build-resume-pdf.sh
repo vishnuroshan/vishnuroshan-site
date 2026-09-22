@@ -40,6 +40,13 @@ if command -v pdftotext >/dev/null 2>&1; then
   for term in "e-commerce" "full-stack" "Web performance" "AI-assisted development" \
               "Reciprocal Rank Fusion" "React Native" "Vector search" \
               "linkedin.com/in/vishnu-roshan" "github.com/vishnuroshan" \
+              "logistics (WMS)" "E2E test automation" \
+              "https://github.com/vishnuroshan/sudoku" \
+              "https://github.com/vishnuroshan/steamlib" \
+              "https://github.com/vishnuroshan/tuitactoe" \
+              "https://github.com/vishnuroshan/zed-react-ts-snippets" \
+              "https://zed.dev/extensions/react-typescript-snippets" \
+              "https://sedstart.com/" \
               "SUMMARY" "EXPERIENCE" "SIDE PROJECTS" "SKILLS" "EDUCATION"; do
     case "$TEXT" in
       *"$term"*) ;;

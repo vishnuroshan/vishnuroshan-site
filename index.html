@@ -534,7 +534,7 @@
         .panel--work li a::after {
           content: " " attr(href);
           font-weight: 400;
-          word-break: break-all;
+          white-space: nowrap;
         }
 
         .job .company,
@@ -860,6 +860,28 @@
 
       <section class="panel panel--projects" aria-labelledby="projects-heading">
         <h2 class="panel-title" data-print-heading="Side Projects" id="projects-heading">Playground</h2>
+        <div class="job">
+          <h3 class="job-title">
+            <a
+              href="https://zed.dev/extensions/react-typescript-snippets"
+              target="_blank"
+              rel="noopener noreferrer"
+              >React TypeScript Snippets</a
+            >
+          </h3>
+          <span class="meta"
+            >React and TypeScript snippets for the Zed editor.
+            <strong class="emphasis">96,000+ downloads</strong>, the second most
+            downloaded snippet extension on Zed.
+            <a
+              href="https://github.com/vishnuroshan/zed-react-ts-snippets"
+              class="src"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Source</a
+            >.</span
+          >
+        </div>
         <div class="job">
           <h3 class="job-title">
             <a
