@@ -4,7 +4,7 @@ title: Collect resume source facts from Vishnu
 status: In Progress
 assignee: []
 created_date: '2026-09-21 06:26'
-updated_date: '2026-09-22 19:18'
+updated_date: '2026-09-22 19:25'
 labels:
   - resume
   - content
@@ -45,13 +45,17 @@ Record answers in backlog/docs so later tasks can cite them.
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-Healthplug MD and PX descriptors recovered from the web, since Vishnu did not remember them. Healthplug MD is a mobile-first EMR combining point-of-care records, multi-disciplinary task management and secure team messaging, integrating with existing EHR systems. Healthplug PX is the multilingual patient engagement app. Bionworks was founded in 2016 for secondary and tertiary care hospitals, and IQVIA acquired the product business in 2021, which confirms both the 'now part of IQVIA' wording and that Vishnu's 2018 to 2019 tenure predates the acquisition.
+Confirmed: Vishnu worked on both Healthplug MD and PX, so the Bionworks bullet naming them as peers stands.
 
-These descriptors are sourced from the web, not from Vishnu, and he has been asked to sanity-check them before interviewing on them.
+A Sedin healthcare engagement was identified. The client is a private company and Vishnu flagged it as non-public, so the name is deliberately not recorded here or anywhere in the repository, which is public. The product is compliance infrastructure used by healthcare organisations to manage clinical workforces.
 
-One discrepancy noted and deliberately not acted on: sources describe Bionworks as Bangalore-based, while the resume says Chennai. Vishnu knows where he worked; the resume was left alone.
+The healthcare bullet was rewritten from 'built patient records and compliance features for clients handling protected health data' to name what the compliance work actually was. Vishnu then corrected the specifics: his work was compliance tracking, not the other areas the same product covers. The bullet reads 'built compliance tracking for a clinical workforce platform'.
 
-tuitactoe npm figures looked up: 969 downloads over the last 365 days, 7 versions, first published 2026-01-23. Recommended against putting the download count on the resume. Under a thousand invites a dismissive reaction rather than admiration, and 'npx tuitactoe' is more persuasive because a recruiter can run it in seconds.
+Patient records management was then removed from the Sedin entry entirely. Vishnu confirmed it was not Sedin work. It belongs to Bionworks, where the Healthcommand bullet already covers it. The healthcare story now reads honestly across the two employers: records at Bionworks in 2018 to 2019, compliance at Sedin recently.
 
-STILL OPEN: measured outcomes, deferred by Vishnu; the real name for the project labelled 'Search and retrieval'; what AMS360 is; healthcare specialist versus domain-neutral positioning; Lovedoku's generation approach; Steam Lib's caching strategy.
+'Protected health data' was dropped. It fits patient records but overstates this work, which is workforce compliance rather than PHI.
+
+'At scale' was also dropped. It came from the vendor's own marketing copy and carries no number, which is the same unfalsifiable-adjective problem this review has removed everywhere else.
+
+An earlier draft named the specific clinician categories the platform covers. That was judged identifiable, since few companies work in that niche, and Vishnu chose the looser wording. The resume states the problem without pointing at the product category. No client-identifying term appears in any file in this repository.
 <!-- SECTION:NOTES:END -->
