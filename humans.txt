@@ -10,3 +10,8 @@
 	Language: English
 	Standards: HTML5, CSS3
 	Software: VS Code
+
+/* CREDITS */
+	Icons: Game Icons, CC BY 3.0
+	https://game-icons.net
+	Games: DOOM and Wolfenstein 3D shareware by id Software, hosted by the Internet Archive

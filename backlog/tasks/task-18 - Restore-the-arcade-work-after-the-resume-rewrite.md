@@ -1,9 +1,10 @@
 ---
 id: TASK-18
 title: Restore the arcade work after the resume rewrite
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-22 18:02'
+updated_date: '2026-09-22 21:02'
 labels:
   - arcade
   - git
@@ -49,3 +50,18 @@ Until the stashes are restored, the live site has no /arcade route. The Arcade l
 - [ ] #3 /arcade route works
 - [ ] #4 Panel scroll CSS reconciled with whatever TASK-9 produced
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Superseded rather than restored. The arcade idea shipped in a much smaller form: two icons in the whoami contact row that open DOOM or Wolfenstein 3D in a dialog on the same page, with the games running from archive.org's own emulator.
+
+The stashed implementation was inspected and abandoned. It could not have shipped as it stood:
+- _headers was never modified, and the vendored js-dos needs WASM compilation plus blob-URL workers, which the current script-src 'self' blocks.
+- The client fetched /games/doom1.jsdos as a static asset while worker/index.js served bundles from R2 at /arcade/data/, and games/*.jsdos was gitignored, so a clean clone could resolve the bundle by neither path.
+- Wolfenstein 3D existed only in markup and fake BIOS text. No bundle, no GAMES entry, no build source.
+
+Dropped with it: the /arcade route, arcade.html, arcade.js, vendor/js-dos at 2.57 MB under GPL-2.0, games/doom1.jsdos at 2.44 MB, scripts/build-bundles.py, and the .gitattributes, .assetsignore and .gitignore rules that existed only to manage those assets.
+
+BOTH STASHES ARE DELIBERATELY LEFT IN PLACE. They still hold two things unrelated to arcade, tracked as TASK-25 and TASK-26. Do not drop them until those are resolved.
+<!-- SECTION:NOTES:END -->

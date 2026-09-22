@@ -104,3 +104,32 @@ scrollPanels.forEach(function (panel) {
     updateScrollHint(panel);
   }).observe(panel);
 });
+
+var gameDialog = document.getElementById("game-dialog");
+var gameSlot = document.getElementById("game-slot");
+var gameName = document.getElementById("game-name");
+
+function openGame(button) {
+  var frame = document.createElement("iframe");
+  frame.src = "https://archive.org/embed/" + button.dataset.game;
+  frame.title = button.dataset.gameTitle;
+  frame.allow = "fullscreen";
+  gameName.textContent = button.dataset.gameTitle;
+  gameSlot.appendChild(frame);
+  gameDialog.showModal();
+}
+
+document.querySelectorAll(".icon-btn[data-game]").forEach(function (button) {
+  button.addEventListener("click", function () {
+    openGame(button);
+  });
+});
+
+document.getElementById("game-close").addEventListener("click", function () {
+  gameDialog.close();
+});
+
+gameDialog.addEventListener("close", function () {
+  gameSlot.textContent = "";
+  gameName.textContent = "";
+});

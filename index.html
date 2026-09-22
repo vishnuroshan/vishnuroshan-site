@@ -186,6 +186,16 @@
           background 0.15s ease;
       }
 
+      .games {
+        display: flex;
+        gap: 0.5rem;
+        margin-left: auto;
+      }
+
+      .icon-btn[data-game] {
+        color: var(--accent);
+      }
+
       .icon-btn:hover {
         color: var(--header-text);
         background: var(--header-bg);
@@ -341,6 +351,68 @@
         border-radius: 3px;
       }
 
+      #game-dialog {
+        width: 100vw;
+        max-width: 100vw;
+        height: 100dvh;
+        max-height: 100dvh;
+        padding: 0;
+        border: none;
+        background: var(--bg);
+        display: none;
+        flex-direction: column;
+      }
+
+      #game-dialog[open] {
+        display: flex;
+      }
+
+      #game-dialog::backdrop {
+        background: rgba(39, 32, 28, 0.85);
+      }
+
+      .game-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--gap);
+        padding: 0.5rem var(--pad);
+        background: var(--header-bg);
+        color: var(--header-text);
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      #game-close {
+        font: inherit;
+        padding: 0.2rem 0.6rem;
+        color: var(--header-text);
+        background: none;
+        border: 1px solid var(--header-text);
+        border-radius: var(--radius);
+        cursor: pointer;
+      }
+
+      #game-close:hover {
+        color: var(--header-bg);
+        background: var(--header-text);
+      }
+
+      #game-slot {
+        flex: 1;
+        min-height: 0;
+        background: #000;
+      }
+
+      #game-slot iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
       .skip-links {
         position: absolute;
         top: 0;
@@ -484,6 +556,8 @@
         header.panel .panel-title,
         .skip-links,
         .scroll-hint,
+        .games,
+        #game-dialog,
         #turnstile-container,
         #resume-btn,
         .icon-btn svg,
@@ -606,6 +680,10 @@
       }
 
       @media (max-width: 900px) {
+        .games {
+          display: none;
+        }
+
         body {
           display: block;
           height: auto;
@@ -749,6 +827,26 @@
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
           </a>
+          <span class="games">
+          <button
+              type="button"
+              class="icon-btn"
+              data-game="doom1-sw1"
+              data-game-title="DOOM"
+              title="DOOM" aria-label="Play DOOM"
+            >
+              <svg viewBox="0 0 512 512" width="23" height="23" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M255.997 16.004c-120 0-239.997 60-239.997 149.998C16 226.002 61 256 61 316c0 45-15 45-15 75c0 14.998 48.01 32.002 89.998 44.998v60h239.997v-60s90.567-27.957 90-45c-.933-27.947-15-30-15-74.998c0-30 45.642-91.42 44.998-149.998c0-90-119.998-149.998-239.996-149.998m-90 179.997c33.137 0 60 26.864 60 60s-26.863 60-60 60C132.863 316 106 289.136 106 256s26.862-60 59.998-60zm179.998 0c33.136 0 60 26.864 60 60s-26.864 60-60 60s-60-26.864-60-60s26.864-60 60-60m-89.998 105c15 0 45 60 45 75c0 29.998 0 29.998-15 29.998h-60c-15 0-15 0-15-30c0-15 30-74.998 45-74.998"/></svg>
+            </button>
+            <button
+              type="button"
+              class="icon-btn"
+              data-game="wolf3dsw"
+              data-game-title="Wolfenstein 3D"
+              title="Wolfenstein 3D" aria-label="Play Wolfenstein 3D"
+            >
+              <svg viewBox="0 0 512 512" width="23" height="23" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M179.3 38.94C154.7 77.7 142.7 139.7 168.4 185.9l-16.3 9.2c-6.7-11.9-11.2-24.4-13.9-37.2c-34.5-6.3-69.42-7.5-104.98-2.1c34.07 10.1 52.77 23.7 76.68 46.7c-26.82 9.7-60.25 30.2-92.93 70.2c35.47-8.8 64.83-11.5 89.43-6.3c-36.94 22.5-64.06 56.1-88.34 114.1c35.9-17.2 64.89-18.8 102.94-18.8c-23.07 32.7-35.27 77.2-36.31 112.8c24.51-26 57.61-60.2 87.21-79c3 29.9 15 58.3 35.9 85.3c-.2-43.9 10.3-88.3 31.6-133.4c-18.8 9-32.4 18.1-49.9 29.3c6.2-27.9 12.4-55.8 18.7-83.7c-23.3 2.4-39 10-60.5 18.5c16.3-33.1 32.7-66.1 49.1-99.2l16.8 8.3l-28.4 57.4c18.4-4.4 28.7-4.1 45.7-1.3c-4.5 20.4-9 40.7-13.6 61c65.3-36.2 148.3-45.9 226.7-50c7.6-12.9 13.8-24.2 18.8-34.8l-6.3-24.4l-24.4 30.8l-7.8-27.5l-22.5 29.2l-7.5-26.1l-23.9 31.5l-7.7-28.2l-23.8 31.4l1.2-41.1l22.6-42.7l7.6 28.3l23.9-31.5l7.6 28.2l23.5-30l6.5 26.9l24.5-30.8l7.8 27.5l24.6-32c2.3-10.8 4.6-22.4 7.4-35.7c-55.5-3.7-106.3 4.8-154 9.8c-38-20.8-80.8-26.8-121.9-18.5c-13.6-29.69-27.2-59.38-40.9-89.06M325.5 158.3c-4.5 14.2-13 18.3-24.7 20.6c-16.1-4.4-28.3-15.5-34.4-30.2c20.4-3.8 42.4 3.4 59.1 9.6"/></svg>
+            </button>
+          </span>
         </div>
         <div id="turnstile-container" hidden></div>
       </address>
@@ -1092,6 +1190,14 @@
         </div>
       </section>
     </main>
+
+    <dialog id="game-dialog">
+      <div class="game-bar">
+        <span id="game-name"></span>
+        <button type="button" id="game-close" aria-label="Close game">Esc</button>
+      </div>
+      <div id="game-slot"></div>
+    </dialog>
 
     <script src="/app.js" defer></script>
   </body>
