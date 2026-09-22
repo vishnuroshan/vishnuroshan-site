@@ -321,14 +321,16 @@
         background: color-mix(in srgb, var(--header-bg) 4%, var(--panel));
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        transition: color 0.15s ease, border-color 0.15s ease,
-          background 0.15s ease;
+        transition: transform 0.18s ease, box-shadow 0.18s ease,
+          border-color 0.18s ease;
       }
 
-      .badges li:hover {
-        color: var(--accent-strong);
-        border-color: var(--accent);
-        background: color-mix(in srgb, var(--accent) 8%, var(--panel));
+      @media (hover: hover) and (pointer: fine) {
+        .badges li:hover {
+          transform: scale(1.06);
+          box-shadow: 0 2px 8px rgba(39, 32, 28, 0.16);
+          border-color: var(--accent);
+        }
       }
 
       code {
@@ -418,6 +420,14 @@
       @media (prefers-reduced-motion: reduce) {
         h1::after {
           animation: none;
+        }
+
+        .badges li {
+          transition: none;
+        }
+
+        .badges li:hover {
+          transform: none;
         }
       }
 

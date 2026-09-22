@@ -1,9 +1,10 @@
 ---
 id: TASK-20
 title: Design a stronger hover effect for the skills badges
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-22 18:06'
+updated_date: '2026-09-22 20:39'
 labels:
   - design
   - ux
@@ -52,3 +53,21 @@ Open direction to discuss when it is picked up: whether the effect carries meani
 - [ ] #5 Touch and keyboard focus states are not degraded
 - [ ] #6 Vishnu verifies in browser
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Settled on a lift: scale 1.06 with a soft shadow and an accent border, 0.18s.
+
+Route taken to get there, recorded because two richer options were built and rejected:
+- A gradient sweep, filling the badge left to right by animating background-size from 0 to 100 percent. Rejected as too much for the element.
+- Direction-aware entry, where the fill started from whichever edge the pointer crossed. Implemented with a nearest-edge calculation in app.js setting a data-from attribute. Rejected: the badges are only about 29px tall, so vertical entries travelled too short a distance to read, and it cost roughly twenty lines of JavaScript plus listeners on 45 elements for a distinction visible in about half of cases.
+
+The final version needs no JavaScript at all. app.js is back to 106 lines with no references to the removed code.
+
+Constraints from the original task all met: no external dependencies, no CSP change, transform and opacity only so there is no paint or layout cost, prefers-reduced-motion drops the transform while keeping the shadow and border, and the effect is gated behind hover: hover and pointer: fine so a tap on touch cannot leave it stuck.
+
+transform: scale was chosen over any width or padding change specifically because it does not reflow. Growing the box would have pushed the whole wrapped flex row around on every hover.
+
+The open question from the original task, whether the effect should carry meaning such as proficiency or years, was answered by choosing decoration. Worth recording why: encoding proficiency would have repeated the mistake identified in the TASK-5 audit, where the legacy PDF showed segmented rating bars that were unjustifiable to a reader.
+<!-- SECTION:NOTES:END -->
