@@ -102,3 +102,5 @@ dist
 .DS_Store
 
 .wrangler/
+
+.repowise/
