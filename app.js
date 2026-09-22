@@ -8,11 +8,22 @@ var apiLoader = null;
 function loadTurnstile() {
   if (apiLoader) return apiLoader;
   apiLoader = new Promise(function (resolve, reject) {
-    window.onTurnstileReady = resolve;
+    var timer = setTimeout(function () {
+      reject(new Error("turnstile: timed out"));
+    }, 10000);
+
+    window.onTurnstileReady = function () {
+      clearTimeout(timer);
+      resolve();
+    };
+
     var script = document.createElement("script");
     script.src = TURNSTILE_API;
     script.async = true;
-    script.onerror = reject;
+    script.onerror = function () {
+      clearTimeout(timer);
+      reject(new Error("turnstile: script blocked or unreachable"));
+    };
     document.head.appendChild(script);
   });
   return apiLoader;
