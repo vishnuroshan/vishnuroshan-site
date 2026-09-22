@@ -759,13 +759,17 @@
             <li>
               Delivered 10–12 client projects across healthcare,
               <span class="nb">e-commerce</span>, publishing, warehouse
-              management, HR technology, and retail analytics; led three
-              frontend and backend engineers on a recent project.
+              management, HR technology, management consulting, and retail
+              analytics; led three frontend and backend engineers on a recent
+              project.
             </li>
             <li>
-              <strong>Search and retrieval</strong> — migrated vector storage from
-              ChromaDB to <code>pgvector</code>, cutting a second data store and
-              its cost, and implemented hybrid search using Reciprocal Rank Fusion.
+              <strong>Management consulting</strong> — migrated vector storage
+              from
+              ChromaDB to <code>pgvector</code>, folding search onto the existing
+              database and enabling hybrid search over mixed prose and structured
+              records with Reciprocal Rank Fusion, which the two-store setup
+              could not support without overhead.
             </li>
             <li>
               <strong>Healthcare</strong> — built compliance tracking for a
@@ -866,8 +870,9 @@
             >
           </h3>
           <span class="meta"
-            >Ad-free Sudoku with a custom puzzle generator. Built for my
-            wife.</span
+            >Ad-free Sudoku, built for my wife. Rewrote the generator around a
+            Dancing Links exact-cover solver with technique-based difficulty
+            grading, cutting hardest-level generation from ~1s to ~6ms.</span
           >
         </div>
         <div class="job">
@@ -881,7 +886,8 @@
           </h3>
           <span class="meta"
             >Browse and manage Steam game libraries. Next.js over the Steam and
-            IGDB APIs, heavily cached to stay inside rate limits.</span
+            IGDB APIs, with a Postgres-backed metadata cache that fetches only
+            uncached titles, in batches of 500.</span
           >
         </div>
         <div class="job">

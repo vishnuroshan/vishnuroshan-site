@@ -1,10 +1,10 @@
 ---
 id: TASK-1
 title: Collect resume source facts from Vishnu
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-09-21 06:26'
-updated_date: '2026-09-22 19:35'
+updated_date: '2026-09-22 19:51'
 labels:
   - resume
   - content
@@ -45,9 +45,13 @@ Record answers in backlog/docs so later tasks can cite them.
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-Teknuance products closed out. Vishnu could not recall a descriptor for AMS360 and confirmed it is unrelated to Vertafore's AMS360, the insurance agency management system that shares the name. The name was removed from the bullet.
+Fact collection complete. Both residual questions answered.
 
-Reason: a bare product name does no work on a resume, and this one collided with a well-known commercial product, so a reader who knows that market could have inferred insurance domain experience that does not exist. D-Sci and Olimium both carry descriptors and were kept.
+The project previously labelled with an invented name is now 'Management consulting'. The client is a consultancy and Vishnu asked that the more specific industry term not be used, so the label and the corpus description were both generalised. The bullet describes the corpus as mixed prose and structured records, which preserves the technical justification for hybrid search without naming the industry. No client-identifying term appears anywhere in the repository; verified by grep.
 
-Teknuance detail is otherwise final. No further lookup is worthwhile; the company is small and the products are not documented publicly.
+Positioning: domain-neutral, confirmed by Vishnu. The summary lists four domains as evidence of breadth rather than claiming a specialty, and the work history now names seven. Healthcare remains available as a specialist framing later, spanning two employers and roughly seven years, but is not claimed.
+
+Everything this task set out to collect is applied: titles and the January 2023 promotion, seven domains, team size, technology confirmation, the Zety origin of the legacy PDF, Sedstart ownership, Healthplug MD and PX, the healthcare engagement, the Teknuance products, the Lovedoku algorithm and the Steam Lib caching strategy.
+
+Measured outcomes closed separately in TASK-3.
 <!-- SECTION:NOTES:END -->

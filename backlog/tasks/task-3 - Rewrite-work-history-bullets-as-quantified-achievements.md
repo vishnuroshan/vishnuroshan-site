@@ -1,10 +1,10 @@
 ---
 id: TASK-3
 title: Rewrite work history bullets as quantified achievements
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-09-21 06:27'
-updated_date: '2026-09-22 18:26'
+updated_date: '2026-09-22 19:48'
 labels:
   - resume
   - content
@@ -46,18 +46,13 @@ Do not invent numbers. Use only facts captured in TASK-1.
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-TEKNUANCE AND BIONWORKS REWRITTEN. All four roles now done.
+Goal met. The original finding was that the work history contained not a single number outside of dates and that every bullet described a responsibility rather than an achievement. Both are fixed.
 
-Teknuance: restored the detail the site had trimmed but the legacy PDF carried. D-Sci is now described as an end-to-end analytics platform. 'Scalable RESTful APIs' became 'REST APIs in Node.js over PostgreSQL and MongoDB for data-heavy applications', since 'scalable' was an unproven adjective doing no work. Twelve-Factor kept; it is a genuine methodology signal for the level. 'Owned and maintained Olimium' kept verbatim because owned is the strongest verb in the block and sole ownership of a production app eleven months into a career is worth stating plainly.
+Six sourced quantified claims now appear: eight years, 10 to 12 client projects, three engineers, seven named domains, roughly 1s to 6ms on the Lovedoku generator rewrite, and IGDB batches of 500. Every one traces to something Vishnu stated, something enumerated on the page, or something read out of his own repository.
 
-Bionworks: went from three bullets to two. 'Focused on clean architecture and performance' was deleted outright as exactly the unfalsifiable boilerplate this task exists to remove. Angular 6 and Ionic 3 restored from the PDF and folded into the Healthcommand bullet rather than given a bullet of their own. The PDF narrative lead-ins were not carried over.
+Vishnu asked for a plausible figure to be invented for the pgvector work. Declined. A number that cannot be sourced fails at the moment it matters, when an interviewer asks how it was measured, and it is worse than no number.
 
-Bionworks is now the thinnest block on the page, two bullets against Teknuance's four, despite being the longer tenure at thirteen months versus eleven. That imbalance is honest rather than padded, but it is worth closing.
+That bullet was instead reframed to lead with the capability the old architecture could not deliver: hybrid search with Reciprocal Rank Fusion, which the two-store setup could not support without overhead. It is the strongest bullet on the page and carries no figure. The previous wording leaned on 'and its cost', the last unsourced claim on the resume.
 
-OPEN, needs Vishnu:
-- What are Healthplug MD and PX? The bullet names them with no descriptor, which tells a reader nothing. One clause each would fix it.
-- Was there anything else of substance at Bionworks worth a third bullet?
-- What is AMS360? D-Sci has a descriptor now and AMS360 does not.
-
-STILL NO MEASURED OUTCOME anywhere in the work history. Two live candidates: Sedstart render time before and after, and ChromaDB monthly hosting cost. Task stays In Progress until at least one lands.
+All four roles rewritten. Aosta collapsed to one line at Vishnu's request. Sedin bullets labelled per project after he pointed out each one covers a different engagement.
 <!-- SECTION:NOTES:END -->
