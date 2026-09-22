@@ -4,7 +4,7 @@ title: Collect resume source facts from Vishnu
 status: In Progress
 assignee: []
 created_date: '2026-09-21 06:26'
-updated_date: '2026-09-22 19:25'
+updated_date: '2026-09-22 19:35'
 labels:
   - resume
   - content
@@ -45,17 +45,9 @@ Record answers in backlog/docs so later tasks can cite them.
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-Confirmed: Vishnu worked on both Healthplug MD and PX, so the Bionworks bullet naming them as peers stands.
+Teknuance products closed out. Vishnu could not recall a descriptor for AMS360 and confirmed it is unrelated to Vertafore's AMS360, the insurance agency management system that shares the name. The name was removed from the bullet.
 
-A Sedin healthcare engagement was identified. The client is a private company and Vishnu flagged it as non-public, so the name is deliberately not recorded here or anywhere in the repository, which is public. The product is compliance infrastructure used by healthcare organisations to manage clinical workforces.
+Reason: a bare product name does no work on a resume, and this one collided with a well-known commercial product, so a reader who knows that market could have inferred insurance domain experience that does not exist. D-Sci and Olimium both carry descriptors and were kept.
 
-The healthcare bullet was rewritten from 'built patient records and compliance features for clients handling protected health data' to name what the compliance work actually was. Vishnu then corrected the specifics: his work was compliance tracking, not the other areas the same product covers. The bullet reads 'built compliance tracking for a clinical workforce platform'.
-
-Patient records management was then removed from the Sedin entry entirely. Vishnu confirmed it was not Sedin work. It belongs to Bionworks, where the Healthcommand bullet already covers it. The healthcare story now reads honestly across the two employers: records at Bionworks in 2018 to 2019, compliance at Sedin recently.
-
-'Protected health data' was dropped. It fits patient records but overstates this work, which is workforce compliance rather than PHI.
-
-'At scale' was also dropped. It came from the vendor's own marketing copy and carries no number, which is the same unfalsifiable-adjective problem this review has removed everywhere else.
-
-An earlier draft named the specific clinician categories the platform covers. That was judged identifiable, since few companies work in that niche, and Vishnu chose the looser wording. The resume states the problem without pointing at the product category. No client-identifying term appears in any file in this repository.
+Teknuance detail is otherwise final. No further lookup is worthwhile; the company is small and the products are not documented publicly.
 <!-- SECTION:NOTES:END -->
