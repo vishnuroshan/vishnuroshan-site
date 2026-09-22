@@ -1,6 +1,6 @@
 var TURNSTILE_SITEKEY = "0x4AAAAAAD1O7oM83flDL2Xm";
 var TURNSTILE_API =
-  "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+  "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileReady";
 var pendingAction = null;
 var widgetId = null;
 var apiLoader = null;
@@ -8,12 +8,10 @@ var apiLoader = null;
 function loadTurnstile() {
   if (apiLoader) return apiLoader;
   apiLoader = new Promise(function (resolve, reject) {
+    window.onTurnstileReady = resolve;
     var script = document.createElement("script");
     script.src = TURNSTILE_API;
     script.async = true;
-    script.onload = function () {
-      turnstile.ready(resolve);
-    };
     script.onerror = reject;
     document.head.appendChild(script);
   });
