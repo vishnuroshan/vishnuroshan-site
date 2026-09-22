@@ -4,7 +4,7 @@ title: Strengthen project entries with technical hooks and metrics
 status: To Do
 assignee: []
 created_date: '2026-09-21 06:28'
-updated_date: '2026-09-22 18:33'
+updated_date: '2026-09-22 19:19'
 labels:
   - content
   - projects
@@ -38,19 +38,20 @@ Per project:
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-Playground entries rewritten for density rather than for the technical hooks the original task specified. Vishnu asked twice to reduce information density elsewhere, so the same standard was applied here.
+SCOPE NARROWED. Vishnu is deferring the technical detail and will add repository links himself later.
 
-Every entry collapsed from a heading plus tagline plus bullet list to a heading plus one line.
+Deferred, needs Vishnu:
+- Lovedoku's generation approach. Constraint propagation, backtracking solver, difficulty grading? The entry currently says 'a custom puzzle generator', which asserts without evidence.
+- Steam Lib's caching strategy. ISR, stale-while-revalidate, Redis? What the rate limit budget was and how much it was cut. Currently 'heavily cached to stay inside rate limits'.
 
-Zero Hero: the 40-word explanation of the game rules is gone. It read as a manual, not a portfolio entry. Now one line covering the premise, the stack and the jam.
-Lovedoku: 'Built for my wife' kept verbatim as the differentiator. 'a custom puzzle-generation algorithm I am actively improving' tightened to 'a custom puzzle generator'. The first person phrasing clashed with the impersonal voice now used in the summary and bullets.
-Steam Lib: 'rigorous caching strategies to optimize API usage' became 'heavily cached to stay inside rate limits', which states the actual purpose rather than asserting rigour.
-tui-tac-toe: the bullet duplicated the tagline, both saying it was built with Ink. 'beautiful CLI UIs' was Ink's own marketing rather than Vishnu's achievement, and is gone. The Ink attribution link and the npx tuitactoe command are kept; the command is the only directly actionable thing in the section.
+NEW, raised by Vishnu: add repository links to the Playground entries. Each entry currently links only to the live demo or the npm page. For an engineer's portfolio the source is often the more useful link, since it is the only place a reader can actually assess the work.
 
-Arcade is absent because the arcade work is stashed. TASK-18 restores it.
+Questions this raises, to settle before implementing:
+- Are the repositories public? A link to a private repo is worse than no link, because it looks like an oversight.
+- Where does the second link go? The title is already the demo link. Options are a trailing 'source' link in the meta line, or a small icon matching the existing inline SVG set.
+- Does the repo link belong in the PDF as well? A second URL per project adds length to an already two-page document, and recruiters do click through. Probably yes for the source, since it is the more substantive of the two.
 
-STILL OPEN, needs facts only Vishnu has, and the reason this stays In Progress:
-- Lovedoku: what is the generation approach? Constraint propagation, backtracking solver, difficulty grading? 'Custom puzzle generator' still asserts without evidence.
-- Steam Lib: which caching strategies? ISR, stale-while-revalidate, Redis? What was the rate limit budget and how much was it cut?
-- tui-tac-toe: the npm download count. It is the only third-party verified number available anywhere on this resume.
+The structural rewrite of this section is already done. Entries were collapsed to one line each, the Zero Hero rules dump removed, 'Built for my wife' kept, and Ink's marketing language dropped. What remains is content only Vishnu can supply.
+
+tuitactoe download count was looked up at 969 over the last 365 days and recommended against. Under a thousand reads as a weak number on a senior resume; 'npx tuitactoe' is the stronger signal because it is instantly verifiable.
 <!-- SECTION:NOTES:END -->

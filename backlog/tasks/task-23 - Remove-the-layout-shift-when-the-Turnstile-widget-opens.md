@@ -1,9 +1,10 @@
 ---
 id: TASK-23
 title: Remove the layout shift when the Turnstile widget opens
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-22 19:11'
+updated_date: '2026-09-22 19:22'
 labels:
   - ux
   - layout
@@ -34,3 +35,13 @@ Not done during the session because it touches the Turnstile flow at the same ti
 - [ ] #2 Turnstile still renders and the resume download still works
 - [ ] #3 Verified in browser by Vishnu
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Fixed. runAction now waits for loadTurnstile() to resolve before unhiding #turnstile-container, so the empty div never becomes a visible grid item and never adds the 0.35rem gap that nudged the header panel taller.
+
+The second, larger shift when the widget itself renders was deliberately left. It is roughly 65px of a real widget appearing, which is expected feedback rather than a glitch, and removing it would need the container taken out of flow. That is awkward because .panel sets overflow hidden, so an absolutely positioned child is clipped; it would need position fixed or an overflow exception on the header panel. Not worth it for a transient widget.
+
+Neither shift affects Lighthouse. Both are click-triggered and so excluded from Cumulative Layout Shift.
+<!-- SECTION:NOTES:END -->

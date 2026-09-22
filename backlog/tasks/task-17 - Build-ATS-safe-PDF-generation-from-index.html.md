@@ -1,10 +1,10 @@
 ---
 id: TASK-17
 title: Build ATS-safe PDF generation from index.html
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-09-22 17:50'
-updated_date: '2026-09-22 18:52'
+updated_date: '2026-09-22 19:22'
 labels:
   - resume
   - ats
@@ -57,36 +57,14 @@ Note the current site ships a Content Security Policy and serves via a Cloudflar
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-PDF GENERATION WORKING. Approach chosen: a print stylesheet inside index.html plus headless Chrome, rather than a separate print view. index.html stays the single source and no dependency was added beyond Chrome, which was already installed.
+Closed. All four open questions answered by Vishnu.
 
-Files:
-- scripts/build-resume-pdf.sh, the repeatable command. Serves the repo over python3 -m http.server on 127.0.0.1, drives Chrome headless with --print-to-pdf and --no-pdf-header-footer, then cleans up.
-- scripts/print-page.py, injects the phone number into a temporary .resume-print.html.
-- A @media print block in index.html that linearises the bento grid.
+- Page count: two A4 pages is fine. Measured that hiding the projects section does not reduce it to one, so there was nothing to gain by cutting.
+- Section order: Summary, Experience, Side Projects, Skills, Education approved as is.
+- Font: switched from the ui-monospace stack to Helvetica, Arial, sans-serif for print only. The site keeps its monospace identity. Verified as embedded subsets with working ToUnicode maps.
+- Side projects in the PDF: kept. Vishnu wants them in both artifacts.
 
-Usage: ./scripts/build-resume-pdf.sh [output.pdf]
-Phone comes from RESUME_PHONE, or from PHONE_NUMBER in .dev.vars if that file exists. The script warns and continues if neither is set.
+The build script self-verifies on every run. It asserts fourteen strings survive extraction, covering multi-word keywords, both profile URLs and all five section headings, and fails loudly if a phone-shaped number ever reappears. That check caught a real defect during development: e-commerce was wrapping after the hyphen and pdftotext rejoins hyphenated line breaks, so it extracted as ecommerce. Fixed with white-space nowrap spans.
 
-PHONE SOLVED WITHOUT WEAKENING THE GATING. The site keeps the Turnstile-gated reveal button and the number never appears in committed markup. The build injects it into a temporary file that is deleted on exit via a trap, including on failure. This closes the TASK-13 tension: gated on the web, plain text in the PDF.
-
-VERIFIED AGAINST THE TASK-5 DEFECT LIST, every item confirmed absent:
-- Single column, reading order matches visual order. Contact details extract FIRST, not after the work history.
-- LinkedIn and GitHub URLs extract as complete unbroken strings on one line.
-- No orphaned bullet glyphs. Bullet text extracts as clean lines.
-- Skills section names real technologies, grouped and labelled.
-- Phone extracts as plain selectable text.
-- Dates use MMM YYYY - MMM YYYY with a plain hyphen and Present, not Current.
-- No decorative rating bars, no icon-only contact details, no layout tables.
-- All fonts embedded and subset with working ToUnicode maps.
-- Years of experience stated in the summary.
-
-Multi-word keyword integrity checked programmatically after adding white-space nowrap to the skill badges. Without it, wrapped lines split 'Web performance' and 'AI-assisted development' across lines, which would have broken those keywords for a parser. Verified intact: Web performance, AI-assisted development, Clean architecture, Vector search, Reciprocal Rank Fusion, React Native, Design systems.
-
-NO CSP CHANGE REQUIRED. Nothing external is loaded; the print styles are inline and the chevron is inline SVG rather than a data URI, which default-src 'self' would have blocked.
-
-OPEN:
-- Output is two A4 pages. Vishnu to decide whether to compress to one.
-- Section order follows the DOM: Summary, Experience, Side Projects, Skills, Education. Skills before Side Projects is the more conventional and more ATS-friendly order. Needs a decision.
-- Fonts resolve to Menlo from the ui-monospace stack. A monospace resume is unusual; it is on-brand for this site but worth a deliberate decision.
-- .resume-print.html should be added to .gitignore once the arcade stash is popped, since .gitignore currently has stashed modifications.
+Remaining item is not part of this task: the generated PDF still has to be uploaded to R2, since the Worker serves from the bucket rather than the repo. Tracked in TASK-21.
 <!-- SECTION:NOTES:END -->
