@@ -129,6 +129,10 @@ document.getElementById("game-close").addEventListener("click", function () {
   gameDialog.close();
 });
 
+gameDialog.addEventListener("cancel", function (event) {
+  event.preventDefault();
+});
+
 gameDialog.addEventListener("close", function () {
   gameSlot.textContent = "";
   gameName.textContent = "";
