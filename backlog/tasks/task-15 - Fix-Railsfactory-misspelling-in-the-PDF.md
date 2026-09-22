@@ -1,10 +1,10 @@
 ---
 id: TASK-15
 title: Decide whether to patch the legacy PDF before the new one ships
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-22 17:46'
-updated_date: '2026-09-22 17:50'
+updated_date: '2026-09-22 19:11'
 labels:
   - resume
   - typo
@@ -37,3 +37,11 @@ Decide based on how soon TASK-17 lands.
 - [ ] #4 If patching: Railsfactory spelling and employer wording both corrected in the live PDF
 - [ ] #5 If not patching: a target date for the replacement is set
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Moot. The replacement shipped, so patching the Zety file was never needed. The generated PDF spells Railsfactory correctly and uses the Bionworks wording from TASK-14. Option 2 in this task, ship the replacement quickly enough that patching is pointless, is what happened.
+
+The old file is still the live download until the new PDF is uploaded to R2, so the misspelling remains visible to anyone downloading right now. That is tracked as a deploy step, not as a patch.
+<!-- SECTION:NOTES:END -->

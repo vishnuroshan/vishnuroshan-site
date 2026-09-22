@@ -22,7 +22,6 @@ function loadTurnstile() {
 
 async function runAction(action) {
   pendingAction = action;
-  document.getElementById("turnstile-container").hidden = false;
 
   try {
     await loadTurnstile();
@@ -31,6 +30,8 @@ async function runAction(action) {
     hideWidget();
     return;
   }
+
+  document.getElementById("turnstile-container").hidden = false;
 
   if (widgetId === null) {
     widgetId = turnstile.render("#turnstile-container", {

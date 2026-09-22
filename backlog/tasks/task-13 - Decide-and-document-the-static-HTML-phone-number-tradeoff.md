@@ -1,9 +1,10 @@
 ---
 id: TASK-13
 title: Decide and document the static-HTML phone number tradeoff
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-21 06:29'
+updated_date: '2026-09-22 19:11'
 labels:
   - content
   - decision
@@ -30,3 +31,9 @@ Regardless of the decision for the website, the PDF must carry a plain-text phon
 - [ ] #2 PDF verified to contain a plain-text selectable phone number
 - [ ] #3 If gating is kept, a noscript fallback or alternate contact route is considered
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Resolved by deletion rather than by decision. Vishnu chose to remove the phone number entirely, from the site and from the PDF. It is gone from index.html, app.js, worker/index.js and .dev.vars.example, and the /api/phone endpoint no longer exists. The tradeoff this task existed to weigh no longer applies. The PHONE_NUMBER secret can be deleted from the Cloudflare dashboard.
+<!-- SECTION:NOTES:END -->

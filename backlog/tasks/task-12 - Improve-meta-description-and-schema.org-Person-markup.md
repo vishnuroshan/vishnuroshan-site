@@ -1,10 +1,10 @@
 ---
 id: TASK-12
 title: Improve meta description and schema.org Person markup
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-21 06:28'
-updated_date: '2026-09-22 18:33'
+updated_date: '2026-09-22 19:18'
 labels:
   - seo
   - metadata
@@ -40,15 +40,9 @@ Keep the og and twitter card descriptions in sync with whatever the meta descrip
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-Mostly done.
+Closed. Vishnu chose not to link an X profile, so twitter:site and twitter:creator were removed. The handle is no longer claimed anywhere.
 
-meta description replaced. Old text was 'Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture', which asserted expertise instead of proving it and named no technology. New text is 154 characters and carries years, stack and domains: 'Senior Software Engineer, 8 years full-stack. React, React Native, Node.js, Python. Retrieval and LLM systems across healthcare, e-commerce and logistics.'
+twitter:card, twitter:title, twitter:description and twitter:image are kept. Those control how the link renders when anyone shares the site on X, and they work without a handle. Only the two tags that named @vishnuroshan are gone.
 
-og:description and twitter:description updated to the same string.
-
-meta keywords removed. Ignored by every major engine since roughly 2009.
-
-schema.org Person extended with hasOccupation, including the O*NET occupationalCategory 15-1252.00 for software developers, and hasCredential entries naming both degrees and the institutions that awarded them. hasCredential was used rather than stuffing degree detail into alumniOf, which is the cleaner modelling. JSON-LD validated as parseable after the edit.
-
-STILL OPEN, needs a decision from Vishnu: the Twitter handle @vishnuroshan appears in twitter:site and twitter:creator but is not linked anywhere on the page. Either add it beside the GitHub and LinkedIn icon buttons, or drop both meta tags. Task stays open on that alone.
+Everything else in this task was already applied: the meta description rewritten to 154 characters carrying years, stack and domains, og and twitter descriptions synced to it, meta keywords deleted, and schema.org Person extended with hasOccupation and hasCredential.
 <!-- SECTION:NOTES:END -->

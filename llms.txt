@@ -16,7 +16,7 @@
 
 - **Sedin Technologies, Railsfactory Division** (Oct 2020 to present). Software Engineer, then Senior Software Engineer from Jan 2023. Delivered 10 to 12 client projects across healthcare, e-commerce, publishing, warehouse management, HR technology, and retail analytics. Migrated vector storage from ChromaDB to pgvector and implemented hybrid search using Reciprocal Rank Fusion.
 - **Teknuance Info Solutions** (Jul 2019 to Jun 2020). Software Engineer. REST APIs in Node.js over PostgreSQL and MongoDB. Owned Olimium, a real-time chat application on WebSockets.
-- **Bionworks Technologies, now part of IQVIA** (May 2018 to Jun 2019). Full Stack Developer. Built Healthcommand, a secure family health record application.
+- **Bionworks Technologies, now part of IQVIA** (May 2018 to Jun 2019). Full Stack Developer. Built Healthcommand, a secure family health record application. Contributed core modules to Healthplug MD, a mobile-first EMR, and Healthplug PX, its patient engagement app.
 - **Aosta Software Solutions** (Dec 2017 to May 2018). Software Engineer Intern.
 
 ## Playground

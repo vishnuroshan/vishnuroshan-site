@@ -1,10 +1,10 @@
 ---
 id: TASK-16
 title: Make index.html the canonical resume source
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-22 17:46'
-updated_date: '2026-09-22 17:50'
+updated_date: '2026-09-22 19:11'
 labels:
   - resume
   - consistency
@@ -46,3 +46,17 @@ Decide what the canonical set is, then make index.html hold all of it.
 - [ ] #8 Narrative lead-in lines explicitly excluded
 - [ ] #9 A note records that index.html is canonical and the PDF is generated
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+index.html is now the canonical source and the PDF is generated from it, so the two cannot drift.
+
+Gaps listed in this task, all closed:
+- Education locations restored, PSG at Coimbatore and Guru Nanak at Chennai, during TASK-10.
+- Technologies the site had trimmed are back: Angular 6 and Ionic 3 on Bionworks, Java and the Android SDK on Aosta, D-Sci described as an end-to-end analytics platform.
+- Narrative lead-ins from the Zety file were deliberately not carried over.
+- The phone number is no longer a gap; it was deleted everywhere rather than moved.
+
+llms.txt still duplicates the summary, the skills and the work history. It is hand-maintained and was refreshed in TASK-11, but it remains a third copy that can drift. Generating it from index.html alongside the PDF is the obvious follow-up and is now tracked separately.
+<!-- SECTION:NOTES:END -->

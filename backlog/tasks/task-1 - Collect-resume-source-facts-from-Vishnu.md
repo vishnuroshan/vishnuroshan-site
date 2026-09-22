@@ -4,7 +4,7 @@ title: Collect resume source facts from Vishnu
 status: In Progress
 assignee: []
 created_date: '2026-09-21 06:26'
-updated_date: '2026-09-22 18:09'
+updated_date: '2026-09-22 19:18'
 labels:
   - resume
   - content
@@ -45,17 +45,13 @@ Record answers in backlog/docs so later tasks can cite them.
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-TECHNOLOGY CONFIRMATION RECEIVED. Full detail in the TASK-6 notes.
+Healthplug MD and PX descriptors recovered from the web, since Vishnu did not remember them. Healthplug MD is a mobile-first EMR combining point-of-care records, multi-disciplinary task management and secure team messaging, integrating with existing EHR systems. Healthplug PX is the multilingual patient engagement app. Bionworks was founded in 2016 for secondary and tertiary care hospitals, and IQVIA acquired the product business in 2021, which confirms both the 'now part of IQVIA' wording and that Vishnu's 2018 to 2019 tenure predates the acquisition.
 
-Yes: Cloudflare, AWS, Docker, Redis, GraphQL, Python, Jest, Vitest, Playwright, Jenkins, Claude Code, LiteLLM, Celery, RabbitMQ, PostgreSQL.
-No, by omission: GCP, Azure, Kubernetes, Ruby on Rails, Go, Cypress.
-CI platform: Jenkins.
-AI tools: Claude Code and LiteLLM.
+These descriptors are sourced from the web, not from Vishnu, and he has been asked to sanity-check them before interviewing on them.
 
-STILL OPEN, and these are now the only things blocking TASK-3 and TASK-4:
-- Sedin team size, and whether direct reports or tech lead without reports
-- One architecture decision owned, with a before and after
-- Any measured number at all
-- Exact promotion month at Sedin
-- Healthcare specialist versus domain-neutral positioning
+One discrepancy noted and deliberately not acted on: sources describe Bionworks as Bangalore-based, while the resume says Chennai. Vishnu knows where he worked; the resume was left alone.
+
+tuitactoe npm figures looked up: 969 downloads over the last 365 days, 7 versions, first published 2026-01-23. Recommended against putting the download count on the resume. Under a thousand invites a dismissive reaction rather than admiration, and 'npx tuitactoe' is more persuasive because a recruiter can run it in seconds.
+
+STILL OPEN: measured outcomes, deferred by Vishnu; the real name for the project labelled 'Search and retrieval'; what AMS360 is; healthcare specialist versus domain-neutral positioning; Lovedoku's generation approach; Steam Lib's caching strategy.
 <!-- SECTION:NOTES:END -->

@@ -1,9 +1,10 @@
 ---
 id: TASK-14
 title: 'Resolve employer name conflict: IQVIA vs Bionworks Technologies'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-22 17:46'
+updated_date: '2026-09-22 19:11'
 labels:
   - resume
   - consistency
@@ -34,3 +35,9 @@ Decide the canonical form and apply it to the PDF, index.html, llms.txt and sche
 - [ ] #2 PDF, index.html and llms.txt all use the same employer name
 - [ ] #3 Framing does not claim direct employment by IQVIA for the 2018-2019 period unless that is factually accurate
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Settled on 'Bionworks Technologies (now part of IQVIA)' across every artifact. index.html carries it, llms.txt carries it, and the generated PDF inherits it because it is produced from index.html. The legacy Zety wording, which named IQVIA as the direct employer for 2018 to 2019, is gone with the file it lived in. The background-check risk this task was raised for no longer exists.
+<!-- SECTION:NOTES:END -->
