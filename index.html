@@ -3,14 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture."
-    />
-    <meta
-      name="keywords"
-      content="Vishnu Roshan, Full Stack Developer, Portfolio, JavaScript, Node.js, India"
-    />
+    <meta name="description" content="Senior Software Engineer, 8 years full-stack. React, React Native, Node.js, Python. Retrieval and LLM systems across healthcare, e-commerce and logistics." />
     <meta name="author" content="Vishnu Roshan" />
     <meta name="theme-color" content="#f7f6f2" />
     <title>Vishnu Roshan – Senior Software Engineer</title>
@@ -24,10 +17,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <meta property="og:title" content="Vishnu Roshan – Senior Software Engineer" />
-    <meta
-      property="og:description"
-      content="Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture."
-    />
+    <meta property="og:description" content="Senior Software Engineer, 8 years full-stack. React, React Native, Node.js, Python. Retrieval and LLM systems across healthcare, e-commerce and logistics." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.vishnuroshan.in/" />
     <meta property="og:site_name" content="Vishnu Roshan" />
@@ -41,10 +31,7 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Vishnu Roshan – Senior Software Engineer" />
-    <meta
-      name="twitter:description"
-      content="Senior Software Engineer Vishnu Roshan, expert in scalable web apps and clean architecture."
-    />
+    <meta name="twitter:description" content="Senior Software Engineer, 8 years full-stack. React, React Native, Node.js, Python. Retrieval and LLM systems across healthcare, e-commerce and logistics." />
     <meta
       name="twitter:image"
       content="https://www.vishnuroshan.in/banner.webp"
@@ -118,7 +105,8 @@
       }
 
       .panel--work,
-      .panel--skills {
+      .panel--skills,
+      .panel--projects {
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: var(--line) transparent;
@@ -251,26 +239,8 @@
         border-radius: 2px;
       }
 
-      .phone-reveal {
-        padding: 0;
-        font: inherit;
-        color: var(--accent);
-        background: none;
-        border: none;
-        border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-        cursor: pointer;
-        transition: color 0.15s ease, border-color 0.15s ease;
-      }
-
-      .phone-reveal:hover {
-        color: var(--accent-strong);
-        border-bottom-color: var(--accent);
-      }
-
-      .phone-reveal:focus-visible {
-        outline: 2px solid var(--accent);
-        outline-offset: 2px;
-        border-radius: 2px;
+      .nb {
+        white-space: nowrap;
       }
 
       .emphasis {
@@ -301,6 +271,11 @@
         margin: 0;
       }
 
+      .job .company {
+        margin: 0.1rem 0 0;
+        font-size: 0.88rem;
+      }
+
       .job .meta {
         display: block;
         font-size: 0.82rem;
@@ -316,6 +291,19 @@
       li {
         margin-bottom: 0.35rem;
         font-size: 0.9rem;
+      }
+
+      .skill-group + .skill-group {
+        margin-top: 0.75rem;
+      }
+
+      .skill-group-title {
+        margin: 0;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
       }
 
       .badges {
@@ -381,13 +369,41 @@
       }
 
       .panel--work::-webkit-scrollbar,
-      .panel--skills::-webkit-scrollbar {
+      .panel--skills::-webkit-scrollbar,
+      .panel--projects::-webkit-scrollbar {
         width: 8px;
       }
       .panel--work::-webkit-scrollbar-thumb,
-      .panel--skills::-webkit-scrollbar-thumb {
+      .panel--skills::-webkit-scrollbar-thumb,
+      .panel--projects::-webkit-scrollbar-thumb {
         background: var(--line);
         border-radius: 4px;
+      }
+
+      .scroll-hint {
+        display: none;
+        position: sticky;
+        bottom: 0.35rem;
+        width: 26px;
+        height: 26px;
+        margin: -26px 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: var(--header-text);
+        background: var(--header-bg);
+        box-shadow: 0 2px 6px rgba(39, 32, 28, 0.28);
+        pointer-events: none;
+      }
+
+      .has-more .scroll-hint {
+        display: flex;
+      }
+
+      @media print {
+        .has-more .scroll-hint {
+          display: none;
+        }
       }
 
       @keyframes blink {
@@ -404,6 +420,172 @@
       @media (prefers-reduced-motion: reduce) {
         h1::after {
           animation: none;
+        }
+      }
+
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 14mm 13mm;
+        }
+
+        body {
+          display: block;
+          height: auto;
+          overflow: visible;
+          padding: 0;
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 10pt;
+          line-height: 1.45;
+          background: #fff;
+          color: #000;
+        }
+
+        .panel {
+          display: block;
+          overflow: visible;
+          padding: 0;
+          margin: 0 0 9pt;
+          background: none;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          break-inside: auto;
+        }
+
+        .panel-title {
+          position: static;
+          margin: 10pt 0 4pt;
+          padding: 0 0 2pt;
+          font-size: 10pt;
+          background: none;
+          color: #000;
+          border-bottom: 1pt solid #000;
+        }
+
+        .panel-title[data-print-heading] {
+          font-size: 0;
+        }
+
+        .panel-title[data-print-heading]::before {
+          content: attr(data-print-heading);
+          font-size: 10pt;
+        }
+
+        header.panel .panel-title,
+        .skip-links,
+        .scroll-hint,
+        #turnstile-container,
+        #resume-btn,
+        .icon-btn svg,
+        h1::after {
+          display: none;
+        }
+
+        h1 {
+          margin: 0 0 2pt;
+          font-size: 19pt;
+        }
+
+        .contact {
+          display: block;
+          font-size: 9.5pt;
+        }
+
+        .contact .links {
+          display: block;
+          margin: 0;
+        }
+
+        .icon-btn {
+          display: inline;
+          width: auto;
+          height: auto;
+          padding: 0;
+          margin: 0;
+          background: none;
+          border: none;
+        }
+
+        .icon-btn + .icon-btn::before {
+          content: "   ";
+        }
+
+        .icon-btn::after {
+          content: attr(href);
+        }
+
+        a {
+          color: #000;
+          border-bottom: none;
+          text-decoration: none;
+        }
+
+        .job {
+          margin-bottom: 7pt;
+          break-inside: avoid;
+        }
+
+        .job-title {
+          font-size: 10pt;
+        }
+
+        .job .company,
+        .job .meta {
+          font-size: 9pt;
+        }
+
+        ul {
+          margin: 2pt 0 0 12pt;
+        }
+
+        li {
+          font-size: 9.5pt;
+          margin-bottom: 1.5pt;
+        }
+
+        .skill-group,
+        .skill-group + .skill-group {
+          margin: 0 0 1pt;
+        }
+
+        .skill-group-title {
+          display: inline;
+          font-size: 9pt;
+        }
+
+        .skill-group-title::after {
+          content: ": ";
+        }
+
+        .badges {
+          display: inline;
+          margin: 0;
+          padding: 0;
+        }
+
+        .badges li {
+          display: inline;
+          padding: 0;
+          font-size: 9.5pt;
+          white-space: nowrap;
+          background: none;
+          border: none;
+        }
+
+        .badges li::after {
+          content: ", ";
+        }
+
+        .badges li:last-child::after {
+          content: "";
+        }
+
+        code {
+          font-family: inherit;
+          background: none;
+          padding: 0;
         }
       }
 
@@ -433,6 +615,31 @@
           "@type": "Organization",
           "name": "Sedin Technologies"
         },
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Senior Software Engineer",
+          "occupationalCategory": "15-1252.00"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Master of Computer Applications",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "PSG College of Technology"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "BSc Computer Science",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "Guru Nanak College of Arts & Science"
+            }
+          }
+        ],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Chennai",
@@ -453,13 +660,26 @@
         "knowsAbout": [
           "TypeScript",
           "JavaScript",
+          "Python",
           "React",
           "Next.js",
+          "React Native",
           "Node.js",
+          "GraphQL",
+          "PostgreSQL",
+          "Redis",
+          "pgvector",
+          "Vector search",
+          "RabbitMQ",
+          "Celery",
+          "Docker",
+          "AWS",
+          "Cloudflare",
+          "Playwright",
+          "LiteLLM",
           "System design",
           "Microservices",
           "Clean architecture",
-          "UX Design",
           "Web performance",
           "Accessibility"
         ],
@@ -481,9 +701,6 @@
       <h1>Vishnu Roshan</h1>
       <address class="contact">
         <div>Chennai, India 600097</div>
-        <div id="phone-slot">
-          <button type="button" id="reveal-phone" class="phone-reveal">Show phone number</button>
-        </div>
         <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
         <div class="links">
           <button type="button" id="resume-btn" class="resume-btn">
@@ -523,23 +740,106 @@
 
     <main id="main-content">
       <section class="panel panel--summary" aria-labelledby="summary-heading">
-        <h2 class="panel-title" id="summary-heading">Professional Summary</h2>
+        <h2 class="panel-title" data-print-heading="Summary" id="summary-heading">Professional Summary</h2>
         <p>
-          I'm a <strong class="emphasis">Senior Software Engineer</strong> with
-          over 8 years of experience building high-performance web applications
-          and scalable backend systems. I'm
-          most at home crafting fast, clean user interfaces and backend
-          architectures that can keep up with real-world demands. I care a lot
-          about writing code that's easy to read, easy to maintain, and reliable
-          when things get busy. I'm not trying to reinvent the wheel—I just want
-          to build solid, dependable solutions that solve real problems. I ask a
-          lot of questions, stay curious, and always try to make the next version
-          better than the last.
+          <strong class="emphasis">Senior Software Engineer</strong> with eight
+          years building <span class="nb">full-stack</span> web and mobile
+          products across healthcare, <span class="nb">e-commerce</span>,
+          logistics, and HR technology. Recent work spans retrieval and LLM
+          systems in TypeScript, React, Node.js, and Python.
         </p>
       </section>
 
+      <section class="panel panel--work" aria-labelledby="work-heading">
+        <h2 class="panel-title" data-print-heading="Experience" id="work-heading">Work History</h2>
+        <div class="job">
+          <h3 class="job-title">Senior Software Engineer</h3>
+          <p class="company">Sedin Technologies — Railsfactory Division, Chennai</p>
+          <span class="meta"><time datetime="2023-01">Jan 2023</time> - Present</span>
+          <span class="meta">Software Engineer, <time datetime="2020-10">Oct 2020</time> - <time datetime="2023-01">Jan 2023</time></span>
+          <ul>
+            <li>
+              Delivered 10–12 client projects across healthcare,
+              <span class="nb">e-commerce</span>, publishing, warehouse
+              management, HR technology, and retail analytics; led three
+              frontend and backend engineers on a recent project.
+            </li>
+            <li>
+              <strong>Search and retrieval</strong> — migrated vector storage from
+              ChromaDB to <code>pgvector</code>, cutting a second data store and
+              its cost, and implemented hybrid search using Reciprocal Rank Fusion.
+            </li>
+            <li>
+              <strong>Healthcare</strong> — built patient records and compliance
+              features for clients handling protected health data.
+            </li>
+            <li>
+              <strong>HR technology</strong> — built an applicant tracking and
+              assessment platform for candidates and hiring teams.
+            </li>
+            <li>
+              <strong>Retail analytics</strong> — built a React Native app using
+              computer vision to read product insights from shelf photography.
+            </li>
+            <li>
+              <strong>Sedstart</strong> — cut render times on Sedin's in-house
+              end-to-end testing product by restructuring its React render tree.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3 class="job-title">Software Engineer</h3>
+          <p class="company">Teknuance Info Solutions, Chennai</p>
+          <span class="meta"><time datetime="2019-07">Jul 2019</time> - <time datetime="2020-06">Jun 2020</time></span>
+          <ul>
+            <li>
+              Built REST APIs in Node.js over PostgreSQL and MongoDB for
+              data-heavy applications.
+            </li>
+            <li>
+              Developed progressive web apps including AMS360 and D-Sci, an
+              end-to-end analytics platform.
+            </li>
+            <li>
+              Owned and maintained Olimium, a real-time chat application built
+              on WebSockets.
+            </li>
+            <li>
+              Applied design patterns and Twelve-Factor App practice to keep
+              services modular and cloud-ready.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3 class="job-title">Full Stack Developer</h3>
+          <p class="company">Bionworks Technologies (now part of IQVIA), Chennai</p>
+          <span class="meta"><time datetime="2018-05">May 2018</time> - <time datetime="2019-06">Jun 2019</time></span>
+          <ul>
+            <li>
+              Built and maintained <strong>Healthcommand</strong>, a secure family
+              health record application, on Node.js with Angular 6 and Ionic 3.
+            </li>
+            <li>Contributed core modules to Healthplug MD and PX.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3 class="job-title">Software Engineer Intern</h3>
+          <p class="company">Aosta Software Solutions, Coimbatore</p>
+          <span class="meta"><time datetime="2017-12">Dec 2017</time> - <time datetime="2018-05">May 2018</time></span>
+          <span class="meta">Android app for inpatient workflows, in Java and the Android SDK.</span>
+        </div>
+        <span class="scroll-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </span>
+      </section>
+
       <section class="panel panel--projects" aria-labelledby="projects-heading">
-        <h2 class="panel-title" id="projects-heading">Projects</h2>
+        <h2 class="panel-title" data-print-heading="Side Projects" id="projects-heading">Playground</h2>
         <div class="job">
           <h3 class="job-title">
             <a
@@ -549,15 +849,10 @@
               >Zero Hero</a
             >
           </h3>
-          <span class="meta">Get a number to exactly zero before time runs out</span>
-          <ul>
-            <li>
-              Play math cards to change the target: subtract and divide bring
-              it down, add and multiply push it up. Hit exactly 0 to clear the
-              round, drop below and you're out. Each round starts higher.
-            </li>
-            <li>Built with React, TypeScript, and Vite for the GMTK Game Jam 2026.</li>
-          </ul>
+          <span class="meta"
+            >Reach exactly zero before the timer runs out. React, TypeScript, and
+            Vite, built for the GMTK Game Jam 2026.</span
+          >
         </div>
         <div class="job">
           <h3 class="job-title">
@@ -568,13 +863,10 @@
               >Lovedoku</a
             >
           </h3>
-          <span class="meta">A feature-rich, ad-free Sudoku app</span>
-          <ul>
-            <li>
-              Built for my wife to pass time without ads, with a custom
-              puzzle-generation algorithm I'm actively improving.
-            </li>
-          </ul>
+          <span class="meta"
+            >Ad-free Sudoku with a custom puzzle generator. Built for my
+            wife.</span
+          >
         </div>
         <div class="job">
           <h3 class="job-title">
@@ -585,13 +877,10 @@
               >Steam Lib</a
             >
           </h3>
-          <span class="meta">Browse and manage Steam game libraries</span>
-          <ul>
-            <li>
-              Built with Next.js using Steam's API and IGDB API with rigorous
-              caching strategies to optimize API usage.
-            </li>
-          </ul>
+          <span class="meta"
+            >Browse and manage Steam game libraries. Next.js over the Steam and
+            IGDB APIs, heavily cached to stay inside rate limits.</span
+          >
         </div>
         <div class="job">
           <h3 class="job-title">
@@ -603,107 +892,126 @@
             >
           </h3>
           <span class="meta"
-            >A terminal-based Tic Tac Toe game built with
+            >Tic Tac Toe in the terminal, built with
             <a
               href="https://github.com/vadimdemedes/ink"
               target="_blank"
               rel="noopener noreferrer"
               >Ink</a
-            >. Play directly in your terminal.</span
+            >. Install with <code>npx tuitactoe</code>.</span
           >
-          <ul>
-            <li>Built using React-style Ink for beautiful CLI UIs.</li>
-            <li>
-              Fun, interactive, and easy to install: <code>npx tuitactoe</code>
-            </li>
-          </ul>
         </div>
-      </section>
-
-      <section class="panel panel--work" aria-labelledby="work-heading">
-        <h2 class="panel-title" id="work-heading">Work History</h2>
-        <div class="job">
-          <h3 class="job-title">Sedin Technologies - Railsfactory Division</h3>
-          <span class="meta">Chennai, India — Oct 2020 to Present</span>
-          <ul>
-            <li>Led agile teams to deliver scalable web apps across varied domains.</li>
-            <li>Built clean, modular code-bases aligned with business needs.</li>
-            <li>Made long-term architectural decisions with scalability in mind.</li>
-            <li>Worked with designers, PMs, and QA to deliver polished solutions.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <h3 class="job-title">Teknuance Info Solutions</h3>
-          <span class="meta">Chennai, India — Jul 2019 to Jun 2020</span>
-          <ul>
-            <li>Built scalable RESTful APIs with Node.js, PostgreSQL, and MongoDB.</li>
-            <li>Developed PWAs like AMS360 and D-Sci.</li>
-            <li>Owned and maintained Olimium, a real-time chat app using WebSockets.</li>
-            <li>Applied design patterns and the Twelve-Factor App methodology.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <h3 class="job-title">Bionworks Technologies (Now part of IQVIA)</h3>
-          <span class="meta">Chennai, India — May 2018 to Jun 2019</span>
-          <ul>
-            <li>Built and maintained <strong>Healthcommand</strong>, a secure health record app.</li>
-            <li>Contributed to core modules in Healthplug MD and PX.</li>
-            <li>Focused on clean architecture and performance.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <h3 class="job-title">Aosta Software Solutions</h3>
-          <span class="meta">Coimbatore, India — Dec 2017 to May 2018</span>
-          <ul>
-            <li>Built an Android app for inpatient workflows during internship.</li>
-          </ul>
-        </div>
+        <span class="scroll-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </span>
       </section>
 
       <section class="panel panel--skills" aria-labelledby="skills-heading">
-        <h2 class="panel-title" id="skills-heading">Skills</h2>
-        <ul class="badges" role="list">
-          <li>TypeScript</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Next.js</li>
-          <li>Node.js</li>
-          <li>Express.js</li>
-          <li>UX Design</li>
-          <li>Interaction Design (IxD)</li>
-          <li>Design systems</li>
-          <li>Figma</li>
-          <li>Responsive design</li>
-          <li>Accessibility (a11y)</li>
-          <li>Web performance</li>
-          <li>SEO</li>
-          <li>PostgreSQL</li>
-          <li>MongoDB</li>
-          <li>REST APIs</li>
-          <li>WebSockets</li>
-          <li>PWAs</li>
-          <li>Microservices</li>
-          <li>System design</li>
-          <li>Clean architecture</li>
-          <li>Design patterns</li>
-          <li>CI/CD</li>
-          <li>Project leadership</li>
-          <li>AI-assisted development</li>
-        </ul>
+        <h2 class="panel-title" data-print-heading="Skills" id="skills-heading">Skills</h2>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Languages</h3>
+          <ul class="badges" role="list">
+            <li>TypeScript</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Frontend</h3>
+          <ul class="badges" role="list">
+            <li>React</li>
+            <li>Next.js</li>
+            <li>React Native</li>
+            <li>PWAs</li>
+            <li>Responsive design</li>
+            <li>Accessibility (a11y)</li>
+            <li>Web performance</li>
+            <li>SEO</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Backend &amp; Data</h3>
+          <ul class="badges" role="list">
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>REST APIs</li>
+            <li>GraphQL</li>
+            <li>WebSockets</li>
+            <li>PostgreSQL</li>
+            <li>MongoDB</li>
+            <li>Redis</li>
+            <li>pgvector</li>
+            <li>Celery</li>
+            <li>RabbitMQ</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Cloud &amp; Delivery</h3>
+          <ul class="badges" role="list">
+            <li>AWS</li>
+            <li>Cloudflare</li>
+            <li>Docker</li>
+            <li>Jenkins</li>
+            <li>CI/CD</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Testing</h3>
+          <ul class="badges" role="list">
+            <li>Jest</li>
+            <li>Vitest</li>
+            <li>Playwright</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">AI Engineering</h3>
+          <ul class="badges" role="list">
+            <li>LiteLLM</li>
+            <li>Vector search</li>
+            <li>Hybrid search</li>
+            <li>Claude Code</li>
+            <li>AI-assisted development</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Architecture &amp; Practice</h3>
+          <ul class="badges" role="list">
+            <li>Microservices</li>
+            <li>System design</li>
+            <li>Clean architecture</li>
+            <li>Design patterns</li>
+            <li>Project leadership</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Design</h3>
+          <ul class="badges" role="list">
+            <li>UX Design</li>
+            <li>Interaction Design (IxD)</li>
+            <li>Design systems</li>
+            <li>Figma</li>
+          </ul>
+        </div>
+        <span class="scroll-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </span>
       </section>
 
       <section class="panel panel--edu" aria-labelledby="education-heading">
-        <h2 class="panel-title" id="education-heading">Education</h2>
+        <h2 class="panel-title" data-print-heading="Education" id="education-heading">Education</h2>
         <div class="job">
-          <h3 class="job-title">PSG College of Technology</h3>
-          <span class="meta">Master of Computer Applications · Aug 2015 – May 2018</span>
+          <h3 class="job-title">Master of Computer Applications</h3>
+          <p class="company">PSG College of Technology, Coimbatore</p>
+          <span class="meta"><time datetime="2015-08">Aug 2015</time> - <time datetime="2018-05">May 2018</time></span>
         </div>
         <div class="job">
-          <h3 class="job-title">Guru Nanak College of Arts &amp; Science</h3>
-          <span class="meta">B.Sc, Computer Science &amp; Programming · Jul 2012 – May 2015</span>
+          <h3 class="job-title">BSc Computer Science &amp; Programming</h3>
+          <p class="company">Guru Nanak College of Arts &amp; Science, Chennai</p>
+          <span class="meta"><time datetime="2012-07">Jul 2012</time> - <time datetime="2015-05">May 2015</time></span>
         </div>
       </section>
     </main>

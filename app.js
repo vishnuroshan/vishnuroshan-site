@@ -55,29 +55,16 @@ async function onVerified(token) {
   if (action) await action(token);
 }
 
-async function revealPhone(token) {
-  var res = await fetch("/api/phone", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ token: token }),
-  });
-  if (!res.ok) return;
-  var data = await res.json();
-  var link = document.createElement("a");
-  link.href = "tel:" + data.phone.replace(/\s/g, "");
-  link.textContent = data.phone;
-  var slot = document.getElementById("phone-slot");
-  slot.textContent = "";
-  slot.appendChild(link);
-}
-
 async function downloadResume(token) {
   var res = await fetch("/api/resume", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token: token }),
   });
-  if (!res.ok) return;
+  if (!res.ok) {
+    console.error("resume download failed:", res.status);
+    return;
+  }
   var blob = await res.blob();
   var url = URL.createObjectURL(blob);
   var link = document.createElement("a");
@@ -89,10 +76,30 @@ async function downloadResume(token) {
   URL.revokeObjectURL(url);
 }
 
-document.getElementById("reveal-phone").addEventListener("click", function () {
-  runAction(revealPhone);
-});
-
 document.getElementById("resume-btn").addEventListener("click", function () {
   runAction(downloadResume);
+});
+
+var scrollPanels = document.querySelectorAll(
+  ".panel--work, .panel--skills, .panel--projects"
+);
+
+function updateScrollHint(panel) {
+  var overflows = panel.scrollHeight > panel.clientHeight;
+  var atEnd = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 1;
+  panel.classList.toggle("has-more", overflows && !atEnd);
+}
+
+scrollPanels.forEach(function (panel) {
+  updateScrollHint(panel);
+  panel.addEventListener(
+    "scroll",
+    function () {
+      updateScrollHint(panel);
+    },
+    { passive: true }
+  );
+  new ResizeObserver(function () {
+    updateScrollHint(panel);
+  }).observe(panel);
 });

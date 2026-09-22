@@ -38,15 +38,6 @@ function json(data, status) {
   });
 }
 
-async function handlePhone(request, env) {
-  const token = await readToken(request);
-  const ip = request.headers.get("CF-Connecting-IP");
-  if (!(await verifyTurnstile(token, env.TURNSTILE_SECRET, ip))) {
-    return json({ error: "verification_failed" }, 403);
-  }
-  return json({ phone: env.PHONE_NUMBER });
-}
-
 async function handleResume(request, env) {
   const token = await readToken(request);
   const ip = request.headers.get("CF-Connecting-IP");
@@ -69,12 +60,6 @@ async function handleResume(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-
-    if (url.pathname === "/api/phone") {
-      if (request.method !== "POST")
-        return json({ error: "method_not_allowed" }, 405);
-      return handlePhone(request, env);
-    }
 
     if (url.pathname === "/api/resume") {
       if (request.method !== "POST")

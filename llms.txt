@@ -1,19 +1,30 @@
 # Vishnu Roshan
 
-> Senior Software Engineer based in Chennai, India, building high-performance web applications and scalable backends with a focus on clean architecture, fast interfaces, and good UX.
+> Senior Software Engineer with eight years building full-stack web and mobile products across healthcare, e-commerce, logistics, and HR technology. Recent work spans retrieval and LLM systems in TypeScript, React, Node.js, and Python.
 
 ## About
 
-- 8+ years of experience across full-stack web development and backend systems.
-- Core stack: TypeScript, JavaScript, React, Next.js, Node.js, PostgreSQL, MongoDB.
-- Strengths: system design, microservices, clean architecture, design patterns, UX and interaction design, web performance, and accessibility.
-- Currently at Sedin Technologies (Railsfactory Division), Chennai.
+- Based in Chennai, India.
+- Languages: TypeScript, JavaScript, Python.
+- Frontend: React, Next.js, React Native, PWAs, accessibility, web performance.
+- Backend and data: Node.js, Express, REST, GraphQL, WebSockets, PostgreSQL, MongoDB, Redis, pgvector, Celery, RabbitMQ.
+- Cloud and delivery: AWS, Cloudflare, Docker, Jenkins.
+- Testing: Jest, Vitest, Playwright.
+- AI: LiteLLM, vector search, hybrid search.
 
-## Projects
+## Experience
 
-- [Lovedoku](https://lovedoku.vercel.app/): A feature-rich, ad-free Sudoku app with a custom puzzle-generation algorithm.
-- [Steam Lib](https://steamlib.vercel.app/): Browse and manage Steam game libraries, built with Next.js on the Steam and IGDB APIs with heavy caching.
-- [tui-tac-toe](https://www.npmjs.com/package/tuitactoe): A terminal-based Tic Tac Toe game built with Ink.
+- **Sedin Technologies, Railsfactory Division** (Oct 2020 to present). Software Engineer, then Senior Software Engineer from Jan 2023. Delivered 10 to 12 client projects across healthcare, e-commerce, publishing, warehouse management, HR technology, and retail analytics. Migrated vector storage from ChromaDB to pgvector and implemented hybrid search using Reciprocal Rank Fusion.
+- **Teknuance Info Solutions** (Jul 2019 to Jun 2020). Software Engineer. REST APIs in Node.js over PostgreSQL and MongoDB. Owned Olimium, a real-time chat application on WebSockets.
+- **Bionworks Technologies, now part of IQVIA** (May 2018 to Jun 2019). Full Stack Developer. Built Healthcommand, a secure family health record application.
+- **Aosta Software Solutions** (Dec 2017 to May 2018). Software Engineer Intern.
+
+## Playground
+
+- [Zero Hero](https://zerohero.vishnuroshan.in/): a numbers puzzle game built with React, TypeScript, and Vite for the GMTK Game Jam 2026.
+- [Lovedoku](https://lovedoku.vercel.app/): an ad-free Sudoku app with a custom puzzle-generation algorithm.
+- [Steam Lib](https://steamlib.vercel.app/): browse and manage Steam game libraries, built with Next.js on the Steam and IGDB APIs.
+- [tui-tac-toe](https://www.npmjs.com/package/tuitactoe): a terminal Tic Tac Toe game built with Ink. Run it with `npx tuitactoe`.
 
 ## Links
 
