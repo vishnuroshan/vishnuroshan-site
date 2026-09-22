@@ -352,23 +352,24 @@
       }
 
       #game-dialog {
-        width: 100vw;
-        max-width: 100vw;
-        height: 100dvh;
-        max-height: 100dvh;
+        position: fixed;
+        inset: auto var(--gap) var(--gap) auto;
+        width: min(46vw, 620px);
+        max-width: calc(100vw - 2 * var(--gap));
+        max-height: calc(100dvh - 2 * var(--gap));
+        height: auto;
         padding: 0;
-        border: none;
-        background: var(--bg);
+        overflow: hidden;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: 0 12px 40px -8px rgba(39, 32, 28, 0.45);
         display: none;
         flex-direction: column;
       }
 
       #game-dialog[open] {
         display: flex;
-      }
-
-      #game-dialog::backdrop {
-        background: rgba(39, 32, 28, 0.85);
       }
 
       .game-bar {
@@ -401,8 +402,8 @@
       }
 
       #game-slot {
-        flex: 1;
-        min-height: 0;
+        width: 100%;
+        aspect-ratio: 4 / 3;
         background: #000;
       }
 

@@ -116,7 +116,7 @@ function openGame(button) {
   frame.allow = "fullscreen";
   gameName.textContent = button.dataset.gameTitle;
   gameSlot.appendChild(frame);
-  gameDialog.showModal();
+  gameDialog.show();
 }
 
 document.querySelectorAll(".icon-btn[data-game]").forEach(function (button) {
