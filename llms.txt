@@ -1,6 +1,6 @@
 # Vishnu Roshan
 
-> Senior Software Engineer with eight years building full-stack web and mobile products across healthcare, e-commerce, logistics, and HR technology. Recent work spans retrieval and LLM systems in TypeScript, React, Node.js, and Python.
+> Senior Software Engineer with eight years building full-stack web and mobile products across healthcare, e-commerce, logistics, and HR technology. Recent work spans retrieval and LLM systems in TypeScript, React, Node.js, and Python. Microservices on PostgreSQL and Redis, containerised with Docker and deployed on AWS and Cloudflare.
 
 ## About
 
