@@ -1,9 +1,10 @@
 ---
 id: TASK-26
 title: Decide on the Game Over 404 page from the arcade stash
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-22 21:02'
+updated_date: '2026-09-22 21:13'
 labels:
   - design
   - salvage
@@ -30,3 +31,15 @@ Recover with git show stash@{1}:404.html and git show stash@{1}^3:fonts/press-st
 - [ ] #2 If kept: 404.html and the font committed, and the font is not excluded by .assetsignore
 - [ ] #3 If dropped: both stashes can then be dropped, once TASK-25 is also resolved
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Rejected. Vishnu chose not to take the Game Over 404 page.
+
+It stays in stash@{1} and is not recovered: a 148-line retheme of 404.html carrying a self-hosted pixel font, for a page almost nobody reaches, in a CRT aesthetic belonging to the abandoned arcade concept rather than to the current site.
+
+Nothing from fonts/ is needed either. The print stylesheet uses Helvetica, and the site uses the system ui-monospace stack, so no webfont is loaded anywhere.
+
+With this decided and TASK-25 landed, both stashes hold nothing worth keeping. They can be dropped whenever Vishnu wants; that is his call, since dropping is not cleanly reversible.
+<!-- SECTION:NOTES:END -->

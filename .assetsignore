@@ -16,3 +16,8 @@ LICENSE
 .wrangler
 vishnu-Roshan-Resume.pdf
 .claude
+package.json
+package-lock.json
+vitest.config.js
+test
+.cache
