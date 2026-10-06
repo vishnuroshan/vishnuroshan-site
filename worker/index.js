@@ -1,6 +1,14 @@
 const SITEVERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
-const RESUME_KEY = "Vishnu-Roshan-Resume.pdf";
-const DOWNLOAD_NAME = "Vishnu-Roshan-Resume.pdf";
+const CANONICAL_ORIGIN = "https://www.vishnuroshan.com";
+const REDIRECT_HOSTS = new Set([
+  "vishnuroshan.com",
+  "vishnuroshan.in",
+  "www.vishnuroshan.in",
+]);
+const RESUMES = {
+  en: "Vishnu-Roshan-Resume.pdf",
+  de: "Vishnu-Roshan-Lebenslauf.pdf",
+};
 
 async function verifyTurnstile(token, secret, remoteip) {
   if (!token || !secret) return false;
@@ -19,12 +27,12 @@ async function verifyTurnstile(token, secret, remoteip) {
   }
 }
 
-async function readToken(request) {
+async function readBody(request) {
   try {
     const data = await request.json();
-    return typeof data.token === "string" ? data.token : null;
+    return data && typeof data === "object" ? data : {};
   } catch {
-    return null;
+    return {};
   }
 }
 
@@ -39,19 +47,26 @@ function json(data, status) {
 }
 
 async function handleResume(request, env) {
-  const token = await readToken(request);
+  const body = await readBody(request);
+  const lang = body.lang ?? "en";
+  if (typeof lang !== "string" || !Object.hasOwn(RESUMES, lang)) {
+    return json({ error: "unsupported_lang" }, 400);
+  }
+
+  const token = typeof body.token === "string" ? body.token : null;
   const ip = request.headers.get("CF-Connecting-IP");
   if (!(await verifyTurnstile(token, env.TURNSTILE_SECRET, ip))) {
     return json({ error: "verification_failed" }, 403);
   }
 
-  const object = await env.RESUME_BUCKET.get(RESUME_KEY);
+  const key = RESUMES[lang];
+  const object = await env.RESUME_BUCKET.get(key);
   if (!object) return json({ error: "not_found" }, 404);
 
   return new Response(object.body, {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `attachment; filename="${DOWNLOAD_NAME}"`,
+      "Content-Disposition": `attachment; filename="${key}"`,
       "Cache-Control": "no-store",
     },
   });
@@ -60,6 +75,10 @@ async function handleResume(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (REDIRECT_HOSTS.has(url.hostname)) {
+      return Response.redirect(CANONICAL_ORIGIN + url.pathname + url.search, 301);
+    }
 
     if (url.pathname === "/api/resume") {
       if (request.method !== "POST")
