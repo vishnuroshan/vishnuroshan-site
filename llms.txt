@@ -1,22 +1,21 @@
 # Vishnu Roshan
 
-> Senior Software Engineer with eight years building full-stack web and mobile products across healthcare, e-commerce, logistics, and HR technology. Recent work spans retrieval and LLM systems in TypeScript, React, Node.js, and Python. Microservices on PostgreSQL and Redis, containerised with Docker and deployed on AWS and Cloudflare.
+> Senior Software Engineer with eight years turning ambiguous, cross-domain problems into production-grade systems, staying level-headed when scope shifts or things break under pressure. Full-stack across TypeScript, React, Node.js, and Python, on PostgreSQL, Redis, AWS, and Cloudflare, with the judgment to know when to move fast, what to prioritize, where to focus, and how to ship.
 
 ## About
 
 - Based in Chennai, India.
 - Languages: TypeScript, JavaScript, Python.
-- Frontend: React, Next.js, React Native, PWAs, Responsive design, Accessibility (a11y), Web performance, SEO.
-- Backend & Data: Node.js, Express.js, REST APIs, GraphQL, WebSockets, PostgreSQL, MongoDB, Redis, pgvector, Celery, RabbitMQ.
-- Cloud & Delivery: AWS, Cloudflare, Docker, Jenkins, CI/CD.
+- Frontend: React, Next.js, React Native, Accessibility (a11y), Web performance.
+- Backend & Data: Node.js, Express.js, REST APIs, GraphQL, WebSockets, PostgreSQL, MongoDB, Redis, pgvector, RabbitMQ.
+- Cloud & Delivery: AWS, Cloudflare, Docker, CI/CD.
 - Testing: Jest, Vitest, Playwright.
-- AI Engineering: LiteLLM, Vector search, Hybrid search, Claude Code, AI-assisted development.
-- Architecture & Practice: Microservices, System design, Clean architecture, Design patterns, Project leadership.
-- Design: UX Design, Interaction Design (IxD), Design systems, Figma.
+- AI Engineering: LiteLLM, Vector search, Hybrid search, Retrieval-Augmented Generation.
+- Architecture: Microservices, Distributed systems, System design.
 
 ## Experience
 
-- **Senior Software Engineer**, Sedin Technologies — Railsfactory Division, Chennai (Jan 2023 - Present). Software Engineer, Oct 2020 - Jan 2023. Delivered 10–12 client projects across healthcare, e-commerce, publishing, logistics (WMS), HR technology, management consulting, and retail analytics; led three frontend and backend engineers on a recent project. Management consulting — migrated vector storage from ChromaDB to `pgvector`, folding search onto the existing database and enabling hybrid search over mixed prose and structured records with Reciprocal Rank Fusion, which the two-store setup could not support without overhead. Healthcare — built compliance tracking for a clinical workforce platform. HR technology — built an applicant tracking and assessment platform for candidates and hiring teams. Retail analytics — built a React Native app using computer vision to read product insights from shelf photography. Sedstart — cut render times on Sedin's no-code E2E test automation platform by restructuring its React render tree.
+- **Senior Software Engineer**, Sedin Technologies — Railsfactory Division, Chennai (Jan 2023 - Present). Software Engineer, Oct 2020 - Jan 2023. Led a 3-engineer frontend/backend team delivering an MVP in the logistics (WMS) space in 4 months; the client returned for two consecutive follow-on phases. Trained 16 engineering interns in frontend development; most are still with the company in their third year, contributing in production. Management consulting — migrated vector storage from ChromaDB to `pgvector` after the two-store setup was returning inaccurate search results and adding cost and dev-velocity overhead; consolidated onto the existing database and improved both search quality and performance with hybrid search using Reciprocal Rank Fusion. Sedstart — cut cold-boot render time on Sedin's no-code E2E test automation platform from 30–40s to 10–12s (about 70%) through render tree optimization and perceived-performance UX tricks. HR technology — cut recruitment timeline by 70% building an applicant tracking and assessment platform for candidates and hiring teams. Healthcare — rebuilt the UX of a partially-built compliance tracking platform for a clinical workforce client, driving a 40% increase in initial impressions and leads. Retail analytics — contributed low-level design improvements and codebase refactoring to a React Native computer vision app for shelf photography product insights. Delivered 10–12 client projects across healthcare, e-commerce, publishing, logistics (WMS), HR technology, management consulting, and retail analytics; most were first-time clients, and most became repeat clients.
 - **Software Engineer**, Teknuance Info Solutions, Chennai (Jul 2019 - Jun 2020). Built REST APIs in Node.js over PostgreSQL and MongoDB for data-heavy applications. Developed progressive web apps, including D-Sci, an end-to-end analytics platform. Owned and maintained Olimium, a real-time chat application built on WebSockets. Applied design patterns and Twelve-Factor App practice to keep services modular and cloud-ready.
 - **Full Stack Developer**, Bionworks Technologies (now part of IQVIA), Chennai (May 2018 - Jun 2019). Built and maintained Healthcommand, a secure family health record application, on Node.js with Angular 6 and Ionic 3. Contributed core modules to Healthplug MD, a mobile-first EMR for physicians and care teams, and to PX, a patient engagement platform.
 - **Software Engineer Intern**, Aosta Software Solutions, Coimbatore (Dec 2017 - May 2018). Android app for inpatient workflows, in Java and the Android SDK.
@@ -31,7 +30,7 @@
 
 ## Links
 
-- [Website](https://www.vishnuroshan.in/)
+- [Website](https://www.vishnuroshan.com/)
 - [GitHub](https://github.com/vishnuroshan)
 - [LinkedIn](https://linkedin.com/in/vishnu-roshan)
 - [Email](mailto:vishnuroshan4@gmail.com)

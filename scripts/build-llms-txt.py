@@ -146,7 +146,7 @@ def build(html):
         out.append("- [%s](%s): %s" % (link.text, link.attrs["href"],
                                        sentence(meta.text)))
 
-    out += ["", "## Links", "", "- [Website](https://www.vishnuroshan.in/)"]
+    out += ["", "## Links", "", "- [Website](https://www.vishnuroshan.com/)"]
     for link in header.find_all("a", "icon-btn"):
         out.append("- [%s](%s)" % (link.attrs["aria-label"], link.attrs["href"]))
     email = header.find("address").find("a")
