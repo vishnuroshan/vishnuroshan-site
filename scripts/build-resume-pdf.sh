@@ -2,7 +2,8 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUT="${1:-$ROOT/vishnu-Roshan-Resume.pdf}"
+OUT="${1:-$ROOT/Vishnu-Roshan-Resume.pdf}"
+PAGE="${2:-index.html}"
 PORT="${PORT:-8787}"
 CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
 
@@ -30,24 +31,29 @@ done
   --disable-gpu \
   --no-pdf-header-footer \
   --print-to-pdf="$OUT" \
-  "http://127.0.0.1:$PORT/index.html" >/dev/null 2>&1
+  "http://127.0.0.1:$PORT/$PAGE" >/dev/null 2>&1
 
 echo "wrote $OUT"
 
 if command -v pdftotext >/dev/null 2>&1; then
   TEXT="$(pdftotext "$OUT" - | tr '\n' ' ' | tr -s ' ')"
   MISSING=0
-  for term in "e-commerce" "full-stack" "Web performance" "AI-assisted development" \
-              "Reciprocal Rank Fusion" "React Native" "Vector search" \
+  case "$PAGE" in
+    de/*) TERMS=("E-Commerce" "Full-Stack" "Web-Performance" "Logistik (WMS)" \
+                 "E2E-Testautomatisierung" "Vektorsuche" \
+                 "PROFIL" "BERUFSERFAHRUNG" "PROJEKTE" "KENNTNISSE" "AUSBILDUNG") ;;
+    *) TERMS=("e-commerce" "Full-stack" "Web performance" "logistics (WMS)" \
+              "E2E test automation" "Vector search" \
+              "SUMMARY" "EXPERIENCE" "SIDE PROJECTS" "SKILLS" "EDUCATION") ;;
+  esac
+  for term in "${TERMS[@]}" "Reciprocal Rank Fusion" "React Native" \
               "linkedin.com/in/vishnu-roshan" "github.com/vishnuroshan" \
-              "logistics (WMS)" "E2E test automation" \
               "https://github.com/vishnuroshan/sudoku" \
               "https://github.com/vishnuroshan/steamlib" \
               "https://github.com/vishnuroshan/tuitactoe" \
               "https://github.com/vishnuroshan/zed-react-ts-snippets" \
               "https://zed.dev/extensions/react-typescript-snippets" \
-              "https://sedstart.com/" \
-              "SUMMARY" "EXPERIENCE" "SIDE PROJECTS" "SKILLS" "EDUCATION"; do
+              "https://sedstart.com/"; do
     case "$TEXT" in
       *"$term"*) ;;
       *) echo "missing or split in extracted text: $term" >&2; MISSING=1 ;;
