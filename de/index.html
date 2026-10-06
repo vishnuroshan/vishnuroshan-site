@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Senior Software Engineer mit 8 Jahren Full-Stack-Erfahrung. React, React Native, Node.js, Python. Retrieval- und LLM-Systeme in Gesundheitswesen, E-Commerce und Logistik." />
+    <meta name="author" content="Vishnu Roshan" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>Vishnu Roshan – Senior Software Engineer</title>
+    <link rel="canonical" href="https://www.vishnuroshan.com/de/" />
+    <link rel="alternate" hreflang="en" href="https://www.vishnuroshan.com/" />
+    <link rel="alternate" hreflang="de" href="https://www.vishnuroshan.com/de/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.vishnuroshan.com/" />
+    <link rel="author" href="/humans.txt" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Vishnu" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:title" content="Vishnu Roshan – Senior Software Engineer" />
+    <meta property="og:description" content="Senior Software Engineer mit 8 Jahren Full-Stack-Erfahrung. React, React Native, Node.js, Python. Retrieval- und LLM-Systeme in Gesundheitswesen, E-Commerce und Logistik." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.vishnuroshan.com/de/" />
+    <meta property="og:site_name" content="Vishnu Roshan" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:image" content="https://www.vishnuroshan.com/banner.webp" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="840" />
+    <meta
+      property="og:image:alt"
+      content="Vishnu Roshan – Senior Software Engineer"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vishnu Roshan – Senior Software Engineer" />
+    <meta name="twitter:description" content="Senior Software Engineer mit 8 Jahren Full-Stack-Erfahrung. React, React Native, Node.js, Python. Retrieval- und LLM-Systeme in Gesundheitswesen, E-Commerce und Logistik." />
+    <meta
+      name="twitter:image"
+      content="https://www.vishnuroshan.com/banner.webp"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Vishnu Roshan – Senior Software Engineer"
+    />
+
+    <style>
+      :root {
+        --bg: #f7f6f2;
+        --panel: #fcfcfa;
+        --text: #171717;
+        --muted: #565a5f;
+        --line: #e2ded2;
+        --accent: #0a6c7d;
+        --accent-strong: #084e5a;
+        --header-bg: #27201c;
+        --header-text: #f3eee6;
+        --radius: 4px;
+        --gap: 1rem;
+        --pad: 0.8rem;
+        --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+          "Liberation Mono", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--mono);
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--bg);
+        margin: 0;
+        padding: var(--gap);
+        width: 100%;
+        height: 100dvh;
+        overflow: hidden;
+        display: grid;
+        gap: var(--gap);
+        grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.5fr) minmax(300px, 1.3fr);
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+          "ident   summary  work"
+          "skills  projects work"
+          "edu     projects work";
+      }
+
+      main {
+        display: contents;
+      }
+
+      .panel {
+        position: relative;
+        grid-area: var(--area);
+        min-height: 0;
+        overflow: hidden;
+        padding: 0 var(--pad) var(--pad);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow:
+          0 1px 2px rgba(39, 32, 28, 0.05),
+          0 8px 24px -8px rgba(39, 32, 28, 0.12);
+      }
+
+      .panel--work,
+      .panel--skills,
+      .panel--projects {
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--line) transparent;
+      }
+
+      .panel-title {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        margin: 0 calc(-1 * var(--pad)) 0.8rem;
+        padding: 0.5rem var(--pad);
+        background: var(--header-bg);
+        color: var(--header-text);
+        font-weight: 700;
+        font-size: 0.8rem;
+        line-height: 1.4;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      header.panel {
+        --area: ident;
+      }
+      .panel--summary {
+        --area: summary;
+      }
+      .panel--projects {
+        --area: projects;
+      }
+      .panel--work {
+        --area: work;
+      }
+      .panel--skills {
+        --area: skills;
+      }
+      .panel--edu {
+        --area: edu;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+        line-height: 1.1;
+        margin: 0.9rem 0 0.75rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      h1::after {
+        content: "_";
+        color: var(--accent);
+        animation: blink 1s steps(1) infinite;
+      }
+
+      .contact {
+        font-style: normal;
+        font-size: 0.9rem;
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      .contact .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.35rem;
+      }
+
+      .icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        color: var(--text);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        transition: color 0.15s ease, border-color 0.15s ease,
+          background 0.15s ease;
+      }
+
+      .games {
+        display: flex;
+        gap: 0.5rem;
+        margin-left: auto;
+      }
+
+      .icon-btn[data-game] {
+        color: var(--accent);
+      }
+
+      .icon-btn:hover {
+        color: var(--header-text);
+        background: var(--header-bg);
+        border-color: var(--header-bg);
+      }
+
+      .resume-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        height: 38px;
+        padding: 0 0.7rem;
+        font-family: inherit;
+        font-size: 0.82rem;
+        cursor: pointer;
+        color: var(--text);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        transition: color 0.15s ease, background 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      .resume-btn:hover {
+        color: var(--header-text);
+        background: var(--header-bg);
+        border-color: var(--header-bg);
+      }
+
+      .icon-btn svg {
+        display: block;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+        transition: color 0.15s ease, border-color 0.15s ease;
+      }
+
+      a:hover {
+        color: var(--accent-strong);
+        border-bottom-color: var(--accent);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+
+      #game-close:focus-visible {
+        outline-color: var(--header-text);
+      }
+
+      .consent {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .consent p {
+        margin: 0 0 0.4rem;
+      }
+
+      .site-footer {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        font-size: 0.78rem;
+      }
+
+      .nb {
+        white-space: nowrap;
+      }
+
+      .emphasis {
+        color: var(--accent-strong);
+        font-weight: 700;
+      }
+
+      .job {
+        margin-bottom: 1.25rem;
+      }
+
+      .job:last-child {
+        margin-bottom: 0;
+      }
+
+      .job-title {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .job-title a {
+        border-bottom-color: color-mix(in srgb, var(--accent) 45%, transparent);
+      }
+
+      .panel--summary p {
+        margin: 0;
+      }
+
+      .job .company {
+        margin: 0.1rem 0 0;
+        font-size: 0.88rem;
+      }
+
+      .job .meta {
+        display: block;
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-top: 0.1rem;
+      }
+
+      ul {
+        margin: 0.45rem 0 0 1.1rem;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 0.35rem;
+        font-size: 0.9rem;
+      }
+
+      .skill-group + .skill-group {
+        margin-top: 0.75rem;
+      }
+
+      .skill-group-title {
+        margin: 0;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .badges {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 0.2rem 0 0;
+        padding: 0;
+      }
+
+      .badges li {
+        margin: 0;
+        font-size: 0.78rem;
+        padding: 0.22rem 0.55rem;
+        color: var(--text);
+        background: color-mix(in srgb, var(--header-bg) 4%, var(--panel));
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        transition: transform 0.18s ease, box-shadow 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .badges li:hover {
+          transform: scale(1.06);
+          box-shadow: 0 2px 8px rgba(39, 32, 28, 0.16);
+          border-color: var(--accent);
+        }
+      }
+
+      code {
+        font-family: var(--mono);
+        font-size: 0.85em;
+        padding: 0.05em 0.35em;
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+        border-radius: 3px;
+      }
+
+      #game-dialog {
+        position: fixed;
+        inset: auto var(--gap) var(--gap) auto;
+        width: min(46vw, 620px);
+        max-width: calc(100vw - 2 * var(--gap));
+        max-height: calc(100dvh - 2 * var(--gap));
+        height: auto;
+        padding: 0;
+        overflow: hidden;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: 0 12px 40px -8px rgba(39, 32, 28, 0.45);
+        display: none;
+        flex-direction: column;
+      }
+
+      #game-dialog[open] {
+        display: flex;
+      }
+
+      .game-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--gap);
+        padding: 0.5rem var(--pad);
+        background: var(--header-bg);
+        color: var(--header-text);
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      #game-close {
+        font: inherit;
+        padding: 0.2rem 0.6rem;
+        color: var(--header-text);
+        background: none;
+        border: 1px solid var(--header-text);
+        border-radius: var(--radius);
+        cursor: pointer;
+      }
+
+      #game-close:hover {
+        color: var(--header-bg);
+        background: var(--header-text);
+      }
+
+      #game-slot {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        background: #000;
+      }
+
+      #game-slot iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .skip-links {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        padding: 8px 16px;
+        background: var(--text);
+        color: var(--bg);
+        border-radius: var(--radius);
+        font-weight: bold;
+        border: none;
+        white-space: nowrap;
+      }
+
+      .skip-link:focus {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1001;
+      }
+
+      .panel--work::-webkit-scrollbar,
+      .panel--skills::-webkit-scrollbar,
+      .panel--projects::-webkit-scrollbar {
+        width: 8px;
+      }
+      .panel--work::-webkit-scrollbar-thumb,
+      .panel--skills::-webkit-scrollbar-thumb,
+      .panel--projects::-webkit-scrollbar-thumb {
+        background: var(--line);
+        border-radius: 4px;
+      }
+
+      .scroll-hint {
+        display: none;
+        position: sticky;
+        bottom: 0.35rem;
+        width: 26px;
+        height: 26px;
+        margin: -26px 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: var(--header-text);
+        background: var(--header-bg);
+        box-shadow: 0 2px 6px rgba(39, 32, 28, 0.28);
+        pointer-events: none;
+      }
+
+      .has-more .scroll-hint {
+        display: flex;
+      }
+
+      @media print {
+        .has-more .scroll-hint {
+          display: none;
+        }
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        50.01%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        h1::after {
+          animation: none;
+        }
+
+        .badges li {
+          transition: none;
+        }
+
+        .badges li:hover {
+          transform: none;
+        }
+
+        a,
+        .icon-btn,
+        .resume-btn {
+          transition: none;
+        }
+      }
+
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 14mm 13mm;
+        }
+
+        body {
+          display: block;
+          height: auto;
+          overflow: visible;
+          padding: 0;
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 10pt;
+          line-height: 1.45;
+          background: #fff;
+          color: #1b1b1b;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+
+        .panel {
+          display: block;
+          overflow: visible;
+          padding: 0;
+          margin: 0 0 9pt;
+          background: none;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          break-inside: auto;
+        }
+
+        .panel-title {
+          position: static;
+          margin: 13pt 0 5pt;
+          padding: 0 0 2.5pt;
+          font-size: 8.5pt;
+          letter-spacing: 0.16em;
+          background: none;
+          color: #0a6c7d;
+          border-bottom: 0.75pt solid #0a6c7d;
+        }
+
+        .panel-title[data-print-heading] {
+          font-size: 0;
+        }
+
+        .panel-title[data-print-heading]::before {
+          content: attr(data-print-heading);
+          font-size: 8.5pt;
+        }
+
+        header.panel .panel-title,
+        .skip-links,
+        .scroll-hint,
+        .games,
+        #game-dialog,
+        #turnstile-container,
+        .consent,
+        .site-footer,
+        #resume-btn,
+        .icon-btn svg,
+        h1::after {
+          display: none;
+        }
+
+        h1 {
+          margin: 0 0 3pt;
+          font-size: 23pt;
+          letter-spacing: -0.015em;
+          color: #084e5a;
+        }
+
+        header.panel {
+          margin-bottom: 11pt;
+          padding-bottom: 7pt;
+          border-bottom: 0.75pt solid #cfcabb;
+        }
+
+        .contact {
+          display: block;
+          font-size: 9.5pt;
+        }
+
+        .contact .links {
+          display: block;
+          margin: 0;
+        }
+
+        .icon-btn {
+          display: inline;
+          width: auto;
+          height: auto;
+          padding: 0;
+          margin: 0;
+          background: none;
+          border: none;
+        }
+
+        .icon-btn + .icon-btn::before {
+          content: "   ";
+        }
+
+        .icon-btn::after {
+          content: attr(href);
+        }
+
+        a {
+          color: #000;
+          border-bottom: none;
+          text-decoration: none;
+        }
+
+        .job {
+          margin-bottom: 7pt;
+          break-inside: avoid;
+        }
+
+        .job-title {
+          font-size: 10.5pt;
+          color: #111;
+        }
+
+        .panel--projects .job-title a::after,
+        .panel--projects .meta a.src::after,
+        .panel--work li a::after {
+          content: " " attr(href);
+          font-weight: 400;
+          white-space: nowrap;
+        }
+
+        .job .company {
+          font-size: 9.5pt;
+          color: #3a3a3a;
+        }
+
+        .job .meta {
+          font-size: 8.5pt;
+          color: #5c5c5c;
+        }
+
+        ul {
+          margin: 2pt 0 0 12pt;
+        }
+
+        li {
+          font-size: 9.5pt;
+          margin-bottom: 1.5pt;
+        }
+
+        .skill-group,
+        .skill-group + .skill-group {
+          margin: 0 0 1pt;
+        }
+
+        .skill-group-title {
+          display: inline;
+          font-size: 8.5pt;
+          letter-spacing: 0.06em;
+          color: #0a6c7d;
+        }
+
+        .skill-group-title::after {
+          content: ": ";
+        }
+
+        .badges {
+          display: inline;
+          margin: 0;
+          padding: 0;
+        }
+
+        .badges li {
+          display: inline;
+          padding: 0;
+          font-size: 9.5pt;
+          white-space: nowrap;
+          background: none;
+          border: none;
+        }
+
+        .badges li::after {
+          content: ", ";
+        }
+
+        .badges li:last-child::after {
+          content: "";
+        }
+
+        code {
+          font-family: inherit;
+          font-size: inherit;
+          background: none;
+          padding: 0;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .games {
+          display: none;
+        }
+
+        body {
+          display: block;
+          height: auto;
+          overflow: visible;
+        }
+        .panel {
+          margin-bottom: var(--gap);
+          overflow: visible;
+        }
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vishnu Roshan",
+        "url": "https://www.vishnuroshan.com/",
+        "image": "https://www.vishnuroshan.com/banner.webp",
+        "jobTitle": "Senior Software Engineer",
+        "email": "mailto:vishnuroshan4@gmail.com",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Sedin Technologies"
+        },
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Senior Software Engineer",
+          "occupationalCategory": "15-1252.00"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Master of Computer Applications",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "PSG College of Technology"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "BSc Computer Science",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "Guru Nanak College of Arts & Science"
+            }
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chennai",
+          "addressRegion": "Tamil Nadu",
+          "postalCode": "600097",
+          "addressCountry": "IN"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "PSG College of Technology"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Guru Nanak College of Arts & Science"
+          }
+        ],
+        "knowsAbout": [
+          "TypeScript",
+          "JavaScript",
+          "Python",
+          "React",
+          "Next.js",
+          "React Native",
+          "Node.js",
+          "GraphQL",
+          "PostgreSQL",
+          "Redis",
+          "pgvector",
+          "Vector search",
+          "Hybrid search",
+          "Retrieval-Augmented Generation",
+          "RabbitMQ",
+          "Docker",
+          "AWS",
+          "Cloudflare",
+          "Playwright",
+          "LiteLLM",
+          "System design",
+          "Microservices",
+          "Distributed systems",
+          "Web performance",
+          "Accessibility"
+        ],
+        "sameAs": [
+          "https://github.com/vishnuroshan",
+          "https://linkedin.com/in/vishnu-roshan"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="skip-links">
+      <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+    </div>
+
+    <header class="panel">
+      <p class="panel-title">whoami</p>
+      <h1>Vishnu Roshan</h1>
+      <address class="contact">
+        <div>Chennai, Indien 600097</div>
+        <div><a href="mailto:vishnuroshan4@gmail.com">vishnuroshan4@gmail.com</a></div>
+        <div>Offen für einen Umzug nach Deutschland · Visa-Sponsoring erforderlich (Blaue Karte EU)</div>
+        <div>Remote aus Indien verfügbar (IST) · Kündigungsfrist: 30 Tage</div>
+        <div class="links">
+          <button type="button" id="resume-btn" class="resume-btn">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12" />
+              <path d="M7 11l5 5 5-5" />
+              <path d="M4 21h16" />
+            </svg>
+            Lebenslauf
+          </button>
+          <a
+            href="https://github.com/vishnuroshan"
+            class="icon-btn"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/vishnu-roshan"
+            class="icon-btn"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <span class="games">
+          <button
+              type="button"
+              class="icon-btn"
+              data-game="doom1-sw1"
+              data-game-title="DOOM"
+              title="DOOM" aria-label="DOOM spielen"
+            >
+              <svg viewBox="0 0 512 512" width="23" height="23" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M255.997 16.004c-120 0-239.997 60-239.997 149.998C16 226.002 61 256 61 316c0 45-15 45-15 75c0 14.998 48.01 32.002 89.998 44.998v60h239.997v-60s90.567-27.957 90-45c-.933-27.947-15-30-15-74.998c0-30 45.642-91.42 44.998-149.998c0-90-119.998-149.998-239.996-149.998m-90 179.997c33.137 0 60 26.864 60 60s-26.863 60-60 60C132.863 316 106 289.136 106 256s26.862-60 59.998-60zm179.998 0c33.136 0 60 26.864 60 60s-26.864 60-60 60s-60-26.864-60-60s26.864-60 60-60m-89.998 105c15 0 45 60 45 75c0 29.998 0 29.998-15 29.998h-60c-15 0-15 0-15-30c0-15 30-74.998 45-74.998"/></svg>
+            </button>
+            <button
+              type="button"
+              class="icon-btn"
+              data-game="wolf3dsw"
+              data-game-title="Wolfenstein 3D"
+              title="Wolfenstein 3D" aria-label="Wolfenstein 3D spielen"
+            >
+              <svg viewBox="0 0 512 512" width="23" height="23" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M179.3 38.94C154.7 77.7 142.7 139.7 168.4 185.9l-16.3 9.2c-6.7-11.9-11.2-24.4-13.9-37.2c-34.5-6.3-69.42-7.5-104.98-2.1c34.07 10.1 52.77 23.7 76.68 46.7c-26.82 9.7-60.25 30.2-92.93 70.2c35.47-8.8 64.83-11.5 89.43-6.3c-36.94 22.5-64.06 56.1-88.34 114.1c35.9-17.2 64.89-18.8 102.94-18.8c-23.07 32.7-35.27 77.2-36.31 112.8c24.51-26 57.61-60.2 87.21-79c3 29.9 15 58.3 35.9 85.3c-.2-43.9 10.3-88.3 31.6-133.4c-18.8 9-32.4 18.1-49.9 29.3c6.2-27.9 12.4-55.8 18.7-83.7c-23.3 2.4-39 10-60.5 18.5c16.3-33.1 32.7-66.1 49.1-99.2l16.8 8.3l-28.4 57.4c18.4-4.4 28.7-4.1 45.7-1.3c-4.5 20.4-9 40.7-13.6 61c65.3-36.2 148.3-45.9 226.7-50c7.6-12.9 13.8-24.2 18.8-34.8l-6.3-24.4l-24.4 30.8l-7.8-27.5l-22.5 29.2l-7.5-26.1l-23.9 31.5l-7.7-28.2l-23.8 31.4l1.2-41.1l22.6-42.7l7.6 28.3l23.9-31.5l7.6 28.2l23.5-30l6.5 26.9l24.5-30.8l7.8 27.5l24.6-32c2.3-10.8 4.6-22.4 7.4-35.7c-55.5-3.7-106.3 4.8-154 9.8c-38-20.8-80.8-26.8-121.9-18.5c-13.6-29.69-27.2-59.38-40.9-89.06M325.5 158.3c-4.5 14.2-13 18.3-24.7 20.6c-16.1-4.4-28.3-15.5-34.4-30.2c20.4-3.8 42.4 3.4 59.1 9.6"/></svg>
+            </button>
+          </span>
+        </div>
+        <div class="consent" id="resume-consent" hidden>
+          <p id="resume-consent-text">
+            Der Download startet eine Bot-Prüfung durch Cloudflare Turnstile,
+            die Ihre IP-Adresse und Browserdaten an Cloudflare (USA) sendet.
+            <a href="/de/datenschutz">Datenschutzerklärung</a>
+          </p>
+          <button type="button" class="resume-btn" aria-describedby="resume-consent-text">Weiter</button>
+        </div>
+        <div class="consent" id="game-consent" hidden>
+          <p id="game-consent-text">
+            Das Spiel wird vom Internet Archive (archive.org, USA) geladen,
+            das Ihre IP-Adresse und Browserdaten erhält.
+            <a href="/de/datenschutz">Datenschutzerklärung</a>
+          </p>
+          <button type="button" class="resume-btn" aria-describedby="game-consent-text">Weiter</button>
+        </div>
+        <div id="turnstile-container" hidden></div>
+      </address>
+    </header>
+
+    <main id="main-content">
+      <section class="panel panel--summary" aria-labelledby="summary-heading">
+        <h2 class="panel-title" data-print-heading="Profil" id="summary-heading">Profil</h2>
+        <p>
+          <strong class="emphasis">Senior Software Engineer</strong> mit acht
+          Jahren Erfahrung darin, unklare, <span class="nb">domänenübergreifende</span>
+          Probleme in produktionsreife Systeme zu verwandeln, und bleibt
+          besonnen, wenn sich Anforderungen ändern oder unter Druck etwas
+          ausfällt. <span class="nb">Full-Stack</span> mit TypeScript, React,
+          Node.js und Python, auf PostgreSQL, Redis, AWS und Cloudflare, mit
+          dem Urteilsvermögen, wann Tempo zählt, was Priorität hat, worauf es
+          ankommt und wie man liefert.
+        </p>
+      </section>
+
+      <section class="panel panel--work" aria-labelledby="work-heading">
+        <h2 class="panel-title" data-print-heading="Berufserfahrung" id="work-heading">Berufserfahrung</h2>
+        <div class="job">
+          <h3 class="job-title">Senior Software Engineer</h3>
+          <p class="company">Sedin Technologies — Railsfactory Division, Chennai</p>
+          <span class="meta"><time datetime="2023-01">01/2023</time> - heute</span>
+          <span class="meta">Software Engineer, <time datetime="2020-10">10/2020</time> - <time datetime="2023-01">01/2023</time></span>
+          <ul>
+            <li>
+              Ein dreiköpfiges Frontend-/Backend-Team geleitet, das in 4
+              Monaten ein MVP im Bereich <span class="nb">Logistik (WMS)</span>
+              lieferte; der Kunde beauftragte zwei weitere Folgephasen.
+            </li>
+            <li>
+              16 Praktikanten in Frontend-Entwicklung ausgebildet; die
+              meisten sind im dritten Jahr noch im Unternehmen und arbeiten
+              produktiv mit.
+            </li>
+            <li>
+              <strong>Managementberatung</strong> — Vektorspeicher von ChromaDB
+              auf <code>pgvector</code> migriert, nachdem das Setup mit zwei
+              Datenspeichern ungenaue Suchergebnisse lieferte und Kosten sowie
+              Entwicklungsaufwand erhöhte; auf die bestehende Datenbank
+              konsolidiert und Suchqualität und Performance durch hybride
+              Suche mit Reciprocal Rank Fusion verbessert.
+            </li>
+            <li>
+              <a
+                href="https://sedstart.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><strong>Sedstart</strong></a
+              >
+              — Renderzeit beim Kaltstart von Sedins No-Code-Plattform für
+              E2E-Testautomatisierung von 30–40 s auf 10–12 s gesenkt (rund
+              70 %), durch Optimierung des Render-Trees und UX-Techniken für
+              wahrgenommene Performance.
+            </li>
+            <li>
+              <strong>HR-Technologie</strong> — Dauer des Recruitings um 70 %
+              verkürzt, mit einer Plattform für Bewerbermanagement und
+              Assessments für Kandidaten und Recruiting-Teams.
+            </li>
+            <li>
+              <strong>Gesundheitswesen</strong> — UX einer teilweise
+              entwickelten Plattform zur Compliance-Nachverfolgung für einen
+              Kunden im klinischen Personalwesen neu aufgebaut; 40 % mehr
+              Impressions und Leads.
+            </li>
+            <li>
+              <strong>Retail Analytics</strong> — Verbesserungen im
+              Low-Level-Design und Refactoring für eine React-Native-App mit
+              Computer Vision beigetragen, die Produkteinblicke aus Regalfotos
+              gewinnt.
+            </li>
+            <li>
+              10–12 Kundenprojekte in Gesundheitswesen,
+              <span class="nb">E-Commerce</span>, Verlagswesen,
+              <span class="nb">Logistik (WMS)</span>, HR-Technologie,
+              Managementberatung und Retail Analytics geliefert; die meisten
+              waren Neukunden, die meisten wurden Stammkunden.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3 class="job-title">Software Engineer</h3>
+          <p class="company">Teknuance Info Solutions, Chennai</p>
+          <span class="meta"><time datetime="2019-07">07/2019</time> - <time datetime="2020-06">06/2020</time></span>
+          <ul>
+            <li>
+              REST-APIs in Node.js auf PostgreSQL und MongoDB für
+              datenintensive Anwendungen entwickelt.
+            </li>
+            <li>
+              Progressive Web Apps entwickelt, darunter D-Sci, eine
+              End-to-End-Analyseplattform.
+            </li>
+            <li>
+              Olimium verantwortet und gepflegt, eine Echtzeit-Chat-Anwendung
+              auf Basis von WebSockets.
+            </li>
+            <li>
+              Design Patterns und Twelve-Factor-App-Prinzipien angewendet, um
+              Services modular und cloudfähig zu halten.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3 class="job-title">Full Stack Developer</h3>
+          <p class="company">Bionworks Technologies (heute Teil von IQVIA), Chennai</p>
+          <span class="meta"><time datetime="2018-05">05/2018</time> - <time datetime="2019-06">06/2019</time></span>
+          <ul>
+            <li>
+              <strong>Healthcommand</strong>, eine sichere Gesundheitsakte für
+              Familien, auf Node.js mit Angular 6 und Ionic 3 entwickelt und
+              gepflegt.
+            </li>
+            <li>
+              Kernmodule zu <strong>Healthplug MD</strong> beigetragen, einer
+              Mobile-First-EMR für Ärzte und Behandlungsteams, sowie zu
+              <strong>PX</strong>, einer Plattform für Patientenbindung.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3 class="job-title">Software Engineer (Praktikum)</h3>
+          <p class="company">Aosta Software Solutions, Coimbatore</p>
+          <span class="meta"><time datetime="2017-12">12/2017</time> - <time datetime="2018-05">05/2018</time></span>
+          <span class="meta">Android-App für stationäre Abläufe, mit Java und dem Android SDK.</span>
+        </div>
+        <span class="scroll-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </span>
+      </section>
+
+      <section class="panel panel--projects" aria-labelledby="projects-heading">
+        <h2 class="panel-title" data-print-heading="Projekte" id="projects-heading">Projekte</h2>
+        <div class="job">
+          <h3 class="job-title">
+            <a
+              href="https://zed.dev/extensions/react-typescript-snippets"
+              target="_blank"
+              rel="noopener noreferrer"
+              >React TypeScript Snippets</a
+            >
+          </h3>
+          <span class="meta"
+            >React- und TypeScript-Snippets für den Zed-Editor.
+            <strong class="emphasis">Über 96.000 Downloads</strong>, die am
+            zweithäufigsten heruntergeladene Snippet-Erweiterung für Zed.
+            <a
+              href="https://github.com/vishnuroshan/zed-react-ts-snippets"
+              class="src"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Quellcode</a
+            >.</span
+          >
+        </div>
+        <div class="job">
+          <h3 class="job-title">
+            <a
+              href="https://zerohero.vishnuroshan.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Zero Hero</a
+            >
+          </h3>
+          <span class="meta"
+            >Erreiche genau null, bevor der Timer abläuft. React, TypeScript und
+            Vite, entwickelt für den GMTK Game Jam 2026.</span
+          >
+        </div>
+        <div class="job">
+          <h3 class="job-title">
+            <a
+              href="https://lovedoku.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Lovedoku</a
+            >
+          </h3>
+          <span class="meta"
+            >Werbefreies Sudoku, gebaut für meine Frau. Generator um einen
+            Dancing-Links-Exact-Cover-Solver mit technikbasierter
+            Schwierigkeitsbewertung neu geschrieben; die Generierung der
+            schwersten Stufe sank von ~1 s auf ~6 ms.
+            <a
+              href="https://github.com/vishnuroshan/sudoku"
+              class="src"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Quellcode</a
+            >.</span
+          >
+        </div>
+        <div class="job">
+          <h3 class="job-title">
+            <a
+              href="https://steamlib.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Steam Lib</a
+            >
+          </h3>
+          <span class="meta"
+            >Steam-Spielebibliotheken durchsuchen und verwalten. Next.js mit den
+            APIs von Steam und IGDB und einem Metadaten-Cache auf Postgres, der
+            nur noch nicht gecachte Titel in Batches von 500 abruft.
+            <a
+              href="https://github.com/vishnuroshan/steamlib"
+              class="src"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Quellcode</a
+            >.</span
+          >
+        </div>
+        <div class="job">
+          <h3 class="job-title">
+            <a
+              href="https://www.npmjs.com/package/tuitactoe"
+              target="_blank"
+              rel="noopener noreferrer"
+              >tui-tac-toe</a
+            >
+          </h3>
+          <span class="meta"
+            >Tic Tac Toe im Terminal, gebaut mit
+            <a
+              href="https://github.com/vadimdemedes/ink"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ink</a
+            >. Installation mit <code>npx tuitactoe</code>.
+            <a
+              href="https://github.com/vishnuroshan/tuitactoe"
+              class="src"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Quellcode</a
+            >.</span
+          >
+        </div>
+        <span class="scroll-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </span>
+      </section>
+
+      <section class="panel panel--skills" aria-labelledby="skills-heading">
+        <h2 class="panel-title" data-print-heading="Kenntnisse" id="skills-heading">Kenntnisse</h2>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Programmiersprachen</h3>
+          <ul class="badges" role="list">
+            <li>TypeScript</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Frontend</h3>
+          <ul class="badges" role="list">
+            <li>React</li>
+            <li>Next.js</li>
+            <li>React Native</li>
+            <li>Barrierefreiheit (a11y)</li>
+            <li>Web-Performance</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Backend &amp; Daten</h3>
+          <ul class="badges" role="list">
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>REST APIs</li>
+            <li>GraphQL</li>
+            <li>WebSockets</li>
+            <li>PostgreSQL</li>
+            <li>MongoDB</li>
+            <li>Redis</li>
+            <li>pgvector</li>
+            <li>RabbitMQ</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Cloud &amp; Delivery</h3>
+          <ul class="badges" role="list">
+            <li>AWS</li>
+            <li>Cloudflare</li>
+            <li>Docker</li>
+            <li>CI/CD</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Testing</h3>
+          <ul class="badges" role="list">
+            <li>Jest</li>
+            <li>Vitest</li>
+            <li>Playwright</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">KI-Engineering</h3>
+          <ul class="badges" role="list">
+            <li>LiteLLM</li>
+            <li>Vektorsuche</li>
+            <li>Hybride Suche</li>
+            <li>Retrieval-Augmented Generation</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Architektur</h3>
+          <ul class="badges" role="list">
+            <li>Microservices</li>
+            <li>Verteilte Systeme</li>
+            <li>Systemdesign</li>
+          </ul>
+        </div>
+        <span class="scroll-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </span>
+      </section>
+
+      <section class="panel panel--edu" aria-labelledby="education-heading">
+        <h2 class="panel-title" data-print-heading="Ausbildung &amp; Sprachen" id="education-heading">Ausbildung &amp; Sprachen</h2>
+        <div class="job">
+          <h3 class="job-title">Master of Computer Applications</h3>
+          <p class="company">PSG College of Technology, Coimbatore</p>
+          <span class="meta"><time datetime="2015-08">08/2015</time> - <time datetime="2018-05">05/2018</time></span>
+        </div>
+        <div class="job">
+          <h3 class="job-title">BSc Computer Science &amp; Programming</h3>
+          <p class="company">Guru Nanak College of Arts &amp; Science, Chennai</p>
+          <span class="meta"><time datetime="2012-07">07/2012</time> - <time datetime="2015-05">05/2015</time></span>
+        </div>
+        <div class="job">
+          <h3 class="job-title">Sprachen</h3>
+          <span class="meta">Englisch (fließend) · Tamil (Muttersprache) · Deutsch (A1, lerne aktiv)</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="/de/datenschutz">Datenschutzerklärung</a>
+      <a href="/" hreflang="en" lang="en">English</a>
+    </footer>
+
+    <dialog id="game-dialog">
+      <div class="game-bar">
+        <span id="game-name"></span>
+        <button type="button" id="game-close" aria-label="Spiel schließen">Schließen</button>
+      </div>
+      <div id="game-slot"></div>
+    </dialog>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

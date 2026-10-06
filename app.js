@@ -73,25 +73,45 @@ async function downloadResume(token) {
   var res = await fetch("/api/resume", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ token: token }),
+    body: JSON.stringify({ token: token, lang: document.documentElement.lang }),
   });
   if (!res.ok) {
     console.error("resume download failed:", res.status);
     return;
   }
+  var disposition = res.headers.get("Content-Disposition") || "";
+  var match = disposition.match(/filename="([^"]+)"/);
   var blob = await res.blob();
   var url = URL.createObjectURL(blob);
   var link = document.createElement("a");
   link.href = url;
-  link.download = "Vishnu-Roshan-Resume.pdf";
+  link.download = match ? match[1] : "Vishnu-Roshan-Resume.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
 
+function withConsent(id, action) {
+  var notice = document.getElementById(id);
+  if (notice.dataset.granted) {
+    action();
+    return;
+  }
+  var button = notice.querySelector("button");
+  button.onclick = function () {
+    notice.dataset.granted = "true";
+    notice.hidden = true;
+    action();
+  };
+  notice.hidden = false;
+  button.focus();
+}
+
 document.getElementById("resume-btn").addEventListener("click", function () {
-  runAction(downloadResume);
+  withConsent("resume-consent", function () {
+    runAction(downloadResume);
+  });
 });
 
 var scrollPanels = document.querySelectorAll(
@@ -134,7 +154,9 @@ function openGame(button) {
 
 document.querySelectorAll(".icon-btn[data-game]").forEach(function (button) {
   button.addEventListener("click", function () {
-    openGame(button);
+    withConsent("game-consent", function () {
+      openGame(button);
+    });
   });
 });
 
