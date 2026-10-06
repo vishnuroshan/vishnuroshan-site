@@ -264,12 +264,34 @@
         margin: 0 0 0.4rem;
       }
 
-      .site-footer {
-        grid-column: 1 / -1;
+      .panel-title--bar {
         display: flex;
-        justify-content: flex-end;
+        align-items: center;
+        justify-content: space-between;
         gap: 1rem;
-        font-size: 0.78rem;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .site-nav a {
+        color: var(--header-text);
+        border-bottom-color: color-mix(in srgb, var(--header-text) 40%, transparent);
+      }
+
+      .site-nav a:hover {
+        color: var(--header-text);
+        border-bottom-color: var(--header-text);
+      }
+
+      .site-nav a:focus-visible {
+        outline-color: var(--header-text);
+      }
+
+      .lang-switch [aria-current] {
+        opacity: 0.7;
       }
 
       .nb {
@@ -595,7 +617,6 @@
         #game-dialog,
         #turnstile-container,
         .consent,
-        .site-footer,
         #resume-btn,
         .icon-btn svg,
         h1::after {
@@ -846,7 +867,13 @@
     </div>
 
     <header class="panel">
-      <p class="panel-title">whoami</p>
+      <div class="panel-title panel-title--bar">
+        <span>whoami</span>
+        <nav class="site-nav" aria-label="Site">
+          <a href="/privacy">Privacy</a>
+          <span class="lang-switch"><span aria-current="page">EN</span> | <a href="/de/" hreflang="de" lang="de">DE</a></span>
+        </nav>
+      </div>
       <h1>Vishnu Roshan</h1>
       <address class="contact">
         <div>Chennai, India 600097</div>
@@ -1266,11 +1293,6 @@
         </div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <a href="/privacy">Privacy policy</a>
-      <a href="/de/" hreflang="de" lang="de">Deutsch</a>
-    </footer>
 
     <dialog id="game-dialog">
       <div class="game-bar">
