@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Senior Software Engineer mit 8 Jahren Full-Stack-Erfahrung. React, React Native, Node.js, Python. Retrieval- und LLM-Systeme in Gesundheitswesen, E-Commerce und Logistik." />
     <meta name="author" content="Vishnu Roshan" />
-    <meta name="theme-color" content="#eeeeec" />
+    <meta name="theme-color" content="#e6e8ea" />
     <title>Vishnu Roshan – Senior Software Engineer</title>
     <link rel="canonical" href="https://www.vishnuroshan.com/de/" />
     <link rel="alternate" hreflang="en" href="https://www.vishnuroshan.com/" />
@@ -46,20 +46,21 @@
 
     <style>
       :root {
-        --bg: #eeeeec;
-        --panel: #ffffff;
-        --text: #111111;
-        --muted: #595959;
-        --line: #d6d6d2;
-        --accent: #c8102e;
-        --accent-strong: #9e0c24;
-        --header-bg: #111111;
+        --bg: #e6e8ea;
+        --panel: #f8f9fa;
+        --text: #14171a;
+        --muted: #50555a;
+        --line: #b8bcc1;
+        --accent: #a64b00;
+        --accent-strong: #7a3700;
+        --signal: #ffc800;
+        --header-bg: #14171a;
         --header-text: #ffffff;
         --radius: 0;
         --gap: 1rem;
         --pad: 0.9rem;
-        --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans",
-          sans-serif;
+        --sans: Bahnschrift, "Helvetica Neue", Helvetica,
+          Arial, sans-serif;
         --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
           "Liberation Mono", monospace;
       }
@@ -74,6 +75,11 @@
         line-height: 1.55;
         color: var(--text);
         background-color: var(--bg);
+        background-image:
+          linear-gradient(color-mix(in srgb, var(--line) 45%, transparent) 1px, transparent 1px),
+          linear-gradient(90deg, color-mix(in srgb, var(--line) 45%, transparent) 1px, transparent 1px);
+        background-size: 24px 24px;
+        font-variant-numeric: tabular-nums;
         margin: 0;
         padding: var(--gap);
         width: 100%;
@@ -100,7 +106,7 @@
         overflow: hidden;
         padding: 0 var(--pad) var(--pad);
         background: var(--panel);
-        border: 1px solid var(--line);
+        border: 1px solid var(--text);
         border-top: none;
         border-radius: var(--radius);
       }
@@ -121,9 +127,10 @@
         padding: 0.6rem var(--pad) 0.4rem;
         background: var(--panel);
         color: var(--text);
-        border-top: 3px solid var(--text);
+        border-top: 1px solid var(--text);
+        border-left: 8px solid var(--signal);
         font-weight: 700;
-        font-size: 0.75rem;
+        font-size: 0.74rem;
         line-height: 1.4;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -163,7 +170,8 @@
         width: 0.2em;
         height: 0.2em;
         margin-left: 0.12em;
-        background: var(--accent);
+        background: var(--signal);
+        outline: 1px solid var(--text);
       }
 
       .contact {
@@ -399,7 +407,8 @@
 
       .badges li {
         margin: 0;
-        font-size: 0.78rem;
+        font-family: var(--mono);
+        font-size: 0.74rem;
         padding: 0.22rem 0.55rem;
         color: var(--text);
         background: color-mix(in srgb, var(--header-bg) 4%, var(--panel));
@@ -497,7 +506,7 @@
         overflow: hidden;
         color: var(--text);
         background: var(--panel);
-        border: 1px solid var(--line);
+        border: 1px solid var(--text);
         border-radius: var(--radius);
         box-shadow: 0 12px 40px -8px rgba(17, 17, 17, 0.45);
       }
@@ -519,7 +528,8 @@
         padding: 0.6rem var(--pad) 0.4rem;
         background: var(--panel);
         color: var(--text);
-        border-top: 3px solid var(--text);
+        border-top: 1px solid var(--text);
+        border-left: 8px solid var(--signal);
         border-bottom: 1px solid var(--line);
         font-weight: 700;
         font-size: 0.75rem;
@@ -675,6 +685,7 @@
           overflow: visible;
           padding: 0;
           font-family: Helvetica, Arial, sans-serif;
+          font-variant-numeric: normal;
           font-size: 10pt;
           line-height: 1.45;
           background: #fff;
@@ -704,6 +715,7 @@
           background: none;
           color: #0a6c7d;
           border-top: none;
+          border-left: none;
           border-bottom: 0.75pt solid #0a6c7d;
         }
 
@@ -840,6 +852,7 @@
 
         .badges li {
           display: inline;
+          font-family: inherit;
           padding: 0;
           font-size: 9.5pt;
           white-space: nowrap;
