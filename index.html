@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Senior Software Engineer, 8 years full-stack. React, React Native, Node.js, Python. Retrieval and LLM systems across healthcare, e-commerce and logistics." />
     <meta name="author" content="Vishnu Roshan" />
-    <meta name="theme-color" content="#eeeeec" />
+    <meta name="theme-color" content="#d9dce0" />
     <title>Vishnu Roshan – Senior Software Engineer</title>
     <link rel="canonical" href="https://www.vishnuroshan.com/" />
     <link rel="alternate" hreflang="en" href="https://www.vishnuroshan.com/" />
@@ -878,6 +878,174 @@
         .panel {
           margin-bottom: var(--gap);
           overflow: visible;
+        }
+      }
+
+      @media screen {
+        :root {
+          --bg: #d9dce0;
+          --panel: #ffffff;
+          --text: #1a1a1a;
+          --muted: #55595e;
+          --line: #cdd0d4;
+          --accent: #1f3a5f;
+          --accent-strong: #142841;
+          --header-bg: #1f3a5f;
+          --header-text: #ffffff;
+          --signal: #1f3a5f;
+        }
+
+        body {
+          display: block;
+          height: auto;
+          overflow: visible;
+          padding: 2rem 1rem 3rem;
+          font-size: 15px;
+          line-height: 1.5;
+        }
+
+        header.panel,
+        main {
+          display: block;
+          width: min(100%, 210mm);
+          margin-inline: auto;
+          background: var(--panel);
+          box-shadow: 0 10px 30px -12px rgba(26, 26, 26, 0.4);
+        }
+
+        main {
+          position: relative;
+          padding: 1.4rem 20mm 25mm 25mm;
+        }
+
+        .panel {
+          overflow: visible;
+          padding: 0;
+          margin: 0 0 1.6rem;
+          border: none;
+          background: none;
+          box-shadow: none;
+        }
+
+        header.panel {
+          margin-bottom: 0;
+          padding: 1.5rem 20mm 1rem 25mm;
+          background: var(--panel);
+          box-shadow: 0 10px 30px -12px rgba(26, 26, 26, 0.4);
+        }
+
+        .panel-title {
+          position: static;
+          margin: 0 0 0.8rem;
+          padding: 0 0 0.3rem;
+          background: none;
+          color: var(--accent);
+          border-top: none;
+          border-bottom: 1px solid var(--accent);
+          font-size: 0.72rem;
+          letter-spacing: 0.16em;
+        }
+
+        header.panel .panel-title {
+          margin: 0 0 1.4rem;
+          color: var(--muted);
+          border-bottom-color: var(--line);
+        }
+
+        h1 {
+          font-size: 2.3rem;
+          margin: 0 0 0.6rem;
+        }
+
+        .panel--work .job,
+        .panel--edu .job {
+          display: grid;
+          grid-template-columns: 8.5rem 1fr;
+          column-gap: 1.25rem;
+          margin-bottom: 1.2rem;
+        }
+
+        .panel--work .job > *,
+        .panel--edu .job > * {
+          grid-column: 2;
+        }
+
+        .panel--work .job .meta:nth-of-type(1):has(time),
+        .panel--edu .job .meta:nth-of-type(1):has(time) {
+          grid-column: 1;
+          grid-row: 1 / span 3;
+          margin: 0;
+          color: var(--text);
+          font-weight: 600;
+        }
+
+        .skill-group {
+          display: grid;
+          grid-template-columns: 8.5rem 1fr;
+          column-gap: 1.25rem;
+          align-items: baseline;
+          margin: 0 0 0.4rem;
+        }
+
+        .skill-group + .skill-group {
+          margin-top: 0;
+        }
+
+        .badges {
+          display: block;
+          margin: 0;
+        }
+
+        .badges li {
+          display: inline;
+          padding: 0;
+          font-size: 0.9rem;
+          background: none;
+          border: none;
+        }
+
+        .badges li:not(:last-child)::after {
+          content: ", ";
+        }
+
+        .scroll-hint,
+        .has-more .scroll-hint {
+          display: none;
+        }
+      }
+
+      @media screen and (hover: hover) and (pointer: fine) {
+        .badges li:hover {
+          color: inherit;
+          background: none;
+          border: none;
+        }
+      }
+
+      @media screen and (max-width: 640px) {
+        header.panel {
+          padding: 1.2rem 1.2rem 0.8rem;
+        }
+
+        main {
+          padding: 0 1.2rem 2rem;
+        }
+
+        .panel--work .job,
+        .panel--edu .job,
+        .skill-group {
+          grid-template-columns: 1fr;
+        }
+
+        .panel--work .job > *,
+        .panel--edu .job > * {
+          grid-column: 1;
+        }
+
+        .panel--work .job .meta:nth-of-type(1):has(time),
+        .panel--edu .job .meta:nth-of-type(1):has(time) {
+          grid-row: auto;
+          grid-column: 1;
         }
       }
     </style>
