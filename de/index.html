@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Senior Software Engineer mit 8 Jahren Full-Stack-Erfahrung. React, React Native, Node.js, Python. Retrieval- und LLM-Systeme in Gesundheitswesen, E-Commerce und Logistik." />
     <meta name="author" content="Vishnu Roshan" />
-    <meta name="theme-color" content="#eeeeec" />
+    <meta name="theme-color" content="#f2ead7" />
     <title>Vishnu Roshan – Senior Software Engineer</title>
     <link rel="canonical" href="https://www.vishnuroshan.com/de/" />
     <link rel="alternate" hreflang="en" href="https://www.vishnuroshan.com/" />
@@ -46,13 +46,16 @@
 
     <style>
       :root {
-        --bg: #eeeeec;
-        --panel: #ffffff;
+        --bg: #f2ead7;
+        --panel: #fffdf6;
         --text: #111111;
-        --muted: #595959;
-        --line: #d6d6d2;
-        --accent: #c8102e;
-        --accent-strong: #9e0c24;
+        --muted: #4d4d4d;
+        --line: #cfc6ae;
+        --accent: #d62828;
+        --accent-strong: #a31515;
+        --red: #d62828;
+        --yellow: #f5c400;
+        --blue: #1d4ed8;
         --header-bg: #111111;
         --header-text: #ffffff;
         --radius: 0;
@@ -100,7 +103,7 @@
         overflow: hidden;
         padding: 0 var(--pad) var(--pad);
         background: var(--panel);
-        border: 1px solid var(--line);
+        border: 2px solid var(--text);
         border-top: none;
         border-radius: var(--radius);
       }
@@ -119,9 +122,10 @@
         z-index: 1;
         margin: 0 calc(-1 * var(--pad)) 0.8rem;
         padding: 0.6rem var(--pad) 0.4rem;
-        background: var(--panel);
-        color: var(--text);
-        border-top: 3px solid var(--text);
+        background: var(--bar, var(--yellow));
+        color: var(--bar-text, var(--text));
+        border-top: 2px solid var(--text);
+        border-bottom: 2px solid var(--text);
         font-weight: 700;
         font-size: 0.75rem;
         line-height: 1.4;
@@ -134,18 +138,26 @@
       }
       .panel--summary {
         --area: summary;
+        --bar: var(--red);
+        --bar-text: #ffffff;
       }
       .panel--projects {
         --area: projects;
+        --bar: var(--red);
+        --bar-text: #ffffff;
       }
       .panel--work {
         --area: work;
+        --bar: var(--blue);
+        --bar-text: #ffffff;
       }
       .panel--skills {
         --area: skills;
       }
       .panel--edu {
         --area: edu;
+        --bar: var(--blue);
+        --bar-text: #ffffff;
       }
 
       h1 {
@@ -160,10 +172,11 @@
       h1::after {
         content: "";
         display: inline-block;
-        width: 0.2em;
-        height: 0.2em;
+        width: 0.26em;
+        height: 0.26em;
         margin-left: 0.12em;
-        background: var(--accent);
+        background: var(--red);
+        border-radius: 50%;
       }
 
       .contact {
@@ -188,7 +201,7 @@
         height: 38px;
         color: var(--text);
         background: var(--panel);
-        border: 1px solid var(--text);
+        border: 2px solid var(--text);
         border-radius: var(--radius);
         transition: color 0.15s ease, border-color 0.15s ease,
           background 0.15s ease;
@@ -225,7 +238,7 @@
         cursor: pointer;
         color: var(--text);
         background: var(--panel);
-        border: 1px solid var(--text);
+        border: 2px solid var(--text);
         border-radius: var(--radius);
         transition: color 0.15s ease, background 0.15s ease,
           border-color 0.15s ease;
@@ -402,8 +415,8 @@
         font-size: 0.78rem;
         padding: 0.22rem 0.55rem;
         color: var(--text);
-        background: color-mix(in srgb, var(--header-bg) 4%, var(--panel));
-        border: 1px solid var(--line);
+        background: var(--panel);
+        border: 1.5px solid var(--text);
         border-radius: var(--radius);
         transition: color 0.18s ease, background 0.18s ease,
           border-color 0.18s ease;
@@ -411,8 +424,8 @@
 
       @media (hover: hover) and (pointer: fine) {
         .badges li:hover {
-          color: var(--panel);
-          background: var(--text);
+          color: var(--text);
+          background: var(--yellow);
           border-color: var(--text);
         }
       }
@@ -497,7 +510,7 @@
         overflow: hidden;
         color: var(--text);
         background: var(--panel);
-        border: 1px solid var(--line);
+        border: 2px solid var(--text);
         border-radius: var(--radius);
         box-shadow: 0 12px 40px -8px rgba(17, 17, 17, 0.45);
       }
@@ -517,10 +530,10 @@
         justify-content: space-between;
         gap: var(--gap);
         padding: 0.6rem var(--pad) 0.4rem;
-        background: var(--panel);
+        background: var(--yellow);
         color: var(--text);
-        border-top: 3px solid var(--text);
-        border-bottom: 1px solid var(--line);
+        border-top: 2px solid var(--text);
+        border-bottom: 2px solid var(--text);
         font-weight: 700;
         font-size: 0.75rem;
         letter-spacing: 0.14em;
@@ -532,7 +545,7 @@
         padding: 0.2rem 0.6rem;
         color: var(--text);
         background: none;
-        border: 1px solid var(--text);
+        border: 2px solid var(--text);
         border-radius: var(--radius);
         cursor: pointer;
       }
