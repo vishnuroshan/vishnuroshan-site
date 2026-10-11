@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Senior Software Engineer mit 8 Jahren Full-Stack-Erfahrung. React, React Native, Node.js, Python. Retrieval- und LLM-Systeme in Gesundheitswesen, E-Commerce und Logistik." />
     <meta name="author" content="Vishnu Roshan" />
-    <meta name="theme-color" content="#eeeeec" />
+    <meta name="theme-color" content="#e4e3df" />
     <title>Vishnu Roshan – Senior Software Engineer</title>
     <link rel="canonical" href="https://www.vishnuroshan.com/de/" />
     <link rel="alternate" hreflang="en" href="https://www.vishnuroshan.com/" />
@@ -46,16 +46,17 @@
 
     <style>
       :root {
-        --bg: #eeeeec;
-        --panel: #ffffff;
-        --text: #111111;
-        --muted: #595959;
-        --line: #d6d6d2;
-        --accent: #c8102e;
-        --accent-strong: #9e0c24;
-        --header-bg: #111111;
+        --bg: #e4e3df;
+        --panel: #f4f3ef;
+        --text: #1c1c1a;
+        --muted: #5f5e59;
+        --line: #cfcdc6;
+        --accent: #b84300;
+        --accent-strong: #8f3300;
+        --signal: #f26b1d;
+        --header-bg: #1c1c1a;
         --header-text: #ffffff;
-        --radius: 0;
+        --radius: 6px;
         --gap: 1rem;
         --pad: 0.9rem;
         --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans",
@@ -101,8 +102,10 @@
         padding: 0 var(--pad) var(--pad);
         background: var(--panel);
         border: 1px solid var(--line);
-        border-top: none;
         border-radius: var(--radius);
+        box-shadow:
+          0 1px 2px rgba(28, 28, 26, 0.06),
+          0 8px 20px -12px rgba(28, 28, 26, 0.2);
       }
 
       .panel--work,
@@ -121,8 +124,8 @@
         padding: 0.6rem var(--pad) 0.4rem;
         background: var(--panel);
         color: var(--text);
-        border-top: 3px solid var(--text);
-        font-weight: 700;
+        border-bottom: 1px solid var(--line);
+        font-weight: 600;
         font-size: 0.75rem;
         line-height: 1.4;
         letter-spacing: 0.14em;
@@ -163,7 +166,8 @@
         width: 0.2em;
         height: 0.2em;
         margin-left: 0.12em;
-        background: var(--accent);
+        background: var(--signal);
+        border-radius: 50%;
       }
 
       .contact {
@@ -499,7 +503,7 @@
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        box-shadow: 0 12px 40px -8px rgba(17, 17, 17, 0.45);
+        box-shadow: 0 12px 40px -8px rgba(17, 17, 17, 0.35);
       }
 
       #fit-dialog[open] {
@@ -519,7 +523,6 @@
         padding: 0.6rem var(--pad) 0.4rem;
         background: var(--panel);
         color: var(--text);
-        border-top: 3px solid var(--text);
         border-bottom: 1px solid var(--line);
         font-weight: 700;
         font-size: 0.75rem;
@@ -621,7 +624,7 @@
         margin: -26px 0 0 auto;
         align-items: center;
         justify-content: center;
-        border-radius: 0;
+        border-radius: 50%;
         color: var(--header-text);
         background: var(--header-bg);
         pointer-events: none;
