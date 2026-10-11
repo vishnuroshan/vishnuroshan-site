@@ -189,15 +189,19 @@
           background 0.15s ease;
       }
 
+      /*
       .games {
         display: flex;
         gap: 0.5rem;
         margin-left: auto;
       }
+      */
 
+      /*
       .icon-btn[data-game] {
         color: var(--accent);
       }
+      */
 
       .icon-btn:hover {
         color: var(--header-text);
@@ -251,17 +255,39 @@
         border-radius: 2px;
       }
 
+      /*
       #game-close:focus-visible {
         outline-color: var(--header-text);
       }
+      */
 
       .consent {
-        font-size: 0.82rem;
-        color: var(--muted);
+        inset: auto;
+        margin: 0;
+        max-width: min(92vw, 24rem);
+        padding: 1.1rem 1.25rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: var(--text);
+        background: var(--panel);
+        border: 2px solid var(--accent);
+        border-radius: var(--radius);
+        box-shadow: 0 18px 50px -6px rgba(39, 32, 28, 0.6);
       }
 
       .consent p {
-        margin: 0 0 0.4rem;
+        margin: 0 0 0.8rem;
+      }
+
+      .consent .resume-btn {
+        color: var(--header-text);
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .consent .resume-btn:hover {
+        background: var(--accent-strong);
+        border-color: var(--accent-strong);
       }
 
       .panel-title--bar {
@@ -398,6 +424,7 @@
         border-radius: 3px;
       }
 
+      /*
       #game-dialog {
         position: fixed;
         inset: auto var(--gap) var(--gap) auto;
@@ -459,6 +486,92 @@
         width: 100%;
         height: 100%;
         border: 0;
+      }
+      */
+
+      #fit-dialog {
+        width: min(92vw, 560px);
+        max-height: 90dvh;
+        padding: 0;
+        overflow: hidden;
+        color: var(--text);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: 0 12px 40px -8px rgba(39, 32, 28, 0.45);
+      }
+
+      #fit-dialog[open] {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #fit-dialog::backdrop {
+        background: rgba(39, 32, 28, 0.45);
+      }
+
+      .fit-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--gap);
+        padding: 0.5rem var(--pad);
+        background: var(--header-bg);
+        color: var(--header-text);
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      #fit-close {
+        font: inherit;
+        padding: 0.2rem 0.6rem;
+        color: var(--header-text);
+        background: none;
+        border: 1px solid var(--header-text);
+        border-radius: var(--radius);
+        cursor: pointer;
+      }
+
+      #fit-close:hover {
+        color: var(--header-bg);
+        background: var(--header-text);
+      }
+
+      #fit-close:focus-visible {
+        outline-color: var(--header-text);
+      }
+
+      .fit-body {
+        padding: var(--pad);
+        overflow-y: auto;
+        font-size: 0.9rem;
+      }
+
+      .fit-body h3 {
+        margin: 1rem 0 0.35rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .fit-body p {
+        margin: 0;
+      }
+
+      .fit-body ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 0.3rem;
+      }
+
+      .fit-body .resume-btn {
+        margin-top: 1rem;
+        text-decoration: none;
+        border-bottom: 1px solid var(--line);
       }
 
       .skip-links {
@@ -613,11 +726,13 @@
         header.panel .panel-title,
         .skip-links,
         .scroll-hint,
-        .games,
-        #game-dialog,
+        /* .games, */
+        /* #game-dialog, */
         #turnstile-container,
         .consent,
         #resume-btn,
+        #fit-btn,
+        #fit-dialog,
         .icon-btn svg,
         h1::after {
           display: none;
@@ -755,9 +870,11 @@
       }
 
       @media (max-width: 900px) {
+        /*
         .games {
           display: none;
         }
+        */
 
         body {
           display: block;
@@ -889,6 +1006,12 @@
             </svg>
             Résumé
           </button>
+          <button type="button" id="fit-btn" class="resume-btn">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12l5 5 9-10" />
+            </svg>
+            Am I a fit?
+          </button>
           <a
             href="https://github.com/vishnuroshan"
             class="icon-btn"
@@ -911,6 +1034,7 @@
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
           </a>
+<!--
           <span class="games">
           <button
               type="button"
@@ -931,16 +1055,21 @@
               <svg viewBox="0 0 512 512" width="23" height="23" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M179.3 38.94C154.7 77.7 142.7 139.7 168.4 185.9l-16.3 9.2c-6.7-11.9-11.2-24.4-13.9-37.2c-34.5-6.3-69.42-7.5-104.98-2.1c34.07 10.1 52.77 23.7 76.68 46.7c-26.82 9.7-60.25 30.2-92.93 70.2c35.47-8.8 64.83-11.5 89.43-6.3c-36.94 22.5-64.06 56.1-88.34 114.1c35.9-17.2 64.89-18.8 102.94-18.8c-23.07 32.7-35.27 77.2-36.31 112.8c24.51-26 57.61-60.2 87.21-79c3 29.9 15 58.3 35.9 85.3c-.2-43.9 10.3-88.3 31.6-133.4c-18.8 9-32.4 18.1-49.9 29.3c6.2-27.9 12.4-55.8 18.7-83.7c-23.3 2.4-39 10-60.5 18.5c16.3-33.1 32.7-66.1 49.1-99.2l16.8 8.3l-28.4 57.4c18.4-4.4 28.7-4.1 45.7-1.3c-4.5 20.4-9 40.7-13.6 61c65.3-36.2 148.3-45.9 226.7-50c7.6-12.9 13.8-24.2 18.8-34.8l-6.3-24.4l-24.4 30.8l-7.8-27.5l-22.5 29.2l-7.5-26.1l-23.9 31.5l-7.7-28.2l-23.8 31.4l1.2-41.1l22.6-42.7l7.6 28.3l23.9-31.5l7.6 28.2l23.5-30l6.5 26.9l24.5-30.8l7.8 27.5l24.6-32c2.3-10.8 4.6-22.4 7.4-35.7c-55.5-3.7-106.3 4.8-154 9.8c-38-20.8-80.8-26.8-121.9-18.5c-13.6-29.69-27.2-59.38-40.9-89.06M325.5 158.3c-4.5 14.2-13 18.3-24.7 20.6c-16.1-4.4-28.3-15.5-34.4-30.2c20.4-3.8 42.4 3.4 59.1 9.6"/></svg>
             </button>
           </span>
+-->
         </div>
-        <div class="consent" id="resume-consent" hidden>
-          <p id="resume-consent-text">
-            The download runs a Cloudflare Turnstile bot check, which sends
-            your IP address, TLS fingerprint and User-Agent header to
-            Cloudflare (USA).
-            <a href="/privacy">Privacy policy</a>
-          </p>
-          <button type="button" class="resume-btn" aria-describedby="resume-consent-text">Continue</button>
+        <div class="consent" id="resume-consent" popover>
+          <div class="consent-body">
+            <p id="resume-consent-text">
+              The download runs a Cloudflare Turnstile bot check, which sends
+              your IP address, TLS fingerprint and User-Agent header to
+              Cloudflare (USA).
+              <a href="/privacy">Privacy policy</a>
+            </p>
+            <button type="button" class="resume-btn" aria-describedby="resume-consent-text">Continue</button>
+          </div>
+          <div id="turnstile-container" hidden></div>
         </div>
+<!--
         <div class="consent" id="game-consent" hidden>
           <p id="game-consent-text">
             The game loads from the Internet Archive (archive.org, USA), which
@@ -949,7 +1078,7 @@
           </p>
           <button type="button" class="resume-btn" aria-describedby="game-consent-text">Continue</button>
         </div>
-        <div id="turnstile-container" hidden></div>
+-->
       </address>
     </header>
 
@@ -1295,12 +1424,39 @@
       </section>
     </main>
 
+<!--
     <dialog id="game-dialog">
       <div class="game-bar">
         <span id="game-name"></span>
         <button type="button" id="game-close" aria-label="Close game">Close</button>
       </div>
       <div id="game-slot"></div>
+    </dialog>
+-->
+
+    <dialog id="fit-dialog" aria-labelledby="fit-title">
+      <div class="fit-bar">
+        <span id="fit-title">Fit check</span>
+        <button type="button" id="fit-close" aria-label="Close fit check">Close</button>
+      </div>
+      <div class="fit-body">
+        <p>Short answers for recruiters.</p>
+        <h3>Strong fit</h3>
+        <ul>
+          <li>Senior full-stack engineering with TypeScript, React, Node.js and Python.</li>
+          <li>Web performance: cut cold-start render time from 30–40 s to 10–12 s.</li>
+          <li>Search and retrieval systems: pgvector, hybrid search, Reciprocal Rank Fusion.</li>
+          <li>Leading small teams: led a 3-engineer team to an MVP in 4 months and trained 16 interns.</li>
+          <li>Domains: healthcare, e-commerce, publishing, logistics (WMS), HR technology, management consulting, retail analytics.</li>
+        </ul>
+        <h3>Practical</h3>
+        <ul>
+          <li>Open to relocating to Germany · Requires visa sponsorship (EU Blue Card)</li>
+          <li>Available remote from India (IST) · Notice period: 30 days</li>
+          <li>Languages: English (fluent), Tamil (native)</li>
+        </ul>
+        <a class="resume-btn" href="mailto:vishnuroshan4@gmail.com?subject=Role%20enquiry%20for%20Vishnu%20Roshan&amp;body=Hi%20Vishnu%2C%0A%0ARole%20title%3A%0ACompany%3A%0ATech%20stack%3A%0ALocation%20or%20remote%3A%0AVisa%20and%20relocation%20support%3A%0ASalary%20range%3A%0AHiring%20process%20and%20timeline%3A%0AJob%20description%20link%3A%0A%0AThanks">Email the role details</a>
+      </div>
     </dialog>
 
     <script src="/app.js" defer></script>

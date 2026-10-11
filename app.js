@@ -58,14 +58,13 @@ async function runAction(action) {
 }
 
 function hideWidget() {
-  pendingAction = null;
-  document.getElementById("turnstile-container").hidden = true;
+  var notice = document.getElementById("resume-consent");
+  if (notice.matches(":popover-open")) notice.hidePopover();
 }
 
 async function onVerified(token) {
   var action = pendingAction;
-  pendingAction = null;
-  document.getElementById("turnstile-container").hidden = true;
+  hideWidget();
   if (action) await action(token);
 }
 
@@ -92,26 +91,53 @@ async function downloadResume(token) {
   URL.revokeObjectURL(url);
 }
 
+function placeBelow(popover, anchor) {
+  var rect = anchor.getBoundingClientRect();
+  var maxLeft = window.innerWidth - popover.offsetWidth - 8;
+  popover.style.top = rect.bottom + 8 + "px";
+  popover.style.left = Math.max(8, Math.min(rect.left, maxLeft)) + "px";
+}
+
 function withConsent(id, action) {
   var notice = document.getElementById(id);
+  var body = notice.querySelector(".consent-body");
+  var button = body.querySelector("button");
+  notice.showPopover();
+  placeBelow(notice, document.getElementById("resume-btn"));
   if (notice.dataset.granted) {
+    body.hidden = true;
     action();
     return;
   }
-  var button = notice.querySelector("button");
+  body.hidden = false;
   button.onclick = function () {
     notice.dataset.granted = "true";
-    notice.hidden = true;
+    body.hidden = true;
     action();
   };
-  notice.hidden = false;
   button.focus();
 }
+
+document.getElementById("resume-consent").addEventListener("toggle", function (event) {
+  if (event.newState !== "closed") return;
+  pendingAction = null;
+  document.getElementById("turnstile-container").hidden = true;
+});
 
 document.getElementById("resume-btn").addEventListener("click", function () {
   withConsent("resume-consent", function () {
     runAction(downloadResume);
   });
+});
+
+var fitDialog = document.getElementById("fit-dialog");
+
+document.getElementById("fit-btn").addEventListener("click", function () {
+  fitDialog.showModal();
+});
+
+document.getElementById("fit-close").addEventListener("click", function () {
+  fitDialog.close();
 });
 
 var scrollPanels = document.querySelectorAll(
@@ -138,6 +164,7 @@ scrollPanels.forEach(function (panel) {
   }).observe(panel);
 });
 
+/*
 var gameDialog = document.getElementById("game-dialog");
 var gameSlot = document.getElementById("game-slot");
 var gameName = document.getElementById("game-name");
@@ -172,3 +199,4 @@ gameDialog.addEventListener("close", function () {
   gameSlot.textContent = "";
   gameName.textContent = "";
 });
+*/
